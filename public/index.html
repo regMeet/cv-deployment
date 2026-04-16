@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Albertengo - Staff Full Stack Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2a3a;
+            --secondary: #34495e;
+            --accent: #2980b9;
+            --text: #333;
+            --light-text: #555;
+            --background: #fff;
+            --border: #ececec;
+            --highlight-bg: #f8fbfc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.45;
+            color: var(--text);
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .paper {
+            background: var(--background);
+            width: 850px;
+            padding: 40px 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-height: 1100px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .paper { box-shadow: none; width: 100%; padding: 0; margin: 0; border: none; }
+            .no-print { display: none; }
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 26pt;
+            margin: 0;
+            color: var(--primary);
+            letter-spacing: -1px;
+            font-weight: 800;
+        }
+
+        .tagline {
+            font-size: 13pt;
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sub-tagline {
+            font-size: 11pt;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-top: 3px;
+        }
+
+        section {
+            margin-bottom: 22px;
+        }
+
+        h2 {
+            font-size: 13pt;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .summary {
+            font-size: 10.5pt;
+            color: var(--secondary);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 20px;
+            font-size: 10pt;
+        }
+
+        .expertise-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .expertise-item::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .job {
+            margin-bottom: 18px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .company {
+            font-weight: 800;
+            font-size: 11.5pt;
+            color: var(--primary);
+        }
+
+        .date {
+            color: var(--light-text);
+            font-style: italic;
+            font-size: 9.5pt;
+        }
+
+        .project-context {
+            color: var(--accent);
+            margin-bottom: 6px;
+            font-weight: 700;
+            font-size: 10pt;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 5px 0;
+        }
+
+        li {
+            margin-bottom: 3px;
+            font-size: 10.5pt;
+        }
+
+        .tech-box {
+            font-size: 9.5pt;
+            color: var(--secondary);
+            margin-top: 6px;
+            background: #f9fbfd;
+            padding: 4px 10px;
+            border-left: 3px solid var(--accent);
+            font-weight: 600;
+        }
+
+        .differentiator-box {
+            background: var(--highlight-bg);
+            border: 1px dashed var(--accent);
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 10.5pt;
+        }
+
+        .differentiator-box p {
+            margin: 5px 0;
+        }
+
+        b {
+            color: #000;
+            font-weight: 700;
+        }
+
+        .earlier {
+            font-size: 10pt;
+        }
+
+        .stack-item {
+            margin-bottom: 4px;
+            font-size: 10.5pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="paper">
+        <header>
+            <h1>ALAN ALBERTENGO</h1>
+            <div class="tagline">Senior / Staff Full Stack Engineer (Java + React)</div>
+            <div class="sub-tagline">Performance • Scalability • High-Impact Systems</div>
+        </header>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <div class="summary">
+                <p>Senior Full Stack Engineer with <b>18+ years of experience</b> designing and optimizing <b>high-scale, mission-critical systems</b> across fintech, government, <b>airlines (real-time event systems)</b>, and e-commerce platforms.</p>
+                <p>Specialized in <b>performance engineering, distributed systems, and frontend architecture</b>, with a proven track record of reducing critical system latency from minutes to seconds under heavy load.</p>
+                <p>Strong focus on <b>high availability, real-time processing, and system reliability</b> in production environments serving thousands to millions of users.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Core Expertise</h2>
+            <div class="expertise-grid">
+                <div style="padding-left: 15px;">
+                    <div class="expertise-item">Performance Optimization & Bottleneck Analysis</div>
+                    <div class="expertise-item">Scalable Backend Architecture (Java, Spring Boot)</div>
+                    <div class="expertise-item">Real-Time Systems & Event Processing</div>
+                    <div class="expertise-item">High-performance Frontend (React, State Mgmt)</div>
+                    <div class="expertise-item">Concurrency & Multithreading</div>
+                </div>
+                <div style="padding-left: 15px;">
+                    <div class="expertise-item">Caching Strategies (Redis, multi-layer)</div>
+                    <div class="expertise-item">High Availability & System Reliability</div>
+                    <div class="expertise-item">Observability & Monitoring (Datadog)</div>
+                    <div class="expertise-item">API Design & Integration (REST, SOAP)</div>
+                    <div class="expertise-item">Distributed Systems & Microservices</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Professional Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <span class="company">eWorldES</span>
+                    <span class="date">Aug 2024 – Present</span>
+                </div>
+                <div class="project-context">Project: PAIS (Public Assistance System) – State of Hawaii (DHS)</div>
+                <ul>
+                    <li>Reduced critical API response times from <b>2+ minutes to <3 seconds</b>, dramatically improving UX in high-volume benefit application flows.</li>
+                    <li>Designed and implemented <b>multi-threaded processing and multi-level caching</b>, enabling scalable 24/7 government services.</li>
+                    <li>Identified and resolved <b>N+1 queries and memory leaks</b>, significantly improving throughput under concurrent load.</li>
+                    <li>Improved frontend performance and accessibility (<b>WCAG compliance</b>) for public-facing applications.</li>
+                </ul>
+                <div class="tech-box">Tech: Java 21, Spring Boot, Hibernate, Oracle, Redis, Multithreading, Datadog</div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="company">Santex S.A.</span>
+                    <span class="date">Jul 2015 – Jul 2024</span>
+                </div>
+                <div class="project-context">High-scale fintech and real-time platforms for US clients</div>
+                
+                <div style="margin-top:5px;"><b>D3 Banking Platform:</b> Built a highly customizable banking frontend engine and extensible architecture for payments and crypto integrations.</div>
+                
+                <div style="margin-top:5px;"><b>Pivotus Ventures (BFF):</b> Developed a real-time banking chat system with WebSockets; created a shared component library and SDK.</div>
+
+                <div style="margin-top:5px;"><b>Mercado Libre – Mercado Shops:</b> Designed backend microservices and bulk product processing pipelines using Redis queues and scheduled jobs.</div>
+                <div class="tech-box">Tech: React, Redux Saga, Java, Spring Boot, Redis, React Native, Jenkins</div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="company">AppDirect</span>
+                    <span class="date">2015</span>
+                </div>
+                <div class="earlier">Developed SaaS marketplace apps and standardized reusable UI components.</div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="company">Hewlett Packard (HP)</span>
+                    <span class="date">2012 – 2015</span>
+                </div>
+                <div class="project-context">Project: American Airlines</div>
+                <ul>
+                    <li>Built a <b>real-time notification system</b> for flight events (SMS, email, voice).</li>
+                    <li>Architected event-driven systems (<b>Tibco</b>) in high-availability environments.</li>
+                    <li>Supported <b>24/7 production systems</b> handling live operational aircraft events.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Earlier Experience — Vates / Globant / Gameloft</h2>
+            <div class="job-header">
+                <span class="date">2008 – 2012</span>
+            </div>
+            <div class="earlier">
+                Video streaming systems for telecom (Motorola/Verizon), airline systems (Southwest), and mobile games with deep focus on <b>performance and memory optimization</b>.
+            </div>
+        </section>
+
+        <section>
+            <h2>Tech Stack</h2>
+            <div class="stack-item"><b>Backend:</b> Java (21+), Spring Boot, Hibernate/JPA, Microservices</div>
+            <div class="stack-item"><b>Frontend:</b> React (Expert), Redux, React Native</div>
+            <div class="stack-item"><b>Infra & DB:</b> Oracle, MySQL, Redis, CI/CD (Jenkins), Git</div>
+            <div class="stack-item"><b>Practices:</b> Performance Tuning, System Design, High Availability, Agile/Scrum</div>
+        </section>
+
+        <section>
+            <h2>Key Differentiator</h2>
+            <div class="differentiator-box">
+                <p>Consistently brought into projects to <b>fix performance-critical systems</b>, stabilize production environments, and scale platforms under real-world load.</p>
+                <p>Strong expertise turning <b>slow, fragile systems into fast, reliable, production-grade architectures</b>, especially in mission-critical and real-time environments.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
