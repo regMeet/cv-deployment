@@ -73,6 +73,29 @@
             margin-top: 3px;
         }
 
+        .contact-block {
+            margin-top: 12px;
+            font-size: 9.5pt;
+            color: var(--light-text);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 18px;
+        }
+
+        .contact-block span {
+            white-space: nowrap;
+        }
+
+        .contact-block a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-block a:hover {
+            color: var(--accent);
+        }
+
         section {
             margin-bottom: 22px;
         }
@@ -131,6 +154,13 @@
             color: var(--primary);
         }
 
+        .role {
+            font-size: 10pt;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
         .date {
             color: var(--light-text);
             font-style: italic;
@@ -183,11 +213,33 @@
 
         .earlier {
             font-size: 10pt;
+            margin-top: 4px;
         }
 
         .stack-item {
             margin-bottom: 4px;
             font-size: 10.5pt;
+        }
+
+        .key-project {
+            margin-top: 8px;
+            margin-left: 4px;
+        }
+
+        .key-project-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 10.5pt;
+            margin-bottom: 2px;
+        }
+
+        .key-project ul {
+            margin-top: 2px;
+        }
+
+        .education-item {
+            font-size: 10.5pt;
+            margin-bottom: 3px;
         }
     </style>
 </head>
@@ -196,15 +248,24 @@
         <header>
             <h1>ALAN ALBERTENGO</h1>
             <div class="tagline">Senior / Staff Full Stack Engineer (Java + React)</div>
-            <div class="sub-tagline">Performance • Scalability • High-Impact Systems</div>
+            <div class="sub-tagline">Distributed Systems • High-Scale Platforms • Performance & Architecture</div>
+            <div class="contact-block">
+                <span>📍 Argentina (Remote)</span>
+                <span>📧 alan.albertengo@gmail.com</span>
+                <span>📱 +54 9 351 256-3753</span>
+                <span>🛂 EU Passport • B1/B2 Visa</span>
+                <span>🌐 Spanish (Native) • English (Fluent)</span>
+                <span>💼 <a href="https://www.linkedin.com/in/alan-albertengo/" target="_blank" rel="noopener">linkedin.com/in/alan-albertengo</a></span>
+                <span>💻 <a href="https://github.com/regMeet" target="_blank" rel="noopener">github.com/regMeet</a></span>
+            </div>
         </header>
 
         <section>
             <h2>Professional Summary</h2>
             <div class="summary">
-                <p>Senior Full Stack Engineer with <b>18+ years of experience</b> designing and optimizing <b>high-scale, mission-critical systems</b> across fintech, government, <b>airlines (real-time event systems)</b>, and e-commerce platforms.</p>
-                <p>Specialized in <b>performance engineering, distributed systems, and frontend architecture</b>, with a proven track record of reducing critical system latency from minutes to seconds under heavy load.</p>
-                <p>Strong focus on <b>high availability, real-time processing, and system reliability</b> in production environments serving thousands to millions of users.</p>
+                <p>Senior Full Stack Engineer with <b>18+ years of experience</b> designing, building, and scaling complex systems across fintech, airlines, e-commerce, and government platforms.</p>
+                <p>Strong background in backend architecture, frontend engineering, and distributed systems. Proven ability to <b>build systems from scratch</b>, define APIs and data models, and take products from early stages to production.</p>
+                <p>Experienced in improving <b>performance, scalability, and reliability</b>, including reducing critical latencies from <b>minutes to seconds</b> in high-volume environments.</p>
             </div>
         </section>
 
@@ -212,36 +273,39 @@
             <h2>Core Expertise</h2>
             <div class="expertise-grid">
                 <div style="padding-left: 15px;">
-                    <div class="expertise-item">Performance Optimization & Bottleneck Analysis</div>
-                    <div class="expertise-item">Scalable Backend Architecture (Java, Spring Boot)</div>
-                    <div class="expertise-item">Real-Time Systems & Event Processing</div>
-                    <div class="expertise-item">High-performance Frontend (React, State Mgmt)</div>
+                    <div class="expertise-item">Distributed Systems & Microservices</div>
+                    <div class="expertise-item">Backend Architecture (Java, Spring Boot)</div>
+                    <div class="expertise-item">Frontend Architecture (React, Redux)</div>
+                    <div class="expertise-item">API Design & Integrations (REST / SOAP)</div>
+                    <div class="expertise-item">Performance Optimization & Scalability</div>
                     <div class="expertise-item">Concurrency & Multithreading</div>
                 </div>
                 <div style="padding-left: 15px;">
-                    <div class="expertise-item">Caching Strategies (Redis, multi-layer)</div>
-                    <div class="expertise-item">High Availability & System Reliability</div>
+                    <div class="expertise-item">Database Design (SQL / NoSQL)</div>
+                    <div class="expertise-item">Caching Strategies (Redis)</div>
+                    <div class="expertise-item">High Availability & Reliability</div>
                     <div class="expertise-item">Observability & Monitoring (Datadog)</div>
-                    <div class="expertise-item">API Design & Integration (REST, SOAP)</div>
-                    <div class="expertise-item">Distributed Systems & Microservices</div>
+                    <div class="expertise-item">CI/CD & Production Systems</div>
                 </div>
             </div>
         </section>
 
         <section>
             <h2>Professional Experience</h2>
-            
+
             <div class="job">
                 <div class="job-header">
                     <span class="company">eWorldES</span>
                     <span class="date">Aug 2024 – Present</span>
                 </div>
+                <div class="role">Senior Full Stack Engineer</div>
                 <div class="project-context">Project: PAIS (Public Assistance System) – State of Hawaii (DHS)</div>
                 <ul>
-                    <li>Reduced critical API response times from <b>2+ minutes to <3 seconds</b>, dramatically improving UX in high-volume benefit application flows.</li>
-                    <li>Designed and implemented <b>multi-threaded processing and multi-level caching</b>, enabling scalable 24/7 government services.</li>
-                    <li>Identified and resolved <b>N+1 queries and memory leaks</b>, significantly improving throughput under concurrent load.</li>
-                    <li>Improved frontend performance and accessibility (<b>WCAG compliance</b>) for public-facing applications.</li>
+                    <li>Reduced critical API response times from <b>2+ minutes to under 3 seconds</b>, improving user experience in high-volume application flows.</li>
+                    <li>Designed and implemented <b>multi-threaded processing and multi-layer caching</b> strategies to support scalable 24/7 services.</li>
+                    <li>Identified and resolved <b>N+1 queries, memory leaks, and bottlenecks</b> under concurrent load.</li>
+                    <li>Improved frontend performance and accessibility (<b>WCAG compliance</b>).</li>
+                    <li>Contributed to system stability and reliability in a mission-critical government platform.</li>
                 </ul>
                 <div class="tech-box">Tech: Java 21, Spring Boot, Hibernate, Oracle, Redis, Multithreading, Datadog</div>
             </div>
@@ -251,14 +315,43 @@
                     <span class="company">Santex S.A.</span>
                     <span class="date">Jul 2015 – Jul 2024</span>
                 </div>
+                <div class="role">Senior Software Engineer / Tech Lead</div>
                 <div class="project-context">High-scale fintech and real-time platforms for US clients</div>
-                
-                <div style="margin-top:5px;"><b>D3 Banking Platform:</b> Built a highly customizable banking frontend engine and extensible architecture for payments and crypto integrations.</div>
-                
-                <div style="margin-top:5px;"><b>Pivotus Ventures (BFF):</b> Developed a real-time banking chat system with WebSockets; created a shared component library and SDK.</div>
+                <ul>
+                    <li>Designed and built <b>full-stack systems from scratch</b> (Java + React), including architecture, APIs, and database modeling.</li>
+                    <li>Implemented <b>batch processing, queues (Redis), cron jobs</b>, and scalable backend services.</li>
+                    <li><b>Led technical decisions, estimations, and system design</b> for multiple projects.</li>
+                    <li>Built integrations with external platforms (Mercado Libre, Facebook, Google, GoDaddy APIs).</li>
+                    <li>Developed reusable <b>SDKs and component libraries</b> across frontend applications.</li>
+                    <li>Contributed to production support, debugging, and system stability in live environments.</li>
+                </ul>
 
-                <div style="margin-top:5px;"><b>Mercado Libre – Mercado Shops:</b> Designed backend microservices and bulk product processing pipelines using Redis queues and scheduled jobs.</div>
-                <div class="tech-box">Tech: React, Redux Saga, Java, Spring Boot, Redis, React Native, Jenkins</div>
+                <div class="key-project">
+                    <div class="key-project-title">D3 Banking Platform</div>
+                    <ul>
+                        <li>Built a customizable digital banking platform used by multiple financial institutions.</li>
+                        <li>Developed extensible architecture for payments, crypto features, and modular add-ons.</li>
+                    </ul>
+                </div>
+
+                <div class="key-project">
+                    <div class="key-project-title">Pivotus Ventures (BFF)</div>
+                    <ul>
+                        <li>Developed a <b>real-time chat system using WebSockets</b>.</li>
+                        <li>Built web (agents) and mobile (customers) applications with shared SDK and component library.</li>
+                    </ul>
+                </div>
+
+                <div class="key-project">
+                    <div class="key-project-title">Mercado Libre – Mercado Shops</div>
+                    <ul>
+                        <li>Designed backend services and microservice architecture.</li>
+                        <li>Built bulk product processing system using <b>queues and background jobs</b>.</li>
+                        <li>Implemented integrations with payment, domain, and SaaS platforms.</li>
+                    </ul>
+                </div>
+
+                <div class="tech-box">Tech: React, Redux (Saga/Thunk), React Native, Java, Spring Boot, Redis, MySQL, Jenkins, CI/CD</div>
             </div>
 
             <div class="job">
@@ -266,20 +359,28 @@
                     <span class="company">AppDirect</span>
                     <span class="date">2015</span>
                 </div>
-                <div class="earlier">Developed SaaS marketplace apps and standardized reusable UI components.</div>
+                <div class="role">Senior Software Engineer</div>
+                <ul>
+                    <li>Developed customizable SaaS marketplace platforms.</li>
+                    <li>Built reusable UI components and backend services.</li>
+                </ul>
+                <div class="tech-box">Tech: Java, Spring, Backbone.js, MySQL</div>
             </div>
 
             <div class="job">
                 <div class="job-header">
-                    <span class="company">Hewlett Packard (HP)</span>
+                    <span class="company">Hewlett-Packard (HP)</span>
                     <span class="date">2012 – 2015</span>
                 </div>
+                <div class="role">Senior Software Engineer</div>
                 <div class="project-context">Project: American Airlines</div>
                 <ul>
-                    <li>Built a <b>real-time notification system</b> for flight events (SMS, email, voice).</li>
-                    <li>Architected event-driven systems (<b>Tibco</b>) in high-availability environments.</li>
-                    <li>Supported <b>24/7 production systems</b> handling live operational aircraft events.</li>
+                    <li>Designed and built a <b>real-time notification system</b> for flight events (SMS, email, voice).</li>
+                    <li>Worked on event-driven systems using <b>Tibco</b> for real-time processing.</li>
+                    <li>Provided <b>24/7 production support</b>, debugging live critical systems.</li>
+                    <li>Built backend services and admin web applications from scratch.</li>
                 </ul>
+                <div class="tech-box">Tech: Java, Spring MVC, Hibernate, Oracle, WebSphere, Tibco</div>
             </div>
         </section>
 
@@ -288,24 +389,33 @@
             <div class="job-header">
                 <span class="date">2008 – 2012</span>
             </div>
-            <div class="earlier">
-                Video streaming systems for telecom (Motorola/Verizon), airline systems (Southwest), and mobile games with deep focus on <b>performance and memory optimization</b>.
-            </div>
+            <ul>
+                <li>Video streaming systems for telecom (Motorola / Verizon).</li>
+                <li>Airline systems (Southwest Airlines).</li>
+                <li>Mobile game development (J2ME).</li>
+            </ul>
+            <div class="earlier">Worked on <b>performance optimization</b>, backend services, and large-scale applications.</div>
         </section>
 
         <section>
             <h2>Tech Stack</h2>
-            <div class="stack-item"><b>Backend:</b> Java (21+), Spring Boot, Hibernate/JPA, Microservices</div>
-            <div class="stack-item"><b>Frontend:</b> React (Expert), Redux, React Native</div>
-            <div class="stack-item"><b>Infra & DB:</b> Oracle, MySQL, Redis, CI/CD (Jenkins), Git</div>
-            <div class="stack-item"><b>Practices:</b> Performance Tuning, System Design, High Availability, Agile/Scrum</div>
+            <div class="stack-item"><b>Backend:</b> Java (5–21, since 2005), Spring Boot, Hibernate, Microservices</div>
+            <div class="stack-item"><b>Frontend:</b> React, Redux, React Native</div>
+            <div class="stack-item"><b>Databases:</b> Oracle, MySQL, SQL Server, Redis</div>
+            <div class="stack-item"><b>Tools:</b> Jenkins, Git, CI/CD pipelines</div>
+            <div class="stack-item"><b>Other:</b> REST APIs, WebSockets, Multithreading</div>
         </section>
 
         <section>
-            <h2>Key Differentiator</h2>
+            <h2>Education</h2>
+            <div class="education-item"><b>Informatic Engineer</b> — Instituto Universitario Aeronáutico</div>
+            <div class="education-item"><b>Oracle Certified Associate</b> – Java SE 7 Programmer</div>
+        </section>
+
+        <section>
+            <h2>Key Strength</h2>
             <div class="differentiator-box">
-                <p>Consistently brought into projects to <b>fix performance-critical systems</b>, stabilize production environments, and scale platforms under real-world load.</p>
-                <p>Strong expertise turning <b>slow, fragile systems into fast, reliable, production-grade architectures</b>, especially in mission-critical and real-time environments.</p>
+                <p>Equally effective at <b>building systems from scratch</b> and at <b>stabilizing and scaling them in production</b>. Trusted in early-stage architecture and in fixing mission-critical systems already running at high volume — with a focus on reliability, performance, and long-term maintainability.</p>
             </div>
         </section>
     </div>
