@@ -296,6 +296,11 @@ button { font-family: inherit; }
     font-weight: 700;
 }
 
+.questions-title .count-solved {
+    background: rgba(22, 163, 74, 0.12);
+    color: #15803d;
+}
+
 .questions {
     list-style: none;
     margin: 0;
@@ -317,11 +322,12 @@ button { font-family: inherit; }
 
 .question-title {
     flex: 1;
+    min-width: 0;
     text-align: left;
     background: transparent;
     border: none;
-    padding: 8px 10px 8px 14px;
-    border-radius: 6px 0 0 6px;
+    padding: 8px 10px;
+    border-radius: 0;
     font-size: 13px;
     color: var(--secondary);
     font-weight: 500;
@@ -341,7 +347,7 @@ button { font-family: inherit; }
 .question-title.active::before {
     content: '';
     position: absolute;
-    left: 4px;
+    left: -2px;
     top: 7px;
     bottom: 7px;
     width: 3px;
@@ -362,6 +368,33 @@ button { font-family: inherit; }
 }
 
 .question-title.active .origin-badge { color: var(--accent-strong); }
+
+/* --- progress status --- */
+
+.status-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 8px 0 10px;
+    color: var(--muted-text);
+    border-radius: 6px 0 0 6px;
+    flex-shrink: 0;
+    transition: color 0.15s, transform 0.1s;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.status-btn:hover { transform: scale(1.15); }
+.status-btn:active { transform: scale(0.85); }
+.status-btn.status-pending  { color: var(--muted-text); }
+.status-btn.status-progress { color: #f59e0b; }
+.status-btn.status-solved   { color: #16a34a; }
+
+.question-title.active ~ .status-btn,
+.question-item:has(.question-title.active) .status-btn.status-pending { color: var(--accent); }
 
 /* --- favorite star --- */
 

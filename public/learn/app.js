@@ -25,7 +25,10 @@ const drawerToggleEl = document.getElementById('drawer-toggle');
 const drawerBackdropEl = document.getElementById('drawer-backdrop');
 
 const FAV_KEY = 'learn:favorites';
+const PROGRESS_KEY = 'learn:progress';
 const LANG_KEY = 'app:lang';
+const STATUS_CYCLE = ['pending', 'progress', 'solved'];
+const STATUS_GLYPH = { pending: '○', progress: '◐', solved: '●' };
 const TAB_ICONS = { java: '☕', react: '⚛️', sql: '🗄️', manager: '👔' };
 
 const I18N = {
@@ -59,6 +62,10 @@ const I18N = {
         navPosition: (i, n) => `${i} / ${n}`,
         copy: 'Copy',
         copied: 'Copied',
+        statusPending: 'Mark as in progress',
+        statusInProgress: 'Mark as solved',
+        statusSolved: 'Reset to pending',
+        sectionProgress: (s, t) => `${s}/${t} solved`,
     },
     es: {
         questionsHeader: 'Preguntas',
@@ -90,6 +97,10 @@ const I18N = {
         navPosition: (i, n) => `${i} / ${n}`,
         copy: 'Copiar',
         copied: 'Copiado',
+        statusPending: 'Marcar como en progreso',
+        statusInProgress: 'Marcar como resuelta',
+        statusSolved: 'Volver a pendiente',
+        sectionProgress: (s, t) => `${s}/${t} resueltas`,
     },
 };
 
@@ -119,6 +130,7 @@ const state = {
     activeSection: null,
     activeQuestion: null,
     favorites: loadFavorites(),
+    progress: loadProgress(),
     lang: localStorage.getItem(LANG_KEY) || 'en',
     searchQuery: '',
     filterTopic: '',
@@ -178,6 +190,54 @@ function toggleFavorite(tabId, sectionId, questionId) {
     else favs.push({ sectionId, questionId });
     state.favorites[tabId] = favs;
     saveFavorites();
+}
+
+// --- progress tracking ---
+
+function loadProgress() {
+    try { return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {}; }
+    catch { return {}; }
+}
+
+function saveProgress() {
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(state.progress));
+}
+
+function getStatus(tabId, sectionId, questionId) {
+    return state.progress?.[tabId]?.[sectionId]?.[questionId] || 'pending';
+}
+
+function setStatus(tabId, sectionId, questionId, status) {
+    state.progress[tabId] = state.progress[tabId] || {};
+    state.progress[tabId][sectionId] = state.progress[tabId][sectionId] || {};
+    if (status === 'pending') {
+        delete state.progress[tabId][sectionId][questionId];
+        if (!Object.keys(state.progress[tabId][sectionId]).length) {
+            delete state.progress[tabId][sectionId];
+        }
+        if (!Object.keys(state.progress[tabId] || {}).length) {
+            delete state.progress[tabId];
+        }
+    } else {
+        state.progress[tabId][sectionId][questionId] = status;
+    }
+    saveProgress();
+}
+
+function cycleStatus(tabId, sectionId, questionId) {
+    const cur = getStatus(tabId, sectionId, questionId);
+    const next = STATUS_CYCLE[(STATUS_CYCLE.indexOf(cur) + 1) % STATUS_CYCLE.length];
+    setStatus(tabId, sectionId, questionId, next);
+    return next;
+}
+
+function countSolved(tabId, sectionId, questions) {
+    const map = state.progress?.[tabId]?.[sectionId] || {};
+    let solved = 0;
+    for (const q of questions) {
+        if (map[q.id] === 'solved') solved++;
+    }
+    return solved;
 }
 
 function buildFavoritesSection(tab) {
@@ -379,9 +439,16 @@ function renderQuestions() {
     const total = section?.questions?.length ?? 0;
     const questions = getFilteredQuestions(section);
     const count = questions.length;
-    questionsTitleEl.innerHTML = section
+    let titleHtml = section
         ? `${escapeHtml(pickLabel(section))} <span class="count">${count}</span>`
         : t('questionsHeader');
+    if (section && !section.isFavoritesSection && total > 0) {
+        const solved = countSolved(state.activeTab.id, section.id, section.questions || []);
+        if (solved > 0) {
+            titleHtml += ` <span class="count count-solved">${escapeHtml(t('sectionProgress')(solved, total))}</span>`;
+        }
+    }
+    questionsTitleEl.innerHTML = titleHtml;
     updateFilterBar(section, count, total);
     questionsEl.innerHTML = '';
     if (!questions.length) {
@@ -394,6 +461,26 @@ function renderQuestions() {
     questions.forEach((q) => {
         const li = document.createElement('li');
         li.className = 'question-item';
+
+        const sectionIdForRef = section.isFavoritesSection ? q.originSectionId : section.id;
+        const questionIdForRef = section.isFavoritesSection ? q.originQuestionId : q.id;
+
+        const status = getStatus(state.activeTab.id, sectionIdForRef, questionIdForRef);
+
+        // Status button (cycles pending → progress → solved)
+        const statusBtn = document.createElement('button');
+        statusBtn.className = `status-btn status-${status}`;
+        statusBtn.type = 'button';
+        statusBtn.textContent = STATUS_GLYPH[status];
+        statusBtn.title =
+            status === 'pending'    ? t('statusPending')    :
+            status === 'progress'   ? t('statusInProgress') :
+                                      t('statusSolved');
+        statusBtn.onclick = (e) => {
+            e.stopPropagation();
+            cycleStatus(state.activeTab.id, sectionIdForRef, questionIdForRef);
+            renderQuestions();
+        };
 
         const titleBtn = document.createElement('button');
         titleBtn.className = 'question-title' + (q.id === state.activeQuestion?.id ? ' active' : '');
@@ -408,13 +495,19 @@ function renderQuestions() {
             text.textContent = pickTitle(q);
             titleBtn.appendChild(badge);
             titleBtn.appendChild(text);
+        } else if (q.origin) {
+            const badge = document.createElement('span');
+            badge.className = 'origin-badge';
+            badge.textContent = q.origin;
+            const text = document.createElement('span');
+            text.textContent = pickTitle(q);
+            titleBtn.appendChild(badge);
+            titleBtn.appendChild(text);
         } else {
             titleBtn.textContent = pickTitle(q);
         }
 
-        const sectionIdForFav = section.isFavoritesSection ? q.originSectionId : section.id;
-        const questionIdForFav = section.isFavoritesSection ? q.originQuestionId : q.id;
-        const fav = isFavorite(state.activeTab.id, sectionIdForFav, questionIdForFav);
+        const fav = isFavorite(state.activeTab.id, sectionIdForRef, questionIdForRef);
 
         const starBtn = document.createElement('button');
         starBtn.className = 'star-btn' + (fav ? ' active' : '');
@@ -423,7 +516,7 @@ function renderQuestions() {
         starBtn.title = fav ? t('removeFav') : t('addFav');
         starBtn.onclick = (e) => {
             e.stopPropagation();
-            toggleFavorite(state.activeTab.id, sectionIdForFav, questionIdForFav);
+            toggleFavorite(state.activeTab.id, sectionIdForRef, questionIdForRef);
 
             if (
                 section.isFavoritesSection &&
@@ -436,6 +529,7 @@ function renderQuestions() {
             renderQuestions();
         };
 
+        li.appendChild(statusBtn);
         li.appendChild(titleBtn);
         li.appendChild(starBtn);
         questionsEl.appendChild(li);
