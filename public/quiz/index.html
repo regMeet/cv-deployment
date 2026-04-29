@@ -17,12 +17,31 @@
                 <span data-i18n="back">Learn</span>
             </a>
             <h1 class="qbrand"><span class="qbrand-icon">🧠</span> <span data-i18n="title">Daily Quiz</span></h1>
-            <div class="lang-toggle" aria-label="Language">
-                <button data-lang="en" class="lang-btn active" type="button">🇬🇧</button>
-                <button data-lang="es" class="lang-btn" type="button">🇪🇸</button>
+            <div class="header-actions">
+                <button id="btn-kbd-help" class="kbd-help-btn" type="button" aria-label="Keyboard shortcuts" title="?">?</button>
+                <div class="lang-toggle" aria-label="Language">
+                    <button data-lang="en" class="lang-btn active" type="button">🇬🇧</button>
+                    <button data-lang="es" class="lang-btn" type="button">🇪🇸</button>
+                </div>
             </div>
         </div>
     </header>
+
+    <!-- Keyboard shortcuts overlay -->
+    <div id="kbd-help" class="kbd-help" hidden>
+        <div class="kbd-help-backdrop" id="kbd-help-backdrop"></div>
+        <div class="kbd-help-panel" role="dialog" aria-modal="true" aria-labelledby="kbd-help-title">
+            <h3 id="kbd-help-title" data-i18n="kbdHelpTitle">Keyboard shortcuts</h3>
+            <dl class="kbd-help-list">
+                <dt><kbd>1</kbd>–<kbd>9</kbd> / <kbd>A</kbd>–<kbd>D</kbd></dt><dd data-i18n="kbdPick">Pick an answer</dd>
+                <dt><kbd>Enter</kbd> / <kbd>N</kbd></dt><dd data-i18n="kbdNext">Next · Start · Again</dd>
+                <dt><kbd>L</kbd></dt><dd data-i18n="kbdLang">Toggle language</dd>
+                <dt><kbd>?</kbd></dt><dd data-i18n="kbdHelp">Show this help</dd>
+                <dt><kbd>Esc</kbd></dt><dd data-i18n="kbdClose">Close help</dd>
+            </dl>
+            <button id="btn-kbd-close" class="qbutton qbutton-ghost" type="button" data-i18n="kbdCloseBtn">Close</button>
+        </div>
+    </div>
 
     <main class="qmain">
         <!-- Loading -->
@@ -35,7 +54,24 @@
             <h2 class="qtitle" data-i18n="introTitle">Stay sharp.</h2>
             <p class="qbody" data-i18n="introBody">One random multiple-choice question per category. Track your streak, beat your average, never see the same question twice (until the pool resets).</p>
             <div class="qstats" id="stats-row"></div>
-            <button id="btn-start" class="qbutton qbutton-primary" type="button" data-i18n="start">Start</button>
+            <div class="qcat-stats" id="cat-stats-row"></div>
+
+            <div class="qmode-row">
+                <button id="btn-daily" class="qbutton qbutton-primary qbutton-large" type="button">
+                    <span class="qmode-title" data-i18n="dailyTitle">Daily</span>
+                    <span class="qmode-sub" id="daily-sub"></span>
+                </button>
+                <button id="btn-freeplay" class="qbutton qbutton-ghost qbutton-large" type="button">
+                    <span class="qmode-title" data-i18n="freeplayTitle">Free play</span>
+                    <span class="qmode-sub" data-i18n="freeplaySub">Random pick</span>
+                </button>
+            </div>
+
+            <label class="qtoggle">
+                <input id="toggle-timed" type="checkbox" />
+                <span data-i18n="timedMode">Timed mode (30s / question)</span>
+            </label>
+
             <details class="qdetails">
                 <summary data-i18n="historyTitle">History</summary>
                 <ol id="history-list" class="qhistory"></ol>
@@ -48,8 +84,11 @@
             <div class="qprogress">
                 <span id="q-cat-icon" class="q-cat-icon"></span>
                 <span id="q-cat-label" class="q-cat-label"></span>
+                <span id="q-mode-badge" class="q-mode-badge" hidden></span>
+                <span id="q-timer" class="q-timer" hidden></span>
                 <span class="q-progress-text" id="q-progress-text"></span>
             </div>
+            <div id="q-reset-hint" class="qreset-hint" hidden></div>
             <h2 id="q-text" class="qquestion"></h2>
             <ol id="q-options" class="qoptions"></ol>
             <div id="q-feedback" class="qfeedback" hidden></div>
@@ -65,6 +104,7 @@
             <ul class="qrecap" id="result-recap"></ul>
             <div class="qactions qactions-row">
                 <button id="btn-again" class="qbutton qbutton-primary" type="button" data-i18n="again">Another round</button>
+                <button id="btn-review" class="qbutton qbutton-ghost" type="button" hidden></button>
                 <a href="/learn/" class="qbutton qbutton-ghost" data-i18n="backHome">Back to Learn</a>
             </div>
         </section>

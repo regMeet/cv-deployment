@@ -33,6 +33,13 @@ const I18N = {
         loadError: 'Could not load the quiz bank.',
         poolResetHint: '(Pool reset — you\'ve seen them all once.)',
         correctAnswer: 'Correct answer',
+        kbdHelpTitle: 'Keyboard shortcuts',
+        kbdPick: 'Pick an answer',
+        kbdNext: 'Next · Start · Again',
+        kbdLang: 'Toggle language',
+        kbdHelp: 'Show this help',
+        kbdClose: 'Close help',
+        kbdCloseBtn: 'Close',
     },
     es: {
         title: 'Quiz diario',
@@ -62,6 +69,13 @@ const I18N = {
         loadError: 'No se pudo cargar el bank.',
         poolResetHint: '(Pool reseteado — ya las viste todas una vez.)',
         correctAnswer: 'Respuesta correcta',
+        kbdHelpTitle: 'Atajos de teclado',
+        kbdPick: 'Elegir respuesta',
+        kbdNext: 'Siguiente · Empezar · Otra ronda',
+        kbdLang: 'Cambiar idioma',
+        kbdHelp: 'Mostrar esta ayuda',
+        kbdClose: 'Cerrar ayuda',
+        kbdCloseBtn: 'Cerrar',
     },
 };
 
@@ -405,38 +419,78 @@ async function init() {
 
     renderIntro();
 
-    $('#btn-start').addEventListener('click', () => {
+    $('#btn-start')?.addEventListener('click', () => {
         buildQuiz();
         renderQuestion();
     });
 
-    $('#btn-next').addEventListener('click', next);
+    $('#btn-next')?.addEventListener('click', next);
 
-    $('#btn-again').addEventListener('click', () => {
+    $('#btn-again')?.addEventListener('click', () => {
         buildQuiz();
         renderQuestion();
     });
 
-    $('#btn-reset-history').addEventListener('click', () => {
+    $('#btn-reset-history')?.addEventListener('click', () => {
         if (!confirm(t('confirmReset'))) return;
         localStorage.removeItem(ASKED_KEY);
         localStorage.removeItem(HISTORY_KEY);
         renderIntro();
     });
 
-    // keyboard: 1-4 to answer, Enter to advance, A-D too
+    // keyboard shortcuts overlay
+    const kbdHelp = $('#kbd-help');
+    const openKbdHelp  = () => { if (kbdHelp) kbdHelp.hidden = false; };
+    const closeKbdHelp = () => { if (kbdHelp) kbdHelp.hidden = true;  };
+    $('#btn-kbd-help')?.addEventListener('click', openKbdHelp);
+    $('#btn-kbd-close')?.addEventListener('click', closeKbdHelp);
+    $('#kbd-help-backdrop')?.addEventListener('click', closeKbdHelp);
+
+    // keyboard: 1-9 / A-D to answer, Enter / N to advance, L to toggle lang, ? for help
     document.addEventListener('keydown', (e) => {
         if (e.metaKey || e.ctrlKey || e.altKey) return;
-        if (screens.question.hidden) {
-            if (e.key === 'Enter' && !screens.intro.hidden) { $('#btn-start').click(); }
-            if (e.key === 'Enter' && !screens.result.hidden) { $('#btn-again').click(); }
+
+        // help overlay takes priority
+        if (kbdHelp && !kbdHelp.hidden) {
+            if (e.key === 'Escape' || e.key === '?' || e.key.toLowerCase() === 'h') {
+                e.preventDefault();
+                closeKbdHelp();
+            }
             return;
         }
-        if (state.answeredCurrent && e.key === 'Enter') {
+
+        // global: ? opens help, Esc closes (no-op if not open)
+        if (e.key === '?') { e.preventDefault(); openKbdHelp(); return; }
+        if (e.key === 'Escape') { closeKbdHelp(); return; }
+
+        // L toggles language (skip if user is typing in an input)
+        if ((e.key === 'l' || e.key === 'L') && !isTypingTarget(e.target)) {
             e.preventDefault();
-            $('#btn-next').click();
+            toggleLang();
             return;
         }
+
+        // Enter / N → primary action on the current screen
+        if (e.key === 'Enter' || e.key === 'n' || e.key === 'N') {
+            if (!screens.question.hidden) {
+                if (state.answeredCurrent) { e.preventDefault(); $('#btn-next')?.click(); }
+                return;
+            }
+            if (!screens.intro.hidden) {
+                e.preventDefault();
+                ($('#btn-daily') || $('#btn-start'))?.click();
+                return;
+            }
+            if (!screens.result.hidden) {
+                e.preventDefault();
+                $('#btn-again')?.click();
+                return;
+            }
+            return;
+        }
+
+        // option pickers only on question screen, before answering
+        if (screens.question.hidden) return;
         const k = e.key.toLowerCase();
         let idx = -1;
         if (/^[1-9]$/.test(e.key)) idx = parseInt(e.key, 10) - 1;
@@ -448,6 +502,18 @@ async function init() {
             btn.click();
         }
     });
+}
+
+function isTypingTarget(el) {
+    if (!el) return false;
+    const tag = el.tagName;
+    return tag === 'INPUT' || tag === 'TEXTAREA' || el.isContentEditable;
+}
+
+function toggleLang() {
+    const next = state.lang === 'en' ? 'es' : 'en';
+    const btn = document.querySelector(`.lang-btn[data-lang="${next}"]`);
+    btn?.click();
 }
 
 window.addEventListener('DOMContentLoaded', init);
