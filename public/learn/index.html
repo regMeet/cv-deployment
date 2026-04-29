@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn — Q&A</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a2a3a'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='32' font-weight='900' fill='%232980b9'%3EAA%3C/text%3E%3C/svg%3E">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
     <script src="app.js" defer></script>
@@ -16,18 +16,23 @@
             <div class="sidebar-header">
                 <h1 class="brand">Learn</h1>
                 <div class="lang-toggle" aria-label="Language">
-                    <button data-lang="en" class="lang-btn active" type="button">🇬🇧 EN</button>
-                    <button data-lang="es" class="lang-btn" type="button">🇪🇸 ES</button>
+                    <button data-lang="en" class="lang-btn active" type="button">🇬🇧</button>
+                    <button data-lang="es" class="lang-btn" type="button">🇪🇸</button>
                 </div>
             </div>
             <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="9" cy="9" r="6"></circle>
+                    <line x1="14" y1="14" x2="18" y2="18"></line>
+                </svg>
                 <input
                     id="search-input"
                     type="search"
-                    placeholder="Search questions and content…"
+                    placeholder="Search…"
                     autocomplete="off"
                     aria-label="Search"
                 />
+                <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
             </div>
             <div id="browse-view">
                 <nav class="tabs" id="tabs" aria-label="Categories"></nav>

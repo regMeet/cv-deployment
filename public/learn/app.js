@@ -6,11 +6,16 @@ const questionsTitleEl = document.getElementById('questions-title');
 const browseViewEl = document.getElementById('browse-view');
 const searchViewEl = document.getElementById('search-view');
 const searchInputEl = document.getElementById('search-input');
+const searchClearEl = document.getElementById('search-clear');
 const searchResultsEl = document.getElementById('search-results');
 const searchStatusEl = document.getElementById('search-status');
 
 const FAV_KEY = 'learn:favorites';
 const LANG_KEY = 'app:lang';
+const TAB_ICONS = { java: '☕', react: '⚛️', manager: '👔' };
+
+const mdCache = new Map();              // path → text (raw)
+const searchIndices = { en: null, es: null };
 
 const state = {
     tabs: [],
@@ -20,8 +25,6 @@ const state = {
     favorites: loadFavorites(),
     lang: localStorage.getItem(LANG_KEY) || 'en',
     searchQuery: '',
-    searchIndex: null,
-    indexLang: null,
 };
 
 let buildPromise = null;
@@ -38,9 +41,7 @@ function saveFavorites() {
     localStorage.setItem(FAV_KEY, JSON.stringify(state.favorites));
 }
 
-function getFavoritesForTab(tabId) {
-    return state.favorites[tabId] || [];
-}
+function getFavoritesForTab(tabId) { return state.favorites[tabId] || []; }
 
 function isFavorite(tabId, sectionId, questionId) {
     return getFavoritesForTab(tabId).some(
@@ -83,7 +84,7 @@ function buildFavoritesSection(tab) {
     return { id: 'favorites', label: '★ Favorites', questions, isFavoritesSection: true };
 }
 
-// --- fetch helpers ---
+// --- fetch + cache ---
 
 async function fetchJSON(path) {
     const res = await fetch(path);
@@ -91,37 +92,41 @@ async function fetchJSON(path) {
     return res.json();
 }
 
-async function fetchText(path) {
-    const res = await fetch(path);
-    if (!res.ok) throw new Error(`Failed to load ${path}`);
-    return res.text();
+function esify(file) { return file.replace(/\.md$/, '.es.md'); }
+
+function pathFor(tabId, file, lang) {
+    return lang === 'es'
+        ? `questions/${tabId}/${esify(file)}`
+        : `questions/${tabId}/${file}`;
 }
 
-function esify(file) {
-    return file.replace(/\.md$/, '.es.md');
-}
-
-async function fetchQuestionMd(tabId, file) {
-    if (state.lang === 'es') {
-        const esRes = await fetch(`questions/${tabId}/${esify(file)}`);
-        if (esRes.ok) return { text: await esRes.text(), fellBack: false };
-    }
-    const path = `questions/${tabId}/${file}`;
-    const res = await fetch(path);
-    if (!res.ok) throw new Error(`Failed to load ${path}`);
-    return { text: await res.text(), fellBack: state.lang === 'es' };
-}
-
-async function fetchQuestionMdForIndex(tabId, file) {
+async function fetchMd(tabId, file, lang) {
+    const path = pathFor(tabId, file, lang);
+    if (mdCache.has(path)) return mdCache.get(path);
     try {
-        if (state.lang === 'es') {
-            const esRes = await fetch(`questions/${tabId}/${esify(file)}`);
-            if (esRes.ok) return await esRes.text();
-        }
-        const res = await fetch(`questions/${tabId}/${file}`);
-        if (res.ok) return await res.text();
-    } catch {}
-    return '';
+        const res = await fetch(path);
+        if (!res.ok) return null;
+        const text = await res.text();
+        mdCache.set(path, text);
+        return text;
+    } catch {
+        return null;
+    }
+}
+
+async function getQuestionContent(tabId, file) {
+    if (state.lang === 'es') {
+        const es = await fetchMd(tabId, file, 'es');
+        if (es !== null) return { text: es, fellBack: false };
+    }
+    const en = await fetchMd(tabId, file, 'en');
+    if (en !== null) return { text: en, fellBack: state.lang === 'es' };
+    throw new Error(`Failed to load ${file}`);
+}
+
+function prefetchOtherLang(tabId, file) {
+    const other = state.lang === 'es' ? 'en' : 'es';
+    fetchMd(tabId, file, other).catch(() => {});
 }
 
 // --- rendering ---
@@ -131,7 +136,9 @@ function renderTabs() {
     state.tabs.forEach((tab) => {
         const btn = document.createElement('button');
         btn.className = 'tab' + (tab.id === state.activeTab?.id ? ' active' : '');
-        btn.textContent = tab.label;
+        btn.type = 'button';
+        const icon = TAB_ICONS[tab.id] || '';
+        btn.innerHTML = `<span class="tab-icon">${icon}</span><span class="tab-label">${escapeHtml(tab.label)}</span>`;
         btn.onclick = () => selectTab(tab);
         tabsEl.appendChild(btn);
     });
@@ -150,6 +157,7 @@ function renderSubtabs() {
     sections.forEach((section) => {
         const btn = document.createElement('button');
         btn.className = 'subtab' + (section.id === state.activeSection?.id ? ' active' : '');
+        btn.type = 'button';
         btn.textContent = section.label;
         btn.onclick = () => selectSection(section);
         subtabsEl.appendChild(btn);
@@ -158,7 +166,10 @@ function renderSubtabs() {
 
 function renderQuestions() {
     const section = state.activeSection;
-    questionsTitleEl.textContent = section ? `${section.label} questions` : 'Questions';
+    const count = section?.questions?.length ?? 0;
+    questionsTitleEl.innerHTML = section
+        ? `${escapeHtml(section.label)} <span class="count">${count}</span>`
+        : 'Questions';
     questionsEl.innerHTML = '';
     const questions = section?.questions || [];
     if (!questions.length) {
@@ -173,6 +184,7 @@ function renderQuestions() {
 
         const titleBtn = document.createElement('button');
         titleBtn.className = 'question-title' + (q.id === state.activeQuestion?.id ? ' active' : '');
+        titleBtn.type = 'button';
         titleBtn.onclick = () => selectQuestion(q);
 
         if (section.isFavoritesSection) {
@@ -193,6 +205,7 @@ function renderQuestions() {
 
         const starBtn = document.createElement('button');
         starBtn.className = 'star-btn' + (fav ? ' active' : '');
+        starBtn.type = 'button';
         starBtn.textContent = fav ? '★' : '☆';
         starBtn.title = fav ? 'Remove from favorites' : 'Add to favorites';
         starBtn.onclick = (e) => {
@@ -204,10 +217,7 @@ function renderQuestions() {
                 !getFavoritesForTab(state.activeTab.id).length
             ) {
                 const firstReal = (state.activeTab.sections || [])[0];
-                if (firstReal) {
-                    selectSection(firstReal);
-                    return;
-                }
+                if (firstReal) { selectSection(firstReal); return; }
             }
             renderSubtabs();
             renderQuestions();
@@ -229,6 +239,16 @@ function updateHash() {
 
 // --- navigation ---
 
+async function ensureTabSections(tab) {
+    if (tab.sections) return;
+    try {
+        const data = await fetchJSON(`tabs/${tab.id}.json`);
+        tab.sections = data.sections || [];
+    } catch {
+        tab.sections = [];
+    }
+}
+
 async function selectTab(tab) {
     state.activeTab = tab;
     state.activeSection = null;
@@ -236,16 +256,7 @@ async function selectTab(tab) {
     renderTabs();
     answerEl.innerHTML = '<p class="hint">Pick a section and question on the left.</p>';
 
-    if (!tab.sections) {
-        try {
-            const data = await fetchJSON(`tabs/${tab.id}.json`);
-            tab.sections = data.sections || [];
-        } catch (err) {
-            subtabsEl.innerHTML = `<span class="error">${err.message}</span>`;
-            return;
-        }
-    }
-
+    await ensureTabSections(tab);
     renderSubtabs();
 
     const sections = getSectionsForActiveTab();
@@ -267,19 +278,26 @@ function selectSection(section) {
     updateHash();
 }
 
-async function selectQuestion(q) {
+async function selectQuestion(q, opts = {}) {
     state.activeQuestion = q;
     renderQuestions();
-    answerEl.innerHTML = '<p class="hint">Loading…</p>';
+
+    const cached = mdCache.has(pathFor(state.activeTab.id, q.file, state.lang)) ||
+                   mdCache.has(pathFor(state.activeTab.id, q.file, 'en'));
+    if (!cached) answerEl.innerHTML = '<p class="hint">Loading…</p>';
+
     try {
-        const { text, fellBack } = await fetchQuestionMd(state.activeTab.id, q.file);
+        const { text, fellBack } = await getQuestionContent(state.activeTab.id, q.file);
         let html = window.marked ? marked.parse(text) : `<pre>${text}</pre>`;
         if (fellBack) {
             html = '<div class="lang-fallback-banner">🇪🇸 Traducción al español pendiente — mostrando la versión en inglés.</div>' + html;
         }
         answerEl.innerHTML = html;
         updateHash();
-        answerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (opts.scroll !== false) {
+            answerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        prefetchOtherLang(state.activeTab.id, q.file);
     } catch (err) {
         answerEl.innerHTML = `<p class="error">${err.message}</p>`;
     }
@@ -295,21 +313,18 @@ function parseHash() {
 // --- search ---
 
 async function buildSearchIndex() {
-    if (state.searchIndex && state.indexLang === state.lang) return;
-    if (buildPromise) { await buildPromise; if (state.searchIndex && state.indexLang === state.lang) return; }
-
     const targetLang = state.lang;
+    if (searchIndices[targetLang]) return;
+    if (buildPromise) {
+        await buildPromise;
+        if (searchIndices[targetLang]) return;
+    }
 
     buildPromise = (async () => {
         const entries = [];
 
         for (const tab of state.tabs) {
-            if (!tab.sections) {
-                try {
-                    const data = await fetchJSON(`tabs/${tab.id}.json`);
-                    tab.sections = data.sections || [];
-                } catch { tab.sections = []; }
-            }
+            await ensureTabSections(tab);
             for (const section of tab.sections) {
                 for (const q of (section.questions || [])) {
                     entries.push({
@@ -327,13 +342,15 @@ async function buildSearchIndex() {
         }
 
         await Promise.all(entries.map(async (e) => {
-            e.body = await fetchQuestionMdForIndex(e.tabId, e.file);
+            const primary = await fetchMd(e.tabId, e.file, targetLang);
+            if (primary !== null) { e.body = primary; return; }
+            if (targetLang === 'es') {
+                const en = await fetchMd(e.tabId, e.file, 'en');
+                if (en !== null) e.body = en;
+            }
         }));
 
-        if (state.lang === targetLang) {
-            state.searchIndex = entries;
-            state.indexLang = targetLang;
-        }
+        searchIndices[targetLang] = entries;
     })();
 
     try { await buildPromise; }
@@ -342,8 +359,9 @@ async function buildSearchIndex() {
 
 function searchEntries(query) {
     const q = query.toLowerCase().trim();
-    if (q.length < 2 || !state.searchIndex) return [];
-    return state.searchIndex
+    const idx = searchIndices[state.lang];
+    if (q.length < 2 || !idx) return [];
+    return idx
         .map((e) => {
             const titleHit = e.title.toLowerCase().includes(q);
             const bodyHit = e.body.toLowerCase().includes(q);
@@ -393,6 +411,7 @@ function renderSearchResults(results, query) {
         const li = document.createElement('li');
         const btn = document.createElement('button');
         btn.className = 'search-result';
+        btn.type = 'button';
         const title = highlightMatch(escapeHtml(r.title), query);
         const snippet = r.snippet ? highlightMatch(escapeHtml(r.snippet), query) : '';
         btn.innerHTML =
@@ -408,17 +427,24 @@ function renderSearchResults(results, query) {
 function showBrowseView() {
     browseViewEl.hidden = false;
     searchViewEl.hidden = true;
+    if (searchClearEl) searchClearEl.hidden = true;
 }
 
 function showSearchView() {
     browseViewEl.hidden = true;
     searchViewEl.hidden = false;
+    if (searchClearEl) searchClearEl.hidden = false;
 }
 
-async function goToResult(r) {
+function clearSearch() {
     searchInputEl.value = '';
     state.searchQuery = '';
     showBrowseView();
+    searchInputEl.focus();
+}
+
+async function goToResult(r) {
+    clearSearch();
 
     const tab = state.tabs.find((t) => t.id === r.tabId);
     if (!tab) return;
@@ -445,9 +471,7 @@ function wireLangToggle() {
             state.lang = newLang;
             localStorage.setItem(LANG_KEY, newLang);
             updateLangButtons();
-            state.searchIndex = null;
-            state.indexLang = null;
-            if (state.activeQuestion) selectQuestion(state.activeQuestion);
+            if (state.activeQuestion) selectQuestion(state.activeQuestion, { scroll: false });
         });
     });
 }
@@ -460,30 +484,25 @@ function wireSearch() {
         state.searchQuery = q;
         if (searchTimer) clearTimeout(searchTimer);
 
-        if (!q.trim()) {
-            showBrowseView();
-            return;
-        }
+        if (!q.trim()) { showBrowseView(); return; }
 
         showSearchView();
-        searchStatusEl.textContent = state.searchIndex && state.indexLang === state.lang ? 'Searching…' : 'Indexing…';
+        searchStatusEl.textContent = searchIndices[state.lang] ? 'Searching…' : 'Indexing…';
         searchResultsEl.innerHTML = '';
 
         searchTimer = setTimeout(async () => {
             await buildSearchIndex();
-            if (state.searchQuery !== q) return; // user kept typing
+            if (state.searchQuery !== q) return;
             const results = searchEntries(q);
             renderSearchResults(results, q.trim());
-        }, 200);
+        }, 150);
     });
 
     searchInputEl.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            searchInputEl.value = '';
-            state.searchQuery = '';
-            showBrowseView();
-        }
+        if (e.key === 'Escape') clearSearch();
     });
+
+    if (searchClearEl) searchClearEl.addEventListener('click', clearSearch);
 }
 
 // --- init ---
@@ -504,6 +523,10 @@ async function init() {
         tabsEl.innerHTML = '<span class="hint">No categories yet.</span>';
         return;
     }
+
+    // Pre-load every tab manifest in parallel so tab switching is instant
+    await Promise.all(state.tabs.map((t) => ensureTabSections(t)));
+
     const { tabId, sectionId, questionId } = parseHash();
     const initialTab = state.tabs.find((t) => t.id === tabId) || state.tabs[0];
     await selectTab(initialTab);
