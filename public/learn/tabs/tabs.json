@@ -1,0 +1,7 @@
+{
+  "tabs": [
+    { "id": "java", "label": "Java" },
+    { "id": "react", "label": "React" },
+    { "id": "manager", "label": "Manager Situations" }
+  ]
+}

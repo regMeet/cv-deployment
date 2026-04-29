@@ -1,0 +1,121 @@
+{
+  "sections": [
+    {
+      "id": "oop-modern",
+      "label": "OOP & Modern Java",
+      "questions": [
+        { "id": "interface-vs-abstract", "title": "Interface vs Abstract Class", "file": "oop-modern/01-interface-vs-abstract.md" },
+        { "id": "records", "title": "Records (Java 16+)", "file": "oop-modern/02-records.md" },
+        { "id": "sealed-classes", "title": "Sealed Classes (Java 17)", "file": "oop-modern/03-sealed-classes.md" },
+        { "id": "decision-guide", "title": "Modern Java decision guide", "file": "oop-modern/04-modern-decision-guide.md" }
+      ]
+    },
+    {
+      "id": "streams-lambdas",
+      "label": "Streams & Lambdas",
+      "questions": [
+        { "id": "functional-overview", "title": "Functional programming in Java", "file": "streams-lambdas/01-functional-overview.md" },
+        { "id": "lambdas", "title": "Lambdas — behavior as data", "file": "streams-lambdas/02-lambdas.md" },
+        { "id": "streams-pipeline", "title": "Streams pipeline & operations", "file": "streams-lambdas/03-streams-pipeline.md" },
+        { "id": "map-vs-flatmap", "title": "map vs flatMap", "file": "streams-lambdas/04-map-vs-flatmap.md" },
+        { "id": "parallel-streams", "title": "Parallel streams — when to use them", "file": "streams-lambdas/05-parallel-streams.md" },
+        { "id": "streams-vs-loops", "title": "Streams vs loops — hot paths", "file": "streams-lambdas/06-streams-vs-loops-hot-path.md" }
+      ]
+    },
+    {
+      "id": "concurrency",
+      "label": "Concurrency",
+      "questions": [
+        { "id": "race-conditions", "title": "How do you avoid race conditions?", "file": "concurrency/01-race-conditions.md" },
+        { "id": "virtual-vs-platform", "title": "Virtual threads vs platform threads", "file": "concurrency/02-virtual-vs-platform-threads.md" },
+        { "id": "locks-vs-lock-free", "title": "Locks vs lock-free (CAS)", "file": "concurrency/03-locks-vs-lock-free.md" },
+        { "id": "backpressure", "title": "What is backpressure?", "file": "concurrency/04-backpressure.md" },
+        { "id": "thread-saturation", "title": "What happens when threads saturate?", "file": "concurrency/05-thread-saturation.md" }
+      ]
+    },
+    {
+      "id": "jvm-memory",
+      "label": "JVM & Memory",
+      "questions": [
+        { "id": "memory-leaks", "title": "Memory leaks in Java (with GC?)", "file": "jvm-memory/01-memory-leaks.md" },
+        { "id": "detect-leak", "title": "How do you detect a memory leak?", "file": "jvm-memory/02-detect-memory-leak.md" }
+      ]
+    },
+    {
+      "id": "database-hibernate",
+      "label": "Database & Hibernate",
+      "questions": [
+        { "id": "n-plus-one", "title": "How do you detect N+1?", "file": "database-hibernate/01-n-plus-one.md" },
+        { "id": "fetch-strategies", "title": "JOIN FETCH vs @EntityGraph vs DTO projection", "file": "database-hibernate/02-fetch-strategies.md" },
+        { "id": "sibling-cartesian", "title": "Sibling collections — Cartesian product trap", "file": "database-hibernate/03-sibling-cartesian.md" },
+        { "id": "sibling-example", "title": "Sibling Cartesian — small example", "file": "database-hibernate/04-sibling-example.md" },
+        { "id": "hibernate-dangers", "title": "Why Hibernate is dangerous at scale", "file": "database-hibernate/05-hibernate-dangers.md" },
+        { "id": "acid", "title": "ACID — Atomicity, Consistency, Isolation, Durability", "file": "database-hibernate/06-acid.md" },
+        { "id": "saga-pattern", "title": "Saga pattern (distributed transactions)", "file": "database-hibernate/07-saga-pattern.md" },
+        { "id": "compensations-idempotency", "title": "Compensations & idempotency", "file": "database-hibernate/08-compensations-idempotency.md" }
+      ]
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "questions": [
+        { "id": "case-study", "title": "Real case study — DB latency optimization (-12%)", "file": "performance/01-case-study.md" },
+        { "id": "query-consolidation", "title": "Query consolidation (chained queries → JOIN)", "file": "performance/02-query-consolidation.md" },
+        { "id": "batching-in", "title": "Batching with IN-clauses (kill N+1)", "file": "performance/03-batching-in-clauses.md" },
+        { "id": "parallel-completablefuture", "title": "Parallel queries with CompletableFuture", "file": "performance/04-parallel-completablefuture.md" },
+        { "id": "sibling-split", "title": "Split sibling collections into separate queries", "file": "performance/05-sibling-split.md" },
+        { "id": "inline-subqueries", "title": "Inline ID-resolving subqueries (max parallelism)", "file": "performance/06-inline-subqueries.md" },
+        { "id": "dto-projections", "title": "DTO projections with Java records", "file": "performance/07-dto-projections.md" },
+        { "id": "mdc-async", "title": "MDC propagation across async boundaries", "file": "performance/08-mdc-async.md" },
+        { "id": "latency-percentiles", "title": "Latency percentiles — p50/p95/p99", "file": "performance/09-latency-percentiles.md" }
+      ]
+    },
+    {
+      "id": "caching",
+      "label": "Caching",
+      "questions": [
+        { "id": "l1-l2", "title": "L1 vs L2 cache", "file": "caching/01-l1-l2.md" },
+        { "id": "multi-layer", "title": "Multi-layer caching strategy", "file": "caching/02-multi-layer-strategy.md" },
+        { "id": "invalidation", "title": "Cache invalidation strategies", "file": "caching/03-cache-invalidation.md" }
+      ]
+    },
+    {
+      "id": "distributed-systems",
+      "label": "Distributed Systems",
+      "questions": [
+        { "id": "high-traffic-design", "title": "Design a system for 1M req/min", "file": "distributed-systems/01-high-traffic-design.md" },
+        { "id": "notifications-system", "title": "Design a notifications system (airline)", "file": "distributed-systems/02-notifications-system.md" },
+        { "id": "microservices-problems", "title": "Real problems with microservices in production", "file": "distributed-systems/03-microservices-problems.md" },
+        { "id": "eventual-consistency", "title": "Eventual consistency", "file": "distributed-systems/04-eventual-consistency.md" },
+        { "id": "distributed-tracing", "title": "Debugging across 10 services (distributed tracing)", "file": "distributed-systems/05-distributed-tracing.md" },
+        { "id": "cascading-failures", "title": "How do you avoid cascading failures?", "file": "distributed-systems/06-cascading-failures.md" }
+      ]
+    },
+    {
+      "id": "resilience-patterns",
+      "label": "Resilience Patterns",
+      "questions": [
+        { "id": "catalog", "title": "Resilience patterns catalog (one-page reference)", "file": "resilience-patterns/01-patterns-catalog.md" }
+      ]
+    },
+    {
+      "id": "observability",
+      "label": "Observability",
+      "questions": [
+        { "id": "key-metrics", "title": "Which metrics do you always monitor?", "file": "observability/01-key-metrics.md" },
+        { "id": "leading-indicators", "title": "Detecting issues before users see them", "file": "observability/02-leading-indicators.md" }
+      ]
+    },
+    {
+      "id": "live-coding",
+      "label": "Live Coding",
+      "questions": [
+        { "id": "clarifying-questions", "title": "Framework for clarifying questions", "file": "live-coding/01-clarifying-questions.md" },
+        { "id": "sliding-window-counter", "title": "Counter for API calls in past 5 minutes", "file": "live-coding/02-sliding-window-counter.md" },
+        { "id": "sql-duplicates", "title": "SQL — users with more than one email", "file": "live-coding/03-sql-duplicates.md" },
+        { "id": "sql-second-salary", "title": "SQL — second-highest salary", "file": "live-coding/04-sql-second-highest-salary.md" },
+        { "id": "sql-no-salary", "title": "SQL — employees with no salary", "file": "live-coding/05-sql-employees-no-salary.md" }
+      ]
+    }
+  ]
+}

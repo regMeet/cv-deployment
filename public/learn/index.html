@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn — Q&A</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a2a3a'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='32' font-weight='900' fill='%232980b9'%3EAA%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="brand">Learn</h1>
+                <div class="lang-toggle" aria-label="Language">
+                    <button data-lang="en" class="lang-btn active" type="button">🇬🇧 EN</button>
+                    <button data-lang="es" class="lang-btn" type="button">🇪🇸 ES</button>
+                </div>
+            </div>
+            <div class="search-box">
+                <input
+                    id="search-input"
+                    type="search"
+                    placeholder="Search questions and content…"
+                    autocomplete="off"
+                    aria-label="Search"
+                />
+            </div>
+            <div id="browse-view">
+                <nav class="tabs" id="tabs" aria-label="Categories"></nav>
+                <nav class="subtabs" id="subtabs" aria-label="Sections"></nav>
+                <div class="questions-wrapper">
+                    <h2 class="questions-title" id="questions-title">Questions</h2>
+                    <ul class="questions" id="questions"></ul>
+                </div>
+            </div>
+            <div id="search-view" hidden>
+                <h2 class="questions-title" id="search-status">Search results</h2>
+                <ul class="search-results" id="search-results"></ul>
+            </div>
+        </aside>
+        <main class="content">
+            <article id="answer" class="answer">
+                <p class="hint">Pick a category and a question on the left.</p>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

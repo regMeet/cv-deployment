@@ -1,0 +1,101 @@
+{
+  "sections": [
+    {
+      "id": "core",
+      "label": "Core & Rendering",
+      "questions": [
+        { "id": "how-react-works", "title": "How does React actually work? (VDOM, reconciliation, Fiber)", "file": "core/01-how-react-works.md" },
+        { "id": "jsx-elements", "title": "JSX and React elements", "file": "core/02-jsx-elements.md" },
+        { "id": "keys-in-lists", "title": "Keys in lists — why they matter", "file": "core/03-keys-in-lists.md" }
+      ]
+    },
+    {
+      "id": "hooks",
+      "label": "Hooks",
+      "questions": [
+        { "id": "rules-of-hooks", "title": "Rules of Hooks (and why they exist)", "file": "hooks/01-rules-of-hooks.md" },
+        { "id": "useeffect-deps-cleanup", "title": "useEffect — dependencies & cleanup", "file": "hooks/02-useeffect-deps-cleanup.md" },
+        { "id": "usestate-vs-usereducer", "title": "useState vs useReducer", "file": "hooks/03-usestate-vs-usereducer.md" },
+        { "id": "usememo-usecallback", "title": "useMemo & useCallback — what they do", "file": "hooks/04-usememo-usecallback.md" },
+        { "id": "useref", "title": "useRef — DOM refs and mutable values", "file": "hooks/05-useref.md" },
+        { "id": "usecontext", "title": "useContext — and its trade-offs", "file": "hooks/06-usecontext.md" },
+        { "id": "custom-hooks", "title": "Custom hooks — extracting logic", "file": "hooks/07-custom-hooks.md" }
+      ]
+    },
+    {
+      "id": "state-management",
+      "label": "State Management",
+      "questions": [
+        { "id": "local-vs-derived", "title": "Local vs derived state — colocate & compute", "file": "state-management/01-local-vs-derived.md" },
+        { "id": "context-limits", "title": "Context API — when it's enough, when it isn't", "file": "state-management/02-context-limits.md" },
+        { "id": "redux-and-alternatives", "title": "Redux vs Zustand / Jotai / Recoil", "file": "state-management/03-redux-and-alternatives.md" }
+      ]
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "questions": [
+        { "id": "when-rerender", "title": "When does a component re-render?", "file": "performance/01-when-rerender.md" },
+        { "id": "react-memo", "title": "React.memo — when it actually helps", "file": "performance/02-react-memo.md" },
+        { "id": "memoization-honestly", "title": "useMemo / useCallback honestly — when they're worth it", "file": "performance/03-memoization-honestly.md" },
+        { "id": "code-splitting", "title": "Code splitting with React.lazy + Suspense", "file": "performance/04-code-splitting.md" },
+        { "id": "virtualization", "title": "List virtualization (react-window / virtual)", "file": "performance/05-virtualization.md" }
+      ]
+    },
+    {
+      "id": "patterns",
+      "label": "Patterns",
+      "questions": [
+        { "id": "composition-over-inheritance", "title": "Composition over inheritance", "file": "patterns/01-composition-over-inheritance.md" },
+        { "id": "render-props-hoc-hooks", "title": "Render props → HOCs → Hooks (evolution)", "file": "patterns/02-render-props-hoc-hooks.md" },
+        { "id": "compound-components", "title": "Compound components", "file": "patterns/03-compound-components.md" },
+        { "id": "custom-hooks-for-logic", "title": "Custom hooks for logic reuse", "file": "patterns/04-custom-hooks-for-logic.md" }
+      ]
+    },
+    {
+      "id": "data-fetching",
+      "label": "Data Fetching",
+      "questions": [
+        { "id": "useeffect-fetching-pitfalls", "title": "Data fetching with useEffect — pitfalls", "file": "data-fetching/01-useeffect-fetching-pitfalls.md" },
+        { "id": "react-query-vs-swr", "title": "React Query vs SWR — why use them", "file": "data-fetching/02-react-query-vs-swr.md" },
+        { "id": "race-conditions-stale", "title": "Race conditions & stale closures in fetching", "file": "data-fetching/03-race-conditions-stale.md" }
+      ]
+    },
+    {
+      "id": "modern-react",
+      "label": "Modern React",
+      "questions": [
+        { "id": "react-18-features", "title": "React 18 — concurrent rendering, transitions, Suspense", "file": "modern-react/01-react-18-features.md" },
+        { "id": "server-components", "title": "Server Components (RSC)", "file": "modern-react/02-server-components.md" },
+        { "id": "ssr-csr-ssg", "title": "SSR vs CSR vs SSG vs ISR", "file": "modern-react/03-ssr-csr-ssg.md" }
+      ]
+    },
+    {
+      "id": "forms-a11y",
+      "label": "Forms & A11y",
+      "questions": [
+        { "id": "controlled-vs-uncontrolled", "title": "Controlled vs uncontrolled inputs", "file": "forms-a11y/01-controlled-vs-uncontrolled.md" },
+        { "id": "react-hook-form", "title": "React Hook Form vs Formik", "file": "forms-a11y/02-react-hook-form.md" },
+        { "id": "accessibility-essentials", "title": "Accessibility essentials in React", "file": "forms-a11y/03-accessibility-essentials.md" }
+      ]
+    },
+    {
+      "id": "testing",
+      "label": "Testing",
+      "questions": [
+        { "id": "testing-library-philosophy", "title": "React Testing Library philosophy", "file": "testing/01-testing-library-philosophy.md" },
+        { "id": "async-test-patterns", "title": "Async test patterns (waitFor, findBy, mocks)", "file": "testing/02-async-test-patterns.md" }
+      ]
+    },
+    {
+      "id": "pitfalls",
+      "label": "Common Pitfalls",
+      "questions": [
+        { "id": "stale-closures", "title": "Stale closures", "file": "pitfalls/01-stale-closures.md" },
+        { "id": "effect-deps-bugs", "title": "Effect dependency-array bugs", "file": "pitfalls/02-effect-deps-bugs.md" },
+        { "id": "rerender-storms", "title": "Re-render storms", "file": "pitfalls/03-rerender-storms.md" },
+        { "id": "key-prop-misuse", "title": "Key prop misuse (and using index)", "file": "pitfalls/04-key-prop-misuse.md" }
+      ]
+    }
+  ]
+}

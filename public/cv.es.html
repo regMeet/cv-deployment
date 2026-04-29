@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Albertengo - Staff Full Stack Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a2a3a'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='32' font-weight='900' fill='%232980b9'%3EAA%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2a3a;
+            --secondary: #34495e;
+            --accent: #2980b9;
+            --text: #333;
+            --light-text: #555;
+            --background: #fff;
+            --border: #ececec;
+            --highlight-bg: #f8fbfc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.45;
+            color: var(--text);
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .paper {
+            background: var(--background);
+            width: 850px;
+            padding: 40px 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-height: 1100px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .paper { box-shadow: none; width: 100%; padding: 0; margin: 0; border: none; }
+            .no-print { display: none; }
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 26pt;
+            margin: 0;
+            color: var(--primary);
+            letter-spacing: -1px;
+            font-weight: 800;
+        }
+
+        .tagline {
+            font-size: 13pt;
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sub-tagline {
+            font-size: 11pt;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-top: 3px;
+        }
+
+        .contact-block {
+            margin-top: 12px;
+            font-size: 9.5pt;
+            color: var(--light-text);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 18px;
+        }
+
+        .contact-block span {
+            white-space: nowrap;
+        }
+
+        .contact-block a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-block a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 22px;
+        }
+
+        h2 {
+            font-size: 13pt;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .summary {
+            font-size: 10.5pt;
+            color: var(--secondary);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 20px;
+            font-size: 10pt;
+        }
+
+        .expertise-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .expertise-item::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .job {
+            margin-bottom: 18px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .company {
+            font-weight: 800;
+            font-size: 11.5pt;
+            color: var(--primary);
+        }
+
+        .role {
+            font-size: 10pt;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .date {
+            color: var(--light-text);
+            font-style: italic;
+            font-size: 9.5pt;
+        }
+
+        .project-context {
+            color: var(--accent);
+            margin-bottom: 6px;
+            font-weight: 700;
+            font-size: 10pt;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 5px 0;
+        }
+
+        li {
+            margin-bottom: 3px;
+            font-size: 10.5pt;
+        }
+
+        .tech-box {
+            font-size: 9.5pt;
+            color: var(--secondary);
+            margin-top: 6px;
+            background: #f9fbfd;
+            padding: 4px 10px;
+            border-left: 3px solid var(--accent);
+            font-weight: 600;
+        }
+
+        .differentiator-box {
+            background: var(--highlight-bg);
+            border: 1px dashed var(--accent);
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 10.5pt;
+        }
+
+        .differentiator-box p {
+            margin: 5px 0;
+        }
+
+        b {
+            color: #000;
+            font-weight: 700;
+        }
+
+        .earlier {
+            font-size: 10pt;
+            margin-top: 4px;
+        }
+
+        .stack-item {
+            margin-bottom: 4px;
+            font-size: 10.5pt;
+        }
+
+        .key-project {
+            margin-top: 8px;
+            margin-left: 4px;
+        }
+
+        .key-project-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 10.5pt;
+            margin-bottom: 2px;
+        }
+
+        .key-project ul {
+            margin-top: 2px;
+        }
+
+        .education-item {
+            font-size: 10.5pt;
+            margin-bottom: 3px;
+        }
+
+        .lang-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 4px;
+            display: flex;
+            gap: 2px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-toggle a {
+            text-decoration: none;
+            color: var(--light-text);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .lang-toggle a.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        @media print {
+            .lang-toggle { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-toggle no-print" aria-label="Idioma">
+        <a href="/cv.html" data-lang="en">🇬🇧 EN</a>
+        <a href="/cv.es.html" class="active" data-lang="es">🇪🇸 ES</a>
+    </div>
+    <div class="paper">
+        <header>
+            <h1>ALAN ALBERTENGO</h1>
+            <div class="tagline">Ingeniero Full Stack Senior / Staff (Java + React)</div>
+            <div class="sub-tagline">Sistemas Distribuidos • Plataformas de Alta Escala • Performance y Arquitectura</div>
+            <div class="contact-block">
+                <span>📍 Argentina (Remoto)</span>
+                <span>📧 <a href="mailto:alan.albertengo@gmail.com">alan.albertengo@gmail.com</a></span>
+                <span>📱 +54 9 351 256-3753</span>
+                <span>🛂 Pasaporte UE • Visa B1/B2</span>
+                <span>🌐 Español (Nativo) • Inglés (Fluido)</span>
+                <span>💼 <a href="https://www.linkedin.com/in/alan-albertengo/" target="_blank" rel="noopener">linkedin.com/in/alan-albertengo</a></span>
+                <span>💻 <a href="https://github.com/regMeet" target="_blank" rel="noopener">github.com/regMeet</a></span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Resumen Profesional</h2>
+            <div class="summary">
+                <p>Ingeniero Full Stack Senior con <b>más de 18 años de experiencia</b> diseñando, construyendo y escalando sistemas complejos en fintech, aerolíneas, e-commerce y plataformas gubernamentales.</p>
+                <p>Sólida formación en arquitectura backend, ingeniería frontend y sistemas distribuidos. Capacidad comprobada para <b>construir sistemas desde cero</b>, definir APIs y modelos de datos, y llevar productos desde etapas iniciales hasta producción.</p>
+                <p>Experiencia mejorando <b>performance, escalabilidad y confiabilidad</b>, incluyendo la reducción de latencias críticas de <b>minutos a segundos</b> en entornos de alto volumen.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Áreas de Especialización</h2>
+            <div class="expertise-grid">
+                <div style="padding-left: 15px;">
+                    <div class="expertise-item">Sistemas Distribuidos y Microservicios</div>
+                    <div class="expertise-item">Arquitectura Backend (Java, Spring Boot)</div>
+                    <div class="expertise-item">Arquitectura Frontend (React, Redux)</div>
+                    <div class="expertise-item">Diseño de APIs e Integraciones (REST / SOAP)</div>
+                    <div class="expertise-item">Optimización de Performance y Escalabilidad</div>
+                    <div class="expertise-item">Concurrencia y Multithreading</div>
+                </div>
+                <div style="padding-left: 15px;">
+                    <div class="expertise-item">Diseño de Bases de Datos (SQL / NoSQL)</div>
+                    <div class="expertise-item">Estrategias de Caching (Redis)</div>
+                    <div class="expertise-item">Alta Disponibilidad y Confiabilidad</div>
+                    <div class="expertise-item">Observabilidad y Monitoreo (Datadog)</div>
+                    <div class="expertise-item">CI/CD y Sistemas en Producción</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experiencia Profesional</h2>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="company">eWorldES</span>
+                    <span class="date">Ago 2024 – Presente</span>
+                </div>
+                <div class="role">Senior Full Stack Engineer</div>
+                <div class="project-context">Proyecto: PAIS (Public Assistance System) – Estado de Hawái (DHS)</div>
+                <ul>
+                    <li>Reduje los tiempos de respuesta de APIs críticas de <b>más de 2 minutos a menos de 3 segundos</b>, mejorando la experiencia de usuario en flujos de alto volumen.</li>
+                    <li>Diseñé e implementé estrategias de <b>procesamiento multihilo y caching multicapa</b> para soportar servicios escalables 24/7.</li>
+                    <li>Identifiqué y resolví <b>queries N+1, memory leaks y cuellos de botella</b> bajo carga concurrente.</li>
+                    <li>Mejoré la performance y accesibilidad del frontend (<b>cumplimiento WCAG</b>).</li>
+                    <li>Contribuí a la estabilidad y confiabilidad de una plataforma gubernamental de misión crítica.</li>
+                </ul>
+                <div class="tech-box">Tech: Java 21, Spring Boot, Hibernate, Oracle, Redis, Multithreading, Datadog</div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="company">Santex S.A.</span>
+                    <span class="date">Jul 2015 – Jul 2024</span>
+                </div>
+                <div class="role">Senior Software Engineer / Tech Lead</div>
+                <div class="project-context">Plataformas fintech y de tiempo real de alta escala para clientes de EE.UU.</div>
+                <ul>
+                    <li>Diseñé y construí <b>sistemas full-stack desde cero</b> (Java + React), incluyendo arquitectura, APIs y modelado de bases de datos.</li>
+                    <li>Implementé <b>procesamiento batch, colas (Redis), cron jobs</b> y servicios backend escalables.</li>
+                    <li><b>Lideré decisiones técnicas, estimaciones y diseño de sistemas</b> en múltiples proyectos.</li>
+                    <li>Construí integraciones con plataformas externas (APIs de Mercado Libre, Facebook, Google, GoDaddy).</li>
+                    <li>Desarrollé <b>SDKs y librerías de componentes reutilizables</b> en aplicaciones frontend.</li>
+                    <li>Contribuí al soporte en producción, debugging y estabilidad de sistemas en vivo.</li>
+                </ul>
+
+                <div class="key-project">
+                    <div class="key-project-title">D3 Banking Platform</div>
+                    <ul>
+                        <li>Construí una plataforma de banca digital customizable usada por múltiples instituciones financieras.</li>
+                        <li>Desarrollé arquitectura extensible para pagos, funcionalidades cripto y add-ons modulares.</li>
+                    </ul>
+                </div>
+
+                <div class="key-project">
+                    <div class="key-project-title">Pivotus Ventures (BFF)</div>
+                    <ul>
+                        <li>Desarrollé un <b>sistema de chat en tiempo real usando WebSockets</b>.</li>
+                        <li>Construí aplicaciones web (agentes) y mobile (clientes) con SDK y librería de componentes compartida.</li>
+                    </ul>
+                </div>
+
+                <div class="key-project">
+                    <div class="key-project-title">Mercado Libre – Mercado Shops</div>
+                    <ul>
+                        <li>Diseñé servicios backend y arquitectura de microservicios.</li>
+                        <li>Construí sistema de procesamiento masivo de productos usando <b>colas y jobs en background</b>.</li>
+                        <li>Implementé integraciones con plataformas de pagos, dominios y SaaS.</li>
+                    </ul>
+                </div>
+
+                <div class="tech-box">Tech: React, Redux (Saga/Thunk), React Native, Java, Spring Boot, Redis, MySQL, Jenkins, CI/CD</div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="company">AppDirect</span>
+                    <span class="date">2015</span>
+                </div>
+                <div class="role">Senior Software Engineer</div>
+                <ul>
+                    <li>Desarrollé plataformas de marketplace SaaS customizables.</li>
+                    <li>Construí componentes UI reutilizables y servicios backend.</li>
+                </ul>
+                <div class="tech-box">Tech: Java, Spring, Backbone.js, MySQL</div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="company">Hewlett-Packard (HP)</span>
+                    <span class="date">2012 – 2015</span>
+                </div>
+                <div class="role">Senior Software Engineer</div>
+                <div class="project-context">Proyecto: American Airlines</div>
+                <ul>
+                    <li>Diseñé y construí un <b>sistema de notificaciones en tiempo real</b> para eventos de vuelos (SMS, email, voz).</li>
+                    <li>Trabajé en sistemas event-driven usando <b>Tibco</b> para procesamiento en tiempo real.</li>
+                    <li>Brindé <b>soporte 24/7 en producción</b>, debuggeando sistemas críticos en vivo.</li>
+                    <li>Construí servicios backend y aplicaciones web administrativas desde cero.</li>
+                </ul>
+                <div class="tech-box">Tech: Java, Spring MVC, Hibernate, Oracle, WebSphere, Tibco</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experiencia Anterior — Vates / Globant / Gameloft</h2>
+            <div class="job-header">
+                <span class="date">2008 – 2012</span>
+            </div>
+            <ul>
+                <li>Sistemas de video streaming para telecomunicaciones (Motorola / Verizon).</li>
+                <li>Sistemas de aerolíneas (Southwest Airlines).</li>
+                <li>Desarrollo de juegos mobile (J2ME).</li>
+            </ul>
+            <div class="earlier">Trabajé en <b>optimización de performance</b>, servicios backend y aplicaciones a gran escala.</div>
+        </section>
+
+        <section>
+            <h2>Stack Técnico</h2>
+            <div class="stack-item"><b>Backend:</b> Java (5–21, desde 2005), Spring Boot, Hibernate, Microservicios</div>
+            <div class="stack-item"><b>Frontend:</b> React, Redux, React Native</div>
+            <div class="stack-item"><b>Bases de datos:</b> Oracle, MySQL, SQL Server, Redis</div>
+            <div class="stack-item"><b>Herramientas:</b> Jenkins, Git, pipelines CI/CD</div>
+            <div class="stack-item"><b>Otros:</b> APIs REST, WebSockets, Multithreading</div>
+        </section>
+
+        <section>
+            <h2>Educación</h2>
+            <div class="education-item"><b>Ingeniero en Informática</b> — Instituto Universitario Aeronáutico</div>
+            <div class="education-item"><b>Oracle Certified Associate</b> – Java SE 7 Programmer</div>
+        </section>
+
+        <section>
+            <h2>Diferencial Clave</h2>
+            <div class="differentiator-box">
+                <p>Igualmente efectivo <b>construyendo sistemas desde cero</b> y <b>estabilizándolos y escalándolos en producción</b>. De confianza tanto en arquitectura de etapas iniciales como en la corrección de sistemas de misión crítica que ya corren a alto volumen — con foco en confiabilidad, performance y mantenibilidad a largo plazo.</p>
+            </div>
+        </section>
+    </div>
+    <script>
+        document.querySelectorAll('.lang-toggle a').forEach(a => {
+            a.addEventListener('click', () => {
+                localStorage.setItem('app:lang', a.dataset.lang);
+            });
+        });
+    </script>
+</body>
+</html>
