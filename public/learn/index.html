@@ -6,18 +6,32 @@
     <title>Learn — Q&A</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a2a3a'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='32' font-weight='900' fill='%232980b9'%3EAA%3C/text%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
     <script src="app.js" defer></script>
 </head>
 <body>
+    <button id="drawer-toggle" class="drawer-toggle" type="button" aria-label="Menu" aria-controls="sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7"/>
+            <line x1="4" y1="12" x2="20" y2="12"/>
+            <line x1="4" y1="17" x2="20" y2="17"/>
+        </svg>
+    </button>
+    <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
     <div class="layout">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h1 class="brand">Learn</h1>
-                <div class="lang-toggle" aria-label="Language">
-                    <button data-lang="en" class="lang-btn active" type="button">🇬🇧</button>
-                    <button data-lang="es" class="lang-btn" type="button">🇪🇸</button>
+                <div class="header-tools">
+                    <a href="/quiz/" class="quiz-link" title="Daily Quiz">🧠 Quiz</a>
+                    <div class="lang-toggle" aria-label="Language">
+                        <button data-lang="en" class="lang-btn active" type="button">🇬🇧</button>
+                        <button data-lang="es" class="lang-btn" type="button">🇪🇸</button>
+                    </div>
                 </div>
             </div>
             <div class="search-box">
@@ -48,9 +62,43 @@
             </div>
         </aside>
         <main class="content">
+            <div id="filter-bar" class="filter-bar" hidden>
+                <label class="filter">
+                    <span class="filter-label" data-i18n="filterTopic">Topic</span>
+                    <select id="filter-topic" class="filter-select">
+                        <option value="">All</option>
+                    </select>
+                </label>
+                <label class="filter">
+                    <span class="filter-label" data-i18n="filterOrigin">Origin</span>
+                    <select id="filter-origin" class="filter-select">
+                        <option value="">All</option>
+                    </select>
+                </label>
+                <button id="filter-reset" class="filter-reset" type="button" data-i18n="filterReset">Reset</button>
+                <button id="filter-random" class="filter-random" type="button" data-i18n="filterRandom" title="Random">🎲</button>
+                <span id="filter-count" class="filter-count"></span>
+            </div>
             <article id="answer" class="answer">
                 <p class="hint">Pick a category and a question on the left.</p>
             </article>
+            <nav id="qnav" class="qnav" hidden aria-label="Question navigation">
+                <button id="qnav-prev" type="button" class="qnav-btn">
+                    <span class="qnav-arrow">←</span>
+                    <span class="qnav-text">
+                        <span class="qnav-label" data-i18n="navPrev">Previous</span>
+                        <span id="qnav-prev-title" class="qnav-title"></span>
+                    </span>
+                </button>
+                <span id="qnav-position" class="qnav-position"></span>
+                <button id="qnav-next" type="button" class="qnav-btn">
+                    <span class="qnav-text">
+                        <span class="qnav-label" data-i18n="navNext">Next</span>
+                        <span id="qnav-next-title" class="qnav-title"></span>
+                    </span>
+                    <span class="qnav-arrow">→</span>
+                </button>
+            </nav>
         </main>
     </div>
 </body>

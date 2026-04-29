@@ -3,62 +3,66 @@
     {
       "id": "seniority",
       "label": "Seniority & Approach",
+      "label_es": "Seniority y enfoque",
       "questions": [
-        { "id": "tackle-problem", "title": "How do you approach a problem?", "file": "seniority/01-tackle-problem.md" },
-        { "id": "urgent-situations", "title": "How do you handle something urgent?", "file": "seniority/02-urgent-situations.md" },
-        { "id": "report-progress", "title": "How do you report progress?", "file": "seniority/03-report-progress.md" },
-        { "id": "debug-issue", "title": "How do you investigate a reported issue?", "file": "seniority/04-debug-issue.md" },
-        { "id": "engineering-practices", "title": "What engineering practices do you follow?", "file": "seniority/05-engineering-practices.md" },
-        { "id": "automation", "title": "How do you think about automation?", "file": "seniority/06-automation.md" },
-        { "id": "testing-adoption", "title": "Team is reluctant to testing/QA/TDD — what do you do?", "file": "seniority/07-testing-adoption.md" },
-        { "id": "impact-case-study", "title": "Tell me about a case where TDD/AI had real impact", "file": "seniority/08-impact-case-study.md" },
-        { "id": "pair-programming", "title": "Pair programming / mob programming?", "file": "seniority/09-pair-programming.md" },
-        { "id": "ai-accelerator", "title": "AI as a development accelerator", "file": "seniority/10-ai-accelerator.md" },
-        { "id": "strategic-business-thinking", "title": "Strategic / business thinking", "file": "seniority/11-strategic-business-thinking.md" },
-        { "id": "follow-up-depth", "title": "\"Tell me more...\" — going deep on follow-ups", "file": "seniority/12-follow-up-depth.md" },
-        { "id": "technical-debt", "title": "How do you handle technical debt?", "file": "seniority/13-technical-debt.md" },
-        { "id": "estimations", "title": "How do you estimate work?", "file": "seniority/14-estimations.md" },
-        { "id": "mentoring", "title": "How do you mentor / grow junior engineers?", "file": "seniority/15-mentoring.md" },
-        { "id": "code-reviews", "title": "How do you give code reviews?", "file": "seniority/16-code-reviews.md" },
-        { "id": "build-vs-buy", "title": "Build vs Buy — how do you decide?", "file": "seniority/17-build-vs-buy.md" }
+        { "id": "tackle-problem", "title": "How do you approach a problem?", "title_es": "¿Cómo encarás un problema?", "file": "seniority/01-tackle-problem.md" },
+        { "id": "urgent-situations", "title": "How do you handle something urgent?", "title_es": "¿Cómo manejás algo urgente?", "file": "seniority/02-urgent-situations.md" },
+        { "id": "report-progress", "title": "How do you report progress?", "title_es": "¿Cómo reportás el progreso?", "file": "seniority/03-report-progress.md" },
+        { "id": "debug-issue", "title": "How do you investigate a reported issue?", "title_es": "¿Cómo investigás un issue reportado?", "file": "seniority/04-debug-issue.md" },
+        { "id": "engineering-practices", "title": "What engineering practices do you follow?", "title_es": "¿Qué prácticas de ingeniería seguís?", "file": "seniority/05-engineering-practices.md" },
+        { "id": "automation", "title": "How do you think about automation?", "title_es": "¿Cómo pensás la automatización?", "file": "seniority/06-automation.md" },
+        { "id": "testing-adoption", "title": "Team is reluctant to testing/QA/TDD — what do you do?", "title_es": "El equipo es reacio a testing/QA/TDD — ¿qué hacés?", "file": "seniority/07-testing-adoption.md" },
+        { "id": "impact-case-study", "title": "Tell me about a case where TDD/AI had real impact", "title_es": "Contame un caso donde TDD/AI tuvo impacto real", "file": "seniority/08-impact-case-study.md" },
+        { "id": "pair-programming", "title": "Pair programming / mob programming?", "title_es": "¿Pair programming / mob programming?", "file": "seniority/09-pair-programming.md" },
+        { "id": "ai-accelerator", "title": "AI as a development accelerator", "title_es": "AI como acelerador del desarrollo", "file": "seniority/10-ai-accelerator.md" },
+        { "id": "strategic-business-thinking", "title": "Strategic / business thinking", "title_es": "Pensamiento estratégico / de negocio", "file": "seniority/11-strategic-business-thinking.md" },
+        { "id": "follow-up-depth", "title": "\"Tell me more...\" — going deep on follow-ups", "title_es": "\"Contame más...\" — profundizar en follow-ups", "file": "seniority/12-follow-up-depth.md" },
+        { "id": "technical-debt", "title": "How do you handle technical debt?", "title_es": "¿Cómo manejás la deuda técnica?", "file": "seniority/13-technical-debt.md" },
+        { "id": "estimations", "title": "How do you estimate work?", "title_es": "¿Cómo estimás trabajo?", "file": "seniority/14-estimations.md" },
+        { "id": "mentoring", "title": "How do you mentor / grow junior engineers?", "title_es": "¿Cómo mentoreás / hacés crecer a juniors?", "file": "seniority/15-mentoring.md" },
+        { "id": "code-reviews", "title": "How do you give code reviews?", "title_es": "¿Cómo hacés code reviews?", "file": "seniority/16-code-reviews.md" },
+        { "id": "build-vs-buy", "title": "Build vs Buy — how do you decide?", "title_es": "Build vs Buy — ¿cómo decidís?", "file": "seniority/17-build-vs-buy.md" }
       ]
     },
     {
       "id": "behavioral",
       "label": "Behavioral / STAR",
+      "label_es": "Conductuales / STAR",
       "questions": [
-        { "id": "challenging-problem", "title": "Tell me about a challenging problem you faced", "file": "behavioral/01-challenging-problem.md" },
-        { "id": "mistake", "title": "Tell me about a mistake you made", "file": "behavioral/02-mistake.md" },
-        { "id": "disagreement", "title": "How do you handle disagreements with teammates?", "file": "behavioral/03-disagreement.md" },
-        { "id": "leadership", "title": "Tell me about a time you showed leadership", "file": "behavioral/04-leadership.md" },
-        { "id": "ambiguity", "title": "How do you deal with ambiguity?", "file": "behavioral/05-ambiguity.md" },
-        { "id": "pressure", "title": "Tell me about a time you were under pressure", "file": "behavioral/06-pressure.md" },
-        { "id": "great-engineer", "title": "What makes a great engineer?", "file": "behavioral/07-great-engineer.md" },
-        { "id": "code-quality", "title": "How do you ensure code quality?", "file": "behavioral/08-code-quality.md" },
-        { "id": "failed-project", "title": "Tell me about a project that failed", "file": "behavioral/09-failed-project.md" },
-        { "id": "why-work-here", "title": "Why do you want to work here?", "file": "behavioral/10-why-work-here.md" },
-        { "id": "handle-feedback", "title": "How do you handle feedback?", "file": "behavioral/11-handle-feedback.md" },
-        { "id": "strengths-weaknesses", "title": "What are your strengths and weaknesses?", "file": "behavioral/12-strengths-weaknesses.md" },
-        { "id": "alone-or-team", "title": "Alone or in a team? (trap question)", "file": "behavioral/13-alone-or-team.md" },
-        { "id": "influence-without-authority", "title": "A time you influenced without authority", "file": "behavioral/14-influence-without-authority.md" },
-        { "id": "push-back-scope", "title": "A time you pushed back on scope/deadline", "file": "behavioral/15-push-back-scope.md" },
-        { "id": "learn-fast", "title": "A time you had to learn something new fast", "file": "behavioral/16-learn-fast.md" }
+        { "id": "challenging-problem", "title": "Tell me about a challenging problem you faced", "title_es": "Contame sobre un problema difícil que enfrentaste", "file": "behavioral/01-challenging-problem.md" },
+        { "id": "mistake", "title": "Tell me about a mistake you made", "title_es": "Contame sobre un error que cometiste", "file": "behavioral/02-mistake.md" },
+        { "id": "disagreement", "title": "How do you handle disagreements with teammates?", "title_es": "¿Cómo manejás desacuerdos con compañeros?", "file": "behavioral/03-disagreement.md" },
+        { "id": "leadership", "title": "Tell me about a time you showed leadership", "title_es": "Contame una vez que demostraste liderazgo", "file": "behavioral/04-leadership.md" },
+        { "id": "ambiguity", "title": "How do you deal with ambiguity?", "title_es": "¿Cómo manejás la ambigüedad?", "file": "behavioral/05-ambiguity.md" },
+        { "id": "pressure", "title": "Tell me about a time you were under pressure", "title_es": "Contame una vez que estuviste bajo presión", "file": "behavioral/06-pressure.md" },
+        { "id": "great-engineer", "title": "What makes a great engineer?", "title_es": "¿Qué hace a un gran ingeniero?", "file": "behavioral/07-great-engineer.md" },
+        { "id": "code-quality", "title": "How do you ensure code quality?", "title_es": "¿Cómo asegurás la calidad del código?", "file": "behavioral/08-code-quality.md" },
+        { "id": "failed-project", "title": "Tell me about a project that failed", "title_es": "Contame sobre un proyecto que falló", "file": "behavioral/09-failed-project.md" },
+        { "id": "why-work-here", "title": "Why do you want to work here?", "title_es": "¿Por qué querés trabajar acá?", "file": "behavioral/10-why-work-here.md" },
+        { "id": "handle-feedback", "title": "How do you handle feedback?", "title_es": "¿Cómo manejás el feedback?", "file": "behavioral/11-handle-feedback.md" },
+        { "id": "strengths-weaknesses", "title": "What are your strengths and weaknesses?", "title_es": "¿Cuáles son tus fortalezas y debilidades?", "file": "behavioral/12-strengths-weaknesses.md" },
+        { "id": "alone-or-team", "title": "Alone or in a team? (trap question)", "title_es": "¿Solo o en equipo? (pregunta trampa)", "file": "behavioral/13-alone-or-team.md" },
+        { "id": "influence-without-authority", "title": "A time you influenced without authority", "title_es": "Una vez que influiste sin autoridad", "file": "behavioral/14-influence-without-authority.md" },
+        { "id": "push-back-scope", "title": "A time you pushed back on scope/deadline", "title_es": "Una vez que pusiste freno al scope/deadline", "file": "behavioral/15-push-back-scope.md" },
+        { "id": "learn-fast", "title": "A time you had to learn something new fast", "title_es": "Una vez que tuviste que aprender algo nuevo rápido", "file": "behavioral/16-learn-fast.md" }
       ]
     },
     {
       "id": "accountability",
       "label": "Accountability",
+      "label_es": "Responsabilidad",
       "questions": [
-        { "id": "accountability-traceability", "title": "How do you ensure accountability and traceability?", "file": "accountability/01-accountability-traceability.md" },
-        { "id": "good-alert", "title": "What makes a good alert?", "file": "accountability/02-good-alert.md" },
-        { "id": "on-call", "title": "Tell me about your on-call experience", "file": "accountability/03-on-call.md" }
+        { "id": "accountability-traceability", "title": "How do you ensure accountability and traceability?", "title_es": "¿Cómo asegurás accountability y trazabilidad?", "file": "accountability/01-accountability-traceability.md" },
+        { "id": "good-alert", "title": "What makes a good alert?", "title_es": "¿Qué hace a una buena alerta?", "file": "accountability/02-good-alert.md" },
+        { "id": "on-call", "title": "Tell me about your on-call experience", "title_es": "Contame sobre tu experiencia de on-call", "file": "accountability/03-on-call.md" }
       ]
     },
     {
       "id": "interview-types",
       "label": "Interview Types",
+      "label_es": "Tipos de entrevista",
       "questions": [
-        { "id": "overview", "title": "Types of interview questions (reference)", "file": "interview-types/01-overview.md" }
+        { "id": "overview", "title": "Types of interview questions (reference)", "title_es": "Tipos de preguntas de entrevista (referencia)", "file": "interview-types/01-overview.md" }
       ]
     }
   ]

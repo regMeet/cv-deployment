@@ -71,6 +71,30 @@ button { font-family: inherit; }
     font-weight: 800;
 }
 
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quiz-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px;
+    background: var(--accent);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    transition: background 0.15s ease, transform 0.1s ease;
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.25);
+}
+.quiz-link:hover { background: var(--accent-strong); }
+.quiz-link:active { transform: translateY(1px); }
+
 /* --- lang toggle --- */
 
 .lang-toggle {
@@ -424,6 +448,86 @@ button { font-family: inherit; }
     max-width: 880px;
 }
 
+/* --- filter bar --- */
+
+.filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.filter-bar[hidden] { display: none; }
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-label {
+    color: var(--light-text);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.filter-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--background);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    padding: 6px 28px 6px 10px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%23475569' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color 0.15s ease;
+}
+
+.filter-select:hover { border-color: var(--accent); }
+.filter-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+.filter-reset, .filter-random {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid transparent;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+    font-family: inherit;
+}
+
+.filter-random {
+    font-size: 16px;
+    line-height: 1;
+    padding: 4px 8px;
+}
+
+.filter-reset:hover, .filter-random:hover { background: var(--accent-soft); }
+.filter-reset:disabled, .filter-random:disabled { color: var(--muted-text); cursor: default; background: transparent; }
+
+.filter-count {
+    margin-left: auto;
+    color: var(--light-text);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
 .answer h1 {
     font-size: 28px;
     color: var(--primary);
@@ -470,6 +574,107 @@ button { font-family: inherit; }
 
 .answer pre code { background: transparent; color: inherit; padding: 0; }
 
+/* Prism overrides — keep our radius/padding, let Prism color tokens */
+.answer pre[class*="language-"] {
+    background: var(--code-bg);
+    color: var(--code-text);
+    margin: 16px 0;
+    text-shadow: none;
+}
+.answer pre[class*="language-"] code { font-family: inherit; }
+
+/* Code block + copy button */
+.code-block {
+    position: relative;
+    margin: 16px 0;
+}
+.code-block pre { margin: 0; }
+.copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 5px;
+    padding: 4px 9px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease, background 0.15s ease;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+.code-block:hover .copy-btn,
+.copy-btn:focus { opacity: 1; }
+.copy-btn:hover { background: rgba(255, 255, 255, 0.18); color: #fff; }
+.copy-btn.copied { background: #16a34a; color: white; border-color: #16a34a; opacity: 1; }
+
+/* Question navigation */
+.qnav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: stretch;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+.qnav[hidden] { display: none; }
+.qnav-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    color: var(--text);
+    transition: border-color 0.15s ease, background 0.15s ease;
+    min-height: 56px;
+}
+.qnav-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+.qnav-btn:disabled { cursor: default; opacity: 0.4; }
+.qnav-btn:disabled:hover { border-color: var(--border); background: var(--sidebar-bg); }
+#qnav-next { justify-content: flex-end; text-align: right; }
+.qnav-arrow {
+    font-size: 20px;
+    color: var(--accent);
+    line-height: 1;
+}
+.qnav-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+.qnav-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--light-text);
+    font-weight: 600;
+}
+.qnav-title {
+    font-size: 14px;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 280px;
+}
+.qnav-position {
+    align-self: center;
+    color: var(--light-text);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
 .answer blockquote {
     border-left: 3px solid var(--accent);
     background: var(--accent-soft);
@@ -513,12 +718,113 @@ button { font-family: inherit; }
     color: var(--warning-text);
 }
 
-/* --- responsive --- */
+/* --- responsive (drawer + tightened spacing) --- */
 
-@media (max-width: 800px) {
-    .layout { grid-template-columns: 1fr; }
-    .sidebar { position: static; height: auto; }
-    .content { padding: 24px; }
+.drawer-toggle { display: none; }
+.drawer-backdrop { display: none; }
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sidebar becomes an off-canvas drawer */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 320px;
+        max-width: 86vw;
+        z-index: 100;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        box-shadow: 0 0 40px rgba(15, 23, 42, 0.18);
+        border-right: 1px solid var(--border);
+    }
+    body.drawer-open .sidebar { transform: translateX(0); }
+
+    .drawer-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        z-index: 200;
+        width: 42px;
+        height: 42px;
+        background: white;
+        color: var(--text);
+        border: 1px solid var(--border-strong);
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(15, 23, 42, 0.10);
+        font-family: inherit;
+        padding: 0;
+    }
+    .drawer-toggle:active { background: var(--sidebar-bg); }
+
+    .drawer-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        z-index: 90;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+    }
+    body.drawer-open .drawer-backdrop {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    body.drawer-open { overflow: hidden; }
+
+    /* Main content gets room for the hamburger */
+    .content {
+        padding: 64px 18px 28px;
+        max-width: 100%;
+    }
+
+    .answer h1 { font-size: 22px; }
+    .answer h2 { font-size: 16px; margin-top: 24px; }
+    .answer p, .answer li { font-size: 14px; }
+
+    /* Filter bar — tighter and wraps */
+    .filter-bar {
+        padding: 10px;
+        gap: 10px;
+        font-size: 12px;
+        margin-bottom: 18px;
+    }
+    .filter { gap: 6px; }
+    .filter-label { font-size: 11px; letter-spacing: 0.3px; }
+    .filter-select { font-size: 12px; padding: 5px 24px 5px 8px; }
+    .filter-count { font-size: 11px; flex-basis: 100%; text-align: right; margin-left: 0; }
+
+    /* Question nav — drop the secondary bits to keep two clean targets */
+    .qnav {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 32px;
+        padding-top: 18px;
+    }
+    .qnav-position { display: none; }
+    .qnav-title { display: none; }
+    .qnav-btn { padding: 10px 12px; min-height: 44px; }
+    .qnav-arrow { font-size: 18px; }
+
+    /* Copy button — visible by default on touch */
+    .copy-btn { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+    .content { padding: 60px 12px 24px; }
+    .answer pre { font-size: 12px; padding: 12px 14px; }
+    .filter-bar { padding: 8px; }
+    .filter { flex-direction: column; align-items: flex-start; gap: 2px; }
 }
 
 /* --- scrollbar polish --- */

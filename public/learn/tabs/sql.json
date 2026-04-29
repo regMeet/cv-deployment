@@ -3,55 +3,65 @@
     {
       "id": "theory",
       "label": "Theory",
+      "label_es": "Teoría",
       "questions": [
-        { "id": "command-categories", "title": "SQL command categories (DQL/DML/DDL/DCL/TCL)", "file": "theory/01-command-categories.md" },
-        { "id": "select-anatomy", "title": "SELECT anatomy & clause execution order", "file": "theory/02-select-anatomy.md" },
-        { "id": "join-types", "title": "JOIN types — INNER / LEFT / RIGHT / FULL / CROSS / SELF", "file": "theory/03-join-types.md" },
-        { "id": "subqueries", "title": "Subqueries — scalar, derived, correlated", "file": "theory/04-subqueries.md" },
-        { "id": "set-operations", "title": "Set operations — UNION / INTERSECT / EXCEPT", "file": "theory/05-set-operations.md" },
-        { "id": "group-by-aggregations", "title": "GROUP BY & aggregations", "file": "theory/06-group-by-aggregations.md" },
-        { "id": "ctes", "title": "CTEs (WITH clause)", "file": "theory/07-ctes.md" }
+        { "id": "command-categories", "title": "SQL command categories (DQL/DML/DDL/DCL/TCL)", "title_es": "Categorías de comandos SQL (DQL/DML/DDL/DCL/TCL)", "file": "theory/01-command-categories.md" },
+        { "id": "select-anatomy", "title": "SELECT anatomy & clause execution order", "title_es": "Anatomía del SELECT y orden de ejecución de cláusulas", "file": "theory/02-select-anatomy.md" },
+        { "id": "join-types", "title": "JOIN types — INNER / LEFT / RIGHT / FULL / CROSS / SELF", "title_es": "Tipos de JOIN — INNER / LEFT / RIGHT / FULL / CROSS / SELF", "file": "theory/03-join-types.md" },
+        { "id": "subqueries", "title": "Subqueries — scalar, derived, correlated", "title_es": "Subqueries — escalares, derivadas, correlacionadas", "file": "theory/04-subqueries.md" },
+        { "id": "set-operations", "title": "Set operations — UNION / INTERSECT / EXCEPT", "title_es": "Operaciones de conjunto — UNION / INTERSECT / EXCEPT", "file": "theory/05-set-operations.md" },
+        { "id": "group-by-aggregations", "title": "GROUP BY & aggregations", "title_es": "GROUP BY y agregaciones", "file": "theory/06-group-by-aggregations.md" },
+        { "id": "ctes", "title": "CTEs (WITH clause)", "title_es": "CTEs (cláusula WITH)", "file": "theory/07-ctes.md" }
       ]
     },
     {
       "id": "common-patterns",
       "label": "Common Patterns",
+      "label_es": "Patrones comunes",
       "questions": [
-        { "id": "top-n-per-group", "title": "Top-N per group", "file": "common-patterns/01-top-n-per-group.md" },
-        { "id": "exists-vs-in", "title": "EXISTS vs IN vs JOIN+DISTINCT", "file": "common-patterns/02-exists-vs-in.md" }
+        { "id": "top-n-per-group", "title": "Top-N per group", "title_es": "Top-N por grupo", "file": "common-patterns/01-top-n-per-group.md" },
+        { "id": "exists-vs-in", "title": "EXISTS vs IN vs JOIN+DISTINCT", "title_es": "EXISTS vs IN vs JOIN+DISTINCT", "file": "common-patterns/02-exists-vs-in.md" }
       ]
     },
     {
       "id": "window-functions",
       "label": "Window Functions",
+      "label_es": "Funciones de ventana",
       "questions": [
-        { "id": "overview", "title": "Window functions — RANK / LAG / running totals", "file": "window-functions/01-overview.md" }
+        { "id": "overview", "title": "Window functions — RANK / LAG / running totals", "title_es": "Funciones de ventana — RANK / LAG / totales acumulados", "file": "window-functions/01-overview.md" }
       ]
     },
     {
       "id": "performance",
       "label": "Performance",
+      "label_es": "Rendimiento",
       "questions": [
-        { "id": "indexes", "title": "Indexes — strategy & gotchas", "file": "performance/01-indexes.md" },
-        { "id": "explain", "title": "Reading EXPLAIN / query plans", "file": "performance/02-explain.md" },
-        { "id": "pagination-keyset", "title": "Pagination at scale — OFFSET vs keyset", "file": "performance/03-pagination-keyset.md" }
+        { "id": "indexes", "title": "Indexes — strategy & gotchas", "title_es": "Índices — estrategia y trampas", "file": "performance/01-indexes.md" },
+        { "id": "explain", "title": "Reading EXPLAIN / query plans", "title_es": "Leer EXPLAIN / planes de query", "file": "performance/02-explain.md" },
+        { "id": "pagination-keyset", "title": "Pagination at scale — OFFSET vs keyset", "title_es": "Paginación a escala — OFFSET vs keyset", "file": "performance/03-pagination-keyset.md" }
       ]
     },
     {
       "id": "advanced",
       "label": "Advanced",
+      "label_es": "Avanzado",
       "questions": [
-        { "id": "recursive-ctes", "title": "Recursive CTEs (hierarchies, graphs)", "file": "advanced/01-recursive-ctes.md" },
-        { "id": "locking", "title": "Locking — pessimistic vs optimistic", "file": "advanced/02-locking.md" }
+        { "id": "recursive-ctes", "title": "Recursive CTEs (hierarchies, graphs)", "title_es": "CTEs recursivas (jerarquías, grafos)", "file": "advanced/01-recursive-ctes.md" },
+        { "id": "locking", "title": "Locking — pessimistic vs optimistic", "title_es": "Locking — pesimista vs optimista", "file": "advanced/02-locking.md" }
       ]
     },
     {
       "id": "live-coding",
       "label": "Live Coding",
+      "label_es": "Live Coding",
       "questions": [
-        { "id": "duplicates", "title": "Users with more than one email", "file": "live-coding/01-duplicates.md" },
-        { "id": "second-highest-salary", "title": "Second-highest salary", "file": "live-coding/02-second-highest-salary.md" },
-        { "id": "employees-no-salary", "title": "Employees with no salary", "file": "live-coding/03-employees-no-salary.md" }
+        { "id": "duplicates", "title": "Users with more than one email", "title_es": "Usuarios con más de un email", "file": "live-coding/01-duplicates.md" },
+        { "id": "second-highest-salary", "title": "Second-highest salary", "title_es": "Segundo salario más alto", "file": "live-coding/02-second-highest-salary.md" },
+        { "id": "employees-no-salary", "title": "Employees with no salary", "title_es": "Empleados sin salario", "file": "live-coding/03-employees-no-salary.md" },
+        { "id": "top-n-per-group", "title": "Top 3 salaries per department", "title_es": "Top 3 salarios por departamento", "file": "live-coding/04-top-n-per-group.md" },
+        { "id": "running-total", "title": "Running total (cumulative sum)", "title_es": "Total acumulado (suma acumulativa)", "file": "live-coding/05-running-total.md" },
+        { "id": "consecutive-logins", "title": "Users with N consecutive days of logins", "title_es": "Usuarios con N días consecutivos de logins", "file": "live-coding/06-consecutive-logins.md" },
+        { "id": "month-over-month-growth", "title": "Month-over-month revenue growth", "title_es": "Crecimiento mes a mes de los ingresos", "file": "live-coding/07-month-over-month-growth.md" }
       ]
     }
   ]

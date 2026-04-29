@@ -9,10 +9,106 @@ const searchInputEl = document.getElementById('search-input');
 const searchClearEl = document.getElementById('search-clear');
 const searchResultsEl = document.getElementById('search-results');
 const searchStatusEl = document.getElementById('search-status');
+const filterBarEl = document.getElementById('filter-bar');
+const filterTopicEl = document.getElementById('filter-topic');
+const filterOriginEl = document.getElementById('filter-origin');
+const filterResetEl = document.getElementById('filter-reset');
+const filterRandomEl = document.getElementById('filter-random');
+const filterCountEl = document.getElementById('filter-count');
+const qnavEl = document.getElementById('qnav');
+const qnavPrevEl = document.getElementById('qnav-prev');
+const qnavNextEl = document.getElementById('qnav-next');
+const qnavPrevTitleEl = document.getElementById('qnav-prev-title');
+const qnavNextTitleEl = document.getElementById('qnav-next-title');
+const qnavPositionEl = document.getElementById('qnav-position');
+const drawerToggleEl = document.getElementById('drawer-toggle');
+const drawerBackdropEl = document.getElementById('drawer-backdrop');
 
 const FAV_KEY = 'learn:favorites';
 const LANG_KEY = 'app:lang';
 const TAB_ICONS = { java: '☕', react: '⚛️', sql: '🗄️', manager: '👔' };
+
+const I18N = {
+    en: {
+        questionsHeader: 'Questions',
+        favorites: '★ Favorites',
+        addFav: 'Add to favorites',
+        removeFav: 'Remove from favorites',
+        noQuestions: 'No questions yet.',
+        noSections: 'No sections yet.',
+        noCategories: 'No categories yet.',
+        pickSectionAndQuestion: 'Pick a section and question on the left.',
+        pickQuestion: 'Pick a question on the left.',
+        pickCategoryAndQuestion: 'Pick a category and a question on the left.',
+        loading: 'Loading…',
+        searchPlaceholder: 'Search…',
+        searching: 'Searching…',
+        indexing: 'Indexing…',
+        searchResults: 'Search results',
+        noResults: (q) => `No results for "${q}"`,
+        results: (n, q) => `${n} result${n === 1 ? '' : 's'} for "${q}"`,
+        filterTopic: 'Topic',
+        filterOrigin: 'Origin',
+        filterReset: 'Reset',
+        filterRandom: '🎲',
+        filterAll: 'All',
+        filterCount: (shown, total) => `${shown} / ${total}`,
+        noFilterMatch: 'No questions match the selected filters.',
+        navPrev: 'Previous',
+        navNext: 'Next',
+        navPosition: (i, n) => `${i} / ${n}`,
+        copy: 'Copy',
+        copied: 'Copied',
+    },
+    es: {
+        questionsHeader: 'Preguntas',
+        favorites: '★ Favoritos',
+        addFav: 'Agregar a favoritos',
+        removeFav: 'Quitar de favoritos',
+        noQuestions: 'Aún no hay preguntas.',
+        noSections: 'Aún no hay secciones.',
+        noCategories: 'Aún no hay categorías.',
+        pickSectionAndQuestion: 'Elegí una sección y una pregunta a la izquierda.',
+        pickQuestion: 'Elegí una pregunta a la izquierda.',
+        pickCategoryAndQuestion: 'Elegí una categoría y una pregunta a la izquierda.',
+        loading: 'Cargando…',
+        searchPlaceholder: 'Buscar…',
+        searching: 'Buscando…',
+        indexing: 'Indexando…',
+        searchResults: 'Resultados de búsqueda',
+        noResults: (q) => `Sin resultados para "${q}"`,
+        results: (n, q) => `${n} resultado${n === 1 ? '' : 's'} para "${q}"`,
+        filterTopic: 'Tema',
+        filterOrigin: 'Origen',
+        filterReset: 'Limpiar',
+        filterRandom: '🎲',
+        filterAll: 'Todos',
+        filterCount: (shown, total) => `${shown} / ${total}`,
+        noFilterMatch: 'Ninguna pregunta coincide con los filtros.',
+        navPrev: 'Anterior',
+        navNext: 'Siguiente',
+        navPosition: (i, n) => `${i} / ${n}`,
+        copy: 'Copiar',
+        copied: 'Copiado',
+    },
+};
+
+function t(key) {
+    const v = I18N[state.lang]?.[key];
+    return v !== undefined ? v : I18N.en[key];
+}
+
+function pickLabel(item) {
+    if (!item) return '';
+    if (state.lang === 'es' && item.label_es) return item.label_es;
+    return item.label || '';
+}
+
+function pickTitle(item) {
+    if (!item) return '';
+    if (state.lang === 'es' && item.title_es) return item.title_es;
+    return item.title || '';
+}
 
 const mdCache = new Map();              // path → text (raw)
 const searchIndices = { en: null, es: null };
@@ -25,7 +121,31 @@ const state = {
     favorites: loadFavorites(),
     lang: localStorage.getItem(LANG_KEY) || 'en',
     searchQuery: '',
+    filterTopic: '',
+    filterOrigin: '',
 };
+
+function sectionSupportsFilters(section) {
+    if (!section) return false;
+    return (section.questions || []).some((q) => (q.topics && q.topics.length) || q.origin);
+}
+
+function getFilteredQuestions(section) {
+    if (!section) return [];
+    const all = section.questions || [];
+    if (!sectionSupportsFilters(section)) return all;
+    if (!state.filterTopic && !state.filterOrigin) return all;
+    return all.filter((q) => {
+        if (state.filterTopic) {
+            const topics = q.topics || [];
+            if (!topics.includes(state.filterTopic)) return false;
+        }
+        if (state.filterOrigin) {
+            if (q.origin !== state.filterOrigin) return false;
+        }
+        return true;
+    });
+}
 
 let buildPromise = null;
 let searchTimer = null;
@@ -73,21 +193,29 @@ function buildFavoritesSection(tab) {
             return {
                 id: `${f.sectionId}.${f.questionId}`,
                 title: realQ.title,
+                title_es: realQ.title_es,
                 file: realQ.file,
                 originSectionId: f.sectionId,
                 originSectionLabel: realSection.label,
+                originSectionLabel_es: realSection.label_es,
                 originQuestionId: f.questionId,
             };
         })
         .filter(Boolean);
     if (!questions.length) return null;
-    return { id: 'favorites', label: '★ Favorites', questions, isFavoritesSection: true };
+    return {
+        id: 'favorites',
+        label: '★ Favorites',
+        label_es: '★ Favoritos',
+        questions,
+        isFavoritesSection: true,
+    };
 }
 
 // --- fetch + cache ---
 
 async function fetchJSON(path) {
-    const res = await fetch(path);
+    const res = await fetch(path, { cache: 'no-cache' });
     if (!res.ok) throw new Error(`Failed to load ${path}`);
     return res.json();
 }
@@ -104,7 +232,7 @@ async function fetchMd(tabId, file, lang) {
     const path = pathFor(tabId, file, lang);
     if (mdCache.has(path)) return mdCache.get(path);
     try {
-        const res = await fetch(path);
+        const res = await fetch(path, { cache: 'no-cache' });
         if (!res.ok) return null;
         const text = await res.text();
         mdCache.set(path, text);
@@ -138,7 +266,7 @@ function renderTabs() {
         btn.className = 'tab' + (tab.id === state.activeTab?.id ? ' active' : '');
         btn.type = 'button';
         const icon = TAB_ICONS[tab.id] || '';
-        btn.innerHTML = `<span class="tab-icon">${icon}</span><span class="tab-label">${escapeHtml(tab.label)}</span>`;
+        btn.innerHTML = `<span class="tab-icon">${icon}</span><span class="tab-label">${escapeHtml(pickLabel(tab))}</span>`;
         btn.onclick = () => selectTab(tab);
         tabsEl.appendChild(btn);
     });
@@ -158,23 +286,108 @@ function renderSubtabs() {
         const btn = document.createElement('button');
         btn.className = 'subtab' + (section.id === state.activeSection?.id ? ' active' : '');
         btn.type = 'button';
-        btn.textContent = section.label;
+        btn.textContent = pickLabel(section);
         btn.onclick = () => selectSection(section);
         subtabsEl.appendChild(btn);
     });
 }
 
+function uniqueSorted(values) {
+    return Array.from(new Set(values.filter(Boolean))).sort((a, b) => a.localeCompare(b));
+}
+
+function computeFacetCounts(section) {
+    const all = section?.questions || [];
+    const topicCounts = {};
+    const originCounts = {};
+    let allTopicsTotal = 0;
+    let allOriginsTotal = 0;
+    for (const q of all) {
+        const topics = q.topics || [];
+        const origin = q.origin;
+        const topicMatch = !state.filterTopic || topics.includes(state.filterTopic);
+        const originMatch = !state.filterOrigin || origin === state.filterOrigin;
+        // Topic options reflect the current Origin filter
+        if (originMatch) {
+            for (const tp of topics) {
+                topicCounts[tp] = (topicCounts[tp] || 0) + 1;
+            }
+            allTopicsTotal++;
+        }
+        // Origin options reflect the current Topic filter
+        if (topicMatch) {
+            if (origin) originCounts[origin] = (originCounts[origin] || 0) + 1;
+            allOriginsTotal++;
+        }
+    }
+    return { topicCounts, originCounts, allTopicsTotal, allOriginsTotal };
+}
+
+function populateFilterDropdowns(section) {
+    if (!filterTopicEl || !filterOriginEl) return;
+    const all = section?.questions || [];
+    const topics = uniqueSorted(all.flatMap((q) => q.topics || []));
+    const origins = uniqueSorted(all.map((q) => q.origin));
+    const { topicCounts, originCounts, allTopicsTotal, allOriginsTotal } = computeFacetCounts(section);
+
+    const fillSelect = (el, values, current, counts, allTotal) => {
+        const allLabel = t('filterAll');
+        el.innerHTML = '';
+        const optAll = document.createElement('option');
+        optAll.value = '';
+        optAll.textContent = `${allLabel} (${allTotal})`;
+        el.appendChild(optAll);
+        values.forEach((v) => {
+            const opt = document.createElement('option');
+            opt.value = v;
+            const n = counts[v] || 0;
+            opt.textContent = `${v} (${n})`;
+            if (n === 0 && v !== current) opt.disabled = true;
+            el.appendChild(opt);
+        });
+        el.value = values.includes(current) ? current : '';
+    };
+
+    fillSelect(filterTopicEl, topics, state.filterTopic, topicCounts, allTopicsTotal);
+    fillSelect(filterOriginEl, origins, state.filterOrigin, originCounts, allOriginsTotal);
+    if (filterTopicEl.value === '') state.filterTopic = '';
+    if (filterOriginEl.value === '') state.filterOrigin = '';
+}
+
+function applyStaticI18nFilters() {
+    if (!filterBarEl) return;
+    filterBarEl.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.dataset.i18n;
+        if (key) el.textContent = t(key);
+    });
+}
+
+function updateFilterBar(section, shown, total) {
+    if (!filterBarEl) return;
+    const enabled = sectionSupportsFilters(section);
+    filterBarEl.hidden = !enabled;
+    if (!enabled) return;
+    populateFilterDropdowns(section);
+    applyStaticI18nFilters();
+    const hasFilter = !!(state.filterTopic || state.filterOrigin);
+    if (filterResetEl) filterResetEl.disabled = !hasFilter;
+    if (filterCountEl) filterCountEl.textContent = t('filterCount')(shown, total);
+}
+
 function renderQuestions() {
     const section = state.activeSection;
-    const count = section?.questions?.length ?? 0;
+    const total = section?.questions?.length ?? 0;
+    const questions = getFilteredQuestions(section);
+    const count = questions.length;
     questionsTitleEl.innerHTML = section
-        ? `${escapeHtml(section.label)} <span class="count">${count}</span>`
-        : 'Questions';
+        ? `${escapeHtml(pickLabel(section))} <span class="count">${count}</span>`
+        : t('questionsHeader');
+    updateFilterBar(section, count, total);
     questionsEl.innerHTML = '';
-    const questions = section?.questions || [];
     if (!questions.length) {
         const li = document.createElement('li');
-        li.innerHTML = '<span class="hint" style="padding:8px 10px;display:block;">No questions yet.</span>';
+        const msg = total > 0 ? t('noFilterMatch') : t('noQuestions');
+        li.innerHTML = `<span class="hint" style="padding:8px 10px;display:block;">${escapeHtml(msg)}</span>`;
         questionsEl.appendChild(li);
         return;
     }
@@ -190,13 +403,13 @@ function renderQuestions() {
         if (section.isFavoritesSection) {
             const badge = document.createElement('span');
             badge.className = 'origin-badge';
-            badge.textContent = q.originSectionLabel;
+            badge.textContent = pickLabel({ label: q.originSectionLabel, label_es: q.originSectionLabel_es });
             const text = document.createElement('span');
-            text.textContent = q.title;
+            text.textContent = pickTitle(q);
             titleBtn.appendChild(badge);
             titleBtn.appendChild(text);
         } else {
-            titleBtn.textContent = q.title;
+            titleBtn.textContent = pickTitle(q);
         }
 
         const sectionIdForFav = section.isFavoritesSection ? q.originSectionId : section.id;
@@ -207,7 +420,7 @@ function renderQuestions() {
         starBtn.className = 'star-btn' + (fav ? ' active' : '');
         starBtn.type = 'button';
         starBtn.textContent = fav ? '★' : '☆';
-        starBtn.title = fav ? 'Remove from favorites' : 'Add to favorites';
+        starBtn.title = fav ? t('removeFav') : t('addFav');
         starBtn.onclick = (e) => {
             e.stopPropagation();
             toggleFavorite(state.activeTab.id, sectionIdForFav, questionIdForFav);
@@ -254,7 +467,8 @@ async function selectTab(tab) {
     state.activeSection = null;
     state.activeQuestion = null;
     renderTabs();
-    answerEl.innerHTML = '<p class="hint">Pick a section and question on the left.</p>';
+    answerEl.innerHTML = `<p class="hint">${escapeHtml(t('pickSectionAndQuestion'))}</p>`;
+    updateQnav();
 
     await ensureTabSections(tab);
     renderSubtabs();
@@ -263,18 +477,23 @@ async function selectTab(tab) {
     if (sections.length) {
         selectSection(sections[0]);
     } else {
-        questionsTitleEl.textContent = 'Questions';
-        questionsEl.innerHTML = '<li><span class="hint" style="padding:8px 10px;display:block;">No sections yet.</span></li>';
+        questionsTitleEl.textContent = t('questionsHeader');
+        questionsEl.innerHTML = `<li><span class="hint" style="padding:8px 10px;display:block;">${escapeHtml(t('noSections'))}</span></li>`;
         updateHash();
     }
 }
 
 function selectSection(section) {
+    if (state.activeSection?.id !== section?.id) {
+        state.filterTopic = '';
+        state.filterOrigin = '';
+    }
     state.activeSection = section;
     state.activeQuestion = null;
     renderSubtabs();
     renderQuestions();
-    answerEl.innerHTML = '<p class="hint">Pick a question on the left.</p>';
+    answerEl.innerHTML = `<p class="hint">${escapeHtml(t('pickQuestion'))}</p>`;
+    updateQnav();
     updateHash();
 }
 
@@ -284,7 +503,7 @@ async function selectQuestion(q, opts = {}) {
 
     const cached = mdCache.has(pathFor(state.activeTab.id, q.file, state.lang)) ||
                    mdCache.has(pathFor(state.activeTab.id, q.file, 'en'));
-    if (!cached) answerEl.innerHTML = '<p class="hint">Loading…</p>';
+    if (!cached) answerEl.innerHTML = `<p class="hint">${escapeHtml(t('loading'))}</p>`;
 
     try {
         const { text, fellBack } = await getQuestionContent(state.activeTab.id, q.file);
@@ -293,13 +512,184 @@ async function selectQuestion(q, opts = {}) {
             html = '<div class="lang-fallback-banner">🇪🇸 Traducción al español pendiente — mostrando la versión en inglés.</div>' + html;
         }
         answerEl.innerHTML = html;
+        enhanceCodeBlocks(answerEl);
+        updateQnav();
         updateHash();
+        maybeCloseDrawer();
         if (opts.scroll !== false) {
             answerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         prefetchOtherLang(state.activeTab.id, q.file);
     } catch (err) {
         answerEl.innerHTML = `<p class="error">${err.message}</p>`;
+        updateQnav();
+    }
+}
+
+// --- Prism + copy buttons ---
+
+function enhanceCodeBlocks(root) {
+    const pres = root.querySelectorAll('pre');
+    pres.forEach((pre) => {
+        if (pre.parentElement?.classList.contains('code-block')) return;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copy-btn';
+        btn.textContent = t('copy');
+        btn.addEventListener('click', () => copyCode(pre, btn));
+        wrapper.appendChild(btn);
+    });
+    if (window.Prism) {
+        try { window.Prism.highlightAllUnder(root); } catch {}
+    }
+}
+
+function copyCode(pre, btn) {
+    const code = pre.querySelector('code')?.textContent ?? pre.textContent ?? '';
+    const done = () => {
+        btn.classList.add('copied');
+        btn.textContent = t('copied');
+        setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.textContent = t('copy');
+        }, 1500);
+    };
+    if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(code).then(done, () => fallbackCopy(code, done));
+    } else {
+        fallbackCopy(code, done);
+    }
+}
+
+function fallbackCopy(text, done) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch {}
+    document.body.removeChild(ta);
+}
+
+// --- Question navigation (prev/next + keyboard) ---
+
+function updateQnav() {
+    if (!qnavEl) return;
+    const section = state.activeSection;
+    const q = state.activeQuestion;
+    if (!section || !q) {
+        qnavEl.hidden = true;
+        return;
+    }
+    const list = getFilteredQuestions(section);
+    const idx = list.findIndex((x) => x.id === q.id);
+    if (idx === -1 || list.length <= 1) {
+        qnavEl.hidden = true;
+        return;
+    }
+    qnavEl.hidden = false;
+    const prev = idx > 0 ? list[idx - 1] : null;
+    const next = idx < list.length - 1 ? list[idx + 1] : null;
+
+    qnavPrevEl.disabled = !prev;
+    qnavNextEl.disabled = !next;
+    qnavPrevTitleEl.textContent = prev ? pickTitle(prev) : '';
+    qnavNextTitleEl.textContent = next ? pickTitle(next) : '';
+    qnavPositionEl.textContent = t('navPosition')(idx + 1, list.length);
+
+    qnavPrevEl.onclick = () => prev && selectQuestion(prev);
+    qnavNextEl.onclick = () => next && selectQuestion(next);
+}
+
+function navAdjacent(delta) {
+    const section = state.activeSection;
+    if (!section) return;
+    const list = getFilteredQuestions(section);
+    if (!list.length) return;
+    const cur = state.activeQuestion;
+    const curIdx = cur ? list.findIndex((x) => x.id === cur.id) : -1;
+    const nextIdx = curIdx === -1
+        ? (delta > 0 ? 0 : list.length - 1)
+        : curIdx + delta;
+    if (nextIdx < 0 || nextIdx >= list.length) return;
+    selectQuestion(list[nextIdx]);
+}
+
+function pickRandom() {
+    const list = getFilteredQuestions(state.activeSection);
+    if (!list.length) return;
+    let pick = list[Math.floor(Math.random() * list.length)];
+    if (list.length > 1 && pick.id === state.activeQuestion?.id) {
+        const others = list.filter((x) => x.id !== pick.id);
+        pick = others[Math.floor(Math.random() * others.length)];
+    }
+    selectQuestion(pick);
+}
+
+function isTextInput(el) {
+    if (!el) return false;
+    const tag = el.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return true;
+    if (el.isContentEditable) return true;
+    return false;
+}
+
+function wireKeyboardNav() {
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.body.classList.contains('drawer-open')) {
+            closeDrawer();
+            return;
+        }
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        if (isTextInput(document.activeElement)) return;
+        if (e.key === 'j' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            navAdjacent(1);
+        } else if (e.key === 'k' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            navAdjacent(-1);
+        } else if (e.key === 'r' && state.activeSection) {
+            e.preventDefault();
+            pickRandom();
+        }
+    });
+}
+
+// --- Mobile drawer ---
+
+function isMobile() {
+    return window.matchMedia('(max-width: 900px)').matches;
+}
+
+function openDrawer() {
+    document.body.classList.add('drawer-open');
+    drawerToggleEl?.setAttribute('aria-expanded', 'true');
+}
+
+function closeDrawer() {
+    document.body.classList.remove('drawer-open');
+    drawerToggleEl?.setAttribute('aria-expanded', 'false');
+}
+
+function maybeCloseDrawer() {
+    if (isMobile()) closeDrawer();
+}
+
+function wireDrawer() {
+    if (drawerToggleEl) {
+        drawerToggleEl.addEventListener('click', () => {
+            if (document.body.classList.contains('drawer-open')) closeDrawer();
+            else openDrawer();
+        });
+    }
+    if (drawerBackdropEl) {
+        drawerBackdropEl.addEventListener('click', closeDrawer);
     }
 }
 
@@ -330,10 +720,13 @@ async function buildSearchIndex() {
                     entries.push({
                         tabId: tab.id,
                         tabLabel: tab.label,
+                        tabLabel_es: tab.label_es,
                         sectionId: section.id,
                         sectionLabel: section.label,
+                        sectionLabel_es: section.label_es,
                         questionId: q.id,
                         title: q.title,
+                        title_es: q.title_es,
                         file: q.file,
                         body: '',
                     });
@@ -363,13 +756,19 @@ function searchEntries(query) {
     if (q.length < 2 || !idx) return [];
     return idx
         .map((e) => {
-            const titleHit = e.title.toLowerCase().includes(q);
+            const title = pickTitle(e);
+            const sectionLabel = pickLabel({ label: e.sectionLabel, label_es: e.sectionLabel_es });
+            const tabLabel = pickLabel({ label: e.tabLabel, label_es: e.tabLabel_es });
+            const titleHit = title.toLowerCase().includes(q);
             const bodyHit = e.body.toLowerCase().includes(q);
-            const sectionHit = e.sectionLabel.toLowerCase().includes(q);
-            const tabHit = e.tabLabel.toLowerCase().includes(q);
+            const sectionHit = sectionLabel.toLowerCase().includes(q);
+            const tabHit = tabLabel.toLowerCase().includes(q);
             if (!titleHit && !bodyHit && !sectionHit && !tabHit) return null;
             return {
                 ...e,
+                displayTitle: title,
+                displaySectionLabel: sectionLabel,
+                displayTabLabel: tabLabel,
                 score: (titleHit ? 10 : 0) + (sectionHit ? 5 : 0) + (tabHit ? 3 : 0) + (bodyHit ? 1 : 0),
                 snippet: bodyHit ? makeSnippet(e.body, q) : '',
             };
@@ -403,19 +802,21 @@ function highlightMatch(text, query) {
 function renderSearchResults(results, query) {
     searchResultsEl.innerHTML = '';
     if (!results.length) {
-        searchStatusEl.textContent = `No results for "${query}"`;
+        searchStatusEl.textContent = t('noResults')(query);
         return;
     }
-    searchStatusEl.textContent = `${results.length} result${results.length === 1 ? '' : 's'} for "${query}"`;
+    searchStatusEl.textContent = t('results')(results.length, query);
     results.forEach((r) => {
         const li = document.createElement('li');
         const btn = document.createElement('button');
         btn.className = 'search-result';
         btn.type = 'button';
-        const title = highlightMatch(escapeHtml(r.title), query);
+        const title = highlightMatch(escapeHtml(r.displayTitle || r.title), query);
         const snippet = r.snippet ? highlightMatch(escapeHtml(r.snippet), query) : '';
+        const tabLabel = r.displayTabLabel || r.tabLabel;
+        const sectionLabel = r.displaySectionLabel || r.sectionLabel;
         btn.innerHTML =
-            `<div class="search-result-breadcrumb">${escapeHtml(r.tabLabel)} › ${escapeHtml(r.sectionLabel)}</div>` +
+            `<div class="search-result-breadcrumb">${escapeHtml(tabLabel)} › ${escapeHtml(sectionLabel)}</div>` +
             `<div class="search-result-title">${title}</div>` +
             (snippet ? `<div class="search-result-snippet">${snippet}</div>` : '');
         btn.onclick = () => goToResult(r);
@@ -463,6 +864,16 @@ function updateLangButtons() {
     });
 }
 
+function applyStaticI18n() {
+    if (searchInputEl) {
+        searchInputEl.placeholder = t('searchPlaceholder');
+        searchInputEl.setAttribute('aria-label', t('searchPlaceholder'));
+    }
+    if (searchStatusEl && searchViewEl?.hidden !== false) {
+        searchStatusEl.textContent = t('searchResults');
+    }
+}
+
 function wireLangToggle() {
     document.querySelectorAll('.lang-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -471,9 +882,49 @@ function wireLangToggle() {
             state.lang = newLang;
             localStorage.setItem(LANG_KEY, newLang);
             updateLangButtons();
+            applyStaticI18n();
+            renderTabs();
+            renderSubtabs();
+            renderQuestions();
             if (state.activeQuestion) selectQuestion(state.activeQuestion, { scroll: false });
+            if (state.searchQuery && state.searchQuery.trim()) {
+                buildSearchIndex().then(() => {
+                    const results = searchEntries(state.searchQuery);
+                    renderSearchResults(results, state.searchQuery.trim());
+                });
+            }
         });
     });
+}
+
+// --- filter wiring ---
+
+function wireFilters() {
+    if (!filterTopicEl || !filterOriginEl) return;
+    const onFilterChange = () => {
+        state.activeQuestion = null;
+        renderQuestions();
+        answerEl.innerHTML = `<p class="hint">${escapeHtml(t('pickQuestion'))}</p>`;
+        updateQnav();
+    };
+    filterTopicEl.addEventListener('change', () => {
+        state.filterTopic = filterTopicEl.value;
+        onFilterChange();
+    });
+    filterOriginEl.addEventListener('change', () => {
+        state.filterOrigin = filterOriginEl.value;
+        onFilterChange();
+    });
+    if (filterResetEl) {
+        filterResetEl.addEventListener('click', () => {
+            state.filterTopic = '';
+            state.filterOrigin = '';
+            onFilterChange();
+        });
+    }
+    if (filterRandomEl) {
+        filterRandomEl.addEventListener('click', pickRandom);
+    }
 }
 
 // --- search wiring ---
@@ -487,7 +938,7 @@ function wireSearch() {
         if (!q.trim()) { showBrowseView(); return; }
 
         showSearchView();
-        searchStatusEl.textContent = searchIndices[state.lang] ? 'Searching…' : 'Indexing…';
+        searchStatusEl.textContent = searchIndices[state.lang] ? t('searching') : t('indexing');
         searchResultsEl.innerHTML = '';
 
         searchTimer = setTimeout(async () => {
@@ -509,8 +960,15 @@ function wireSearch() {
 
 async function init() {
     updateLangButtons();
+    applyStaticI18n();
     wireLangToggle();
     wireSearch();
+    wireFilters();
+    wireKeyboardNav();
+    wireDrawer();
+
+    answerEl.innerHTML = `<p class="hint">${escapeHtml(t('pickCategoryAndQuestion'))}</p>`;
+    questionsTitleEl.textContent = t('questionsHeader');
 
     try {
         const data = await fetchJSON('tabs/tabs.json');
@@ -520,7 +978,7 @@ async function init() {
         return;
     }
     if (!state.tabs.length) {
-        tabsEl.innerHTML = '<span class="hint">No categories yet.</span>';
+        tabsEl.innerHTML = `<span class="hint">${escapeHtml(t('noCategories'))}</span>`;
         return;
     }
 

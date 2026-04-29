@@ -3,98 +3,127 @@
     {
       "id": "core",
       "label": "Core & Rendering",
+      "label_es": "Núcleo y renderizado",
       "questions": [
-        { "id": "how-react-works", "title": "How does React actually work? (VDOM, reconciliation, Fiber)", "file": "core/01-how-react-works.md" },
-        { "id": "jsx-elements", "title": "JSX and React elements", "file": "core/02-jsx-elements.md" },
-        { "id": "keys-in-lists", "title": "Keys in lists — why they matter", "file": "core/03-keys-in-lists.md" }
+        { "id": "how-react-works", "title": "How does React actually work? (VDOM, reconciliation, Fiber)", "title_es": "¿Cómo funciona React realmente? (VDOM, reconciliación, Fiber)", "file": "core/01-how-react-works.md" },
+        { "id": "jsx-elements", "title": "JSX and React elements", "title_es": "JSX y elementos de React", "file": "core/02-jsx-elements.md" },
+        { "id": "keys-in-lists", "title": "Keys in lists — why they matter", "title_es": "Keys en listas — por qué importan", "file": "core/03-keys-in-lists.md" }
       ]
     },
     {
       "id": "hooks",
       "label": "Hooks",
+      "label_es": "Hooks",
       "questions": [
-        { "id": "rules-of-hooks", "title": "Rules of Hooks (and why they exist)", "file": "hooks/01-rules-of-hooks.md" },
-        { "id": "useeffect-deps-cleanup", "title": "useEffect — dependencies & cleanup", "file": "hooks/02-useeffect-deps-cleanup.md" },
-        { "id": "usestate-vs-usereducer", "title": "useState vs useReducer", "file": "hooks/03-usestate-vs-usereducer.md" },
-        { "id": "usememo-usecallback", "title": "useMemo & useCallback — what they do", "file": "hooks/04-usememo-usecallback.md" },
-        { "id": "useref", "title": "useRef — DOM refs and mutable values", "file": "hooks/05-useref.md" },
-        { "id": "usecontext", "title": "useContext — and its trade-offs", "file": "hooks/06-usecontext.md" },
-        { "id": "custom-hooks", "title": "Custom hooks — extracting logic", "file": "hooks/07-custom-hooks.md" }
+        { "id": "rules-of-hooks", "title": "Rules of Hooks (and why they exist)", "title_es": "Reglas de los Hooks (y por qué existen)", "file": "hooks/01-rules-of-hooks.md" },
+        { "id": "useeffect-deps-cleanup", "title": "useEffect — dependencies & cleanup", "title_es": "useEffect — dependencias y cleanup", "file": "hooks/02-useeffect-deps-cleanup.md" },
+        { "id": "usestate-vs-usereducer", "title": "useState vs useReducer", "title_es": "useState vs useReducer", "file": "hooks/03-usestate-vs-usereducer.md" },
+        { "id": "usememo-usecallback", "title": "useMemo & useCallback — what they do", "title_es": "useMemo y useCallback — qué hacen", "file": "hooks/04-usememo-usecallback.md" },
+        { "id": "useref", "title": "useRef — DOM refs and mutable values", "title_es": "useRef — refs al DOM y valores mutables", "file": "hooks/05-useref.md" },
+        { "id": "usecontext", "title": "useContext — and its trade-offs", "title_es": "useContext — y sus trade-offs", "file": "hooks/06-usecontext.md" },
+        { "id": "custom-hooks", "title": "Custom hooks — extracting logic", "title_es": "Custom hooks — extraer lógica", "file": "hooks/07-custom-hooks.md" }
       ]
     },
     {
       "id": "state-management",
       "label": "State Management",
+      "label_es": "Gestión de estado",
       "questions": [
-        { "id": "local-vs-derived", "title": "Local vs derived state — colocate & compute", "file": "state-management/01-local-vs-derived.md" },
-        { "id": "context-limits", "title": "Context API — when it's enough, when it isn't", "file": "state-management/02-context-limits.md" },
-        { "id": "redux-and-alternatives", "title": "Redux vs Zustand / Jotai / Recoil", "file": "state-management/03-redux-and-alternatives.md" }
+        { "id": "local-vs-derived", "title": "Local vs derived state — colocate & compute", "title_es": "Estado local vs derivado — colocar y computar", "file": "state-management/01-local-vs-derived.md" },
+        { "id": "context-limits", "title": "Context API — when it's enough, when it isn't", "title_es": "Context API — cuándo alcanza y cuándo no", "file": "state-management/02-context-limits.md" },
+        { "id": "redux-and-alternatives", "title": "Redux vs Zustand / Jotai / Recoil", "title_es": "Redux vs Zustand / Jotai / Recoil", "file": "state-management/03-redux-and-alternatives.md" }
       ]
     },
     {
       "id": "performance",
       "label": "Performance",
+      "label_es": "Rendimiento",
       "questions": [
-        { "id": "when-rerender", "title": "When does a component re-render?", "file": "performance/01-when-rerender.md" },
-        { "id": "react-memo", "title": "React.memo — when it actually helps", "file": "performance/02-react-memo.md" },
-        { "id": "memoization-honestly", "title": "useMemo / useCallback honestly — when they're worth it", "file": "performance/03-memoization-honestly.md" },
-        { "id": "code-splitting", "title": "Code splitting with React.lazy + Suspense", "file": "performance/04-code-splitting.md" },
-        { "id": "virtualization", "title": "List virtualization (react-window / virtual)", "file": "performance/05-virtualization.md" }
+        { "id": "when-rerender", "title": "When does a component re-render?", "title_es": "¿Cuándo se re-renderiza un componente?", "file": "performance/01-when-rerender.md" },
+        { "id": "react-memo", "title": "React.memo — when it actually helps", "title_es": "React.memo — cuándo realmente ayuda", "file": "performance/02-react-memo.md" },
+        { "id": "memoization-honestly", "title": "useMemo / useCallback honestly — when they're worth it", "title_es": "useMemo / useCallback con honestidad — cuándo valen la pena", "file": "performance/03-memoization-honestly.md" },
+        { "id": "code-splitting", "title": "Code splitting with React.lazy + Suspense", "title_es": "Code splitting con React.lazy + Suspense", "file": "performance/04-code-splitting.md" },
+        { "id": "virtualization", "title": "List virtualization (react-window / virtual)", "title_es": "Virtualización de listas (react-window / virtual)", "file": "performance/05-virtualization.md" }
       ]
     },
     {
       "id": "patterns",
       "label": "Patterns",
+      "label_es": "Patrones",
       "questions": [
-        { "id": "composition-over-inheritance", "title": "Composition over inheritance", "file": "patterns/01-composition-over-inheritance.md" },
-        { "id": "render-props-hoc-hooks", "title": "Render props → HOCs → Hooks (evolution)", "file": "patterns/02-render-props-hoc-hooks.md" },
-        { "id": "compound-components", "title": "Compound components", "file": "patterns/03-compound-components.md" },
-        { "id": "custom-hooks-for-logic", "title": "Custom hooks for logic reuse", "file": "patterns/04-custom-hooks-for-logic.md" }
+        { "id": "composition-over-inheritance", "title": "Composition over inheritance", "title_es": "Composición sobre herencia", "file": "patterns/01-composition-over-inheritance.md" },
+        { "id": "render-props-hoc-hooks", "title": "Render props → HOCs → Hooks (evolution)", "title_es": "Render props → HOCs → Hooks (evolución)", "file": "patterns/02-render-props-hoc-hooks.md" },
+        { "id": "compound-components", "title": "Compound components", "title_es": "Compound components", "file": "patterns/03-compound-components.md" },
+        { "id": "custom-hooks-for-logic", "title": "Custom hooks for logic reuse", "title_es": "Custom hooks para reutilizar lógica", "file": "patterns/04-custom-hooks-for-logic.md" }
       ]
     },
     {
       "id": "data-fetching",
       "label": "Data Fetching",
+      "label_es": "Obtención de datos",
       "questions": [
-        { "id": "useeffect-fetching-pitfalls", "title": "Data fetching with useEffect — pitfalls", "file": "data-fetching/01-useeffect-fetching-pitfalls.md" },
-        { "id": "react-query-vs-swr", "title": "React Query vs SWR — why use them", "file": "data-fetching/02-react-query-vs-swr.md" },
-        { "id": "race-conditions-stale", "title": "Race conditions & stale closures in fetching", "file": "data-fetching/03-race-conditions-stale.md" }
+        { "id": "useeffect-fetching-pitfalls", "title": "Data fetching with useEffect — pitfalls", "title_es": "Data fetching con useEffect — trampas comunes", "file": "data-fetching/01-useeffect-fetching-pitfalls.md" },
+        { "id": "react-query-vs-swr", "title": "React Query vs SWR — why use them", "title_es": "React Query vs SWR — por qué usarlos", "file": "data-fetching/02-react-query-vs-swr.md" },
+        { "id": "race-conditions-stale", "title": "Race conditions & stale closures in fetching", "title_es": "Race conditions y stale closures en fetching", "file": "data-fetching/03-race-conditions-stale.md" }
       ]
     },
     {
       "id": "modern-react",
       "label": "Modern React",
+      "label_es": "React moderno",
       "questions": [
-        { "id": "react-18-features", "title": "React 18 — concurrent rendering, transitions, Suspense", "file": "modern-react/01-react-18-features.md" },
-        { "id": "server-components", "title": "Server Components (RSC)", "file": "modern-react/02-server-components.md" },
-        { "id": "ssr-csr-ssg", "title": "SSR vs CSR vs SSG vs ISR", "file": "modern-react/03-ssr-csr-ssg.md" }
+        { "id": "react-18-features", "title": "React 18 — concurrent rendering, transitions, Suspense", "title_es": "React 18 — renderizado concurrente, transitions, Suspense", "file": "modern-react/01-react-18-features.md" },
+        { "id": "server-components", "title": "Server Components (RSC)", "title_es": "Server Components (RSC)", "file": "modern-react/02-server-components.md" },
+        { "id": "ssr-csr-ssg", "title": "SSR vs CSR vs SSG vs ISR", "title_es": "SSR vs CSR vs SSG vs ISR", "file": "modern-react/03-ssr-csr-ssg.md" }
       ]
     },
     {
       "id": "forms-a11y",
       "label": "Forms & A11y",
+      "label_es": "Formularios y accesibilidad",
       "questions": [
-        { "id": "controlled-vs-uncontrolled", "title": "Controlled vs uncontrolled inputs", "file": "forms-a11y/01-controlled-vs-uncontrolled.md" },
-        { "id": "react-hook-form", "title": "React Hook Form vs Formik", "file": "forms-a11y/02-react-hook-form.md" },
-        { "id": "accessibility-essentials", "title": "Accessibility essentials in React", "file": "forms-a11y/03-accessibility-essentials.md" }
+        { "id": "controlled-vs-uncontrolled", "title": "Controlled vs uncontrolled inputs", "title_es": "Inputs controlados vs no controlados", "file": "forms-a11y/01-controlled-vs-uncontrolled.md" },
+        { "id": "react-hook-form", "title": "React Hook Form vs Formik", "title_es": "React Hook Form vs Formik", "file": "forms-a11y/02-react-hook-form.md" },
+        { "id": "accessibility-essentials", "title": "Accessibility essentials in React", "title_es": "Esenciales de accesibilidad en React", "file": "forms-a11y/03-accessibility-essentials.md" }
       ]
     },
     {
       "id": "testing",
       "label": "Testing",
+      "label_es": "Testing",
       "questions": [
-        { "id": "testing-library-philosophy", "title": "React Testing Library philosophy", "file": "testing/01-testing-library-philosophy.md" },
-        { "id": "async-test-patterns", "title": "Async test patterns (waitFor, findBy, mocks)", "file": "testing/02-async-test-patterns.md" }
+        { "id": "testing-library-philosophy", "title": "React Testing Library philosophy", "title_es": "Filosofía de React Testing Library", "file": "testing/01-testing-library-philosophy.md" },
+        { "id": "async-test-patterns", "title": "Async test patterns (waitFor, findBy, mocks)", "title_es": "Patrones de tests async (waitFor, findBy, mocks)", "file": "testing/02-async-test-patterns.md" }
       ]
     },
     {
       "id": "pitfalls",
       "label": "Common Pitfalls",
+      "label_es": "Errores comunes",
       "questions": [
-        { "id": "stale-closures", "title": "Stale closures", "file": "pitfalls/01-stale-closures.md" },
-        { "id": "effect-deps-bugs", "title": "Effect dependency-array bugs", "file": "pitfalls/02-effect-deps-bugs.md" },
-        { "id": "rerender-storms", "title": "Re-render storms", "file": "pitfalls/03-rerender-storms.md" },
-        { "id": "key-prop-misuse", "title": "Key prop misuse (and using index)", "file": "pitfalls/04-key-prop-misuse.md" }
+        { "id": "stale-closures", "title": "Stale closures", "title_es": "Stale closures", "file": "pitfalls/01-stale-closures.md" },
+        { "id": "effect-deps-bugs", "title": "Effect dependency-array bugs", "title_es": "Bugs en el array de dependencias de Effect", "file": "pitfalls/02-effect-deps-bugs.md" },
+        { "id": "rerender-storms", "title": "Re-render storms", "title_es": "Tormentas de re-renderizado", "file": "pitfalls/03-rerender-storms.md" },
+        { "id": "key-prop-misuse", "title": "Key prop misuse (and using index)", "title_es": "Mal uso de la prop key (y usar el índice)", "file": "pitfalls/04-key-prop-misuse.md" }
+      ]
+    },
+    {
+      "id": "live-coding",
+      "label": "Live Coding",
+      "label_es": "Live Coding",
+      "questions": [
+        { "id": "counter",          "title": "Counter (useState basics)",                "title_es": "Counter (bases de useState)",                "file": "live-coding/01-counter.md",          "topics": ["Hooks", "State Patterns"],          "origin": "Easy" },
+        { "id": "todo-list",        "title": "Todo list (add / toggle / remove)",        "title_es": "Lista de tareas (agregar / toggle / quitar)", "file": "live-coding/02-todo-list.md",     "topics": ["Hooks", "Lists / Rendering"],       "origin": "Easy" },
+        { "id": "live-search",      "title": "Live search filter",                       "title_es": "Filtro de búsqueda en vivo",                "file": "live-coding/03-live-search.md",      "topics": ["Hooks", "Lists / Rendering"],       "origin": "Easy" },
+        { "id": "fetch-list",       "title": "Fetch + display list (loading / error)",   "title_es": "Fetch + listar (loading / error)",          "file": "live-coding/04-fetch-list.md",       "topics": ["Async / Data Fetching", "Hooks"],   "origin": "Medium" },
+        { "id": "use-debounce",     "title": "Custom hook: useDebounce",                 "title_es": "Custom hook: useDebounce",                  "file": "live-coding/05-use-debounce.md",     "topics": ["Custom Hooks", "Performance"],      "origin": "Medium" },
+        { "id": "use-localstorage", "title": "Custom hook: useLocalStorage",             "title_es": "Custom hook: useLocalStorage",              "file": "live-coding/06-use-localstorage.md", "topics": ["Custom Hooks", "Hooks"],            "origin": "Medium" },
+        { "id": "star-rating",      "title": "Star rating component",                    "title_es": "Componente de star rating",                 "file": "live-coding/07-star-rating.md",      "topics": ["State Patterns", "Accessibility"],  "origin": "Medium" },
+        { "id": "modal-portal",     "title": "Modal with createPortal (esc + outside)",  "title_es": "Modal con createPortal (esc + clic fuera)", "file": "live-coding/08-modal-portal.md",     "topics": ["Portals", "Refs / DOM", "Accessibility"], "origin": "Medium" },
+        { "id": "accordion-compound", "title": "Accordion (compound components)",        "title_es": "Accordion (compound components)",           "file": "live-coding/09-accordion-compound.md", "topics": ["Compound Components", "State Patterns"], "origin": "Hard" },
+        { "id": "autocomplete",     "title": "Autocomplete (async + keyboard nav)",      "title_es": "Autocomplete (async + navegación con teclado)", "file": "live-coding/10-autocomplete.md", "topics": ["Async / Data Fetching", "Custom Hooks", "Accessibility"], "origin": "Hard" },
+        { "id": "infinite-scroll",  "title": "Infinite scroll (IntersectionObserver)",   "title_es": "Infinite scroll (IntersectionObserver)",    "file": "live-coding/11-infinite-scroll.md",  "topics": ["Refs / DOM", "Async / Data Fetching"], "origin": "Hard" },
+        { "id": "tic-tac-toe",      "title": "Tic-tac-toe",                              "title_es": "Tic-tac-toe (Tres en raya)",                "file": "live-coding/12-tic-tac-toe.md",      "topics": ["State Patterns", "Lists / Rendering"], "origin": "Hard" }
       ]
     }
   ]
