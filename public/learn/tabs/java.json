@@ -883,7 +883,7 @@
           "title_es": "Frog Jmp — Lesson 1",
           "file": "algorithms/codility-lessons-lesson1-frogjmp.md",
           "topics": [
-            "Misc"
+            "Math"
           ],
           "origin": "Codility"
         },
@@ -1108,7 +1108,7 @@
           "title_es": "Count Div — Lesson 3",
           "file": "algorithms/codility-lessons-lesson3-countdiv.md",
           "topics": [
-            "Misc"
+            "Math / Number Theory"
           ],
           "origin": "Codility"
         },
@@ -1298,7 +1298,7 @@
           "title_es": "Min Perimeter Rectangle — Lesson 8",
           "file": "algorithms/codility-lessons-lesson8-minperimeterrectangle.md",
           "topics": [
-            "Misc"
+            "Math / Number Theory"
           ],
           "origin": "Codility"
         },
@@ -1381,7 +1381,7 @@
           "title_es": "Dominant",
           "file": "algorithms/alan-exercises-dominant.md",
           "topics": [
-            "Misc"
+            "Arrays"
           ],
           "origin": "Personal"
         },
@@ -1401,7 +1401,7 @@
           "title_es": "Baseball",
           "file": "algorithms/alan-amazon-interview-baseball.md",
           "topics": [
-            "Misc"
+            "Arrays"
           ],
           "origin": "Amazon"
         },
@@ -1411,7 +1411,7 @@
           "title_es": "Movie",
           "file": "algorithms/alan-amazon-interview-movie.md",
           "topics": [
-            "Misc"
+            "Arrays"
           ],
           "origin": "Amazon"
         },
@@ -1505,7 +1505,7 @@
           "title_es": "Día 1 — Tipos de datos",
           "file": "algorithms/alan-hackerrank-day1.md",
           "topics": [
-            "Misc"
+            "Strings"
           ],
           "origin": "HackerRank"
         },
@@ -1691,7 +1691,7 @@
           "title_es": "Día 26 — Lógica anidada (multa de biblioteca)",
           "file": "algorithms/alan-hackerrank-day26.md",
           "topics": [
-            "Misc"
+            "Math"
           ],
           "origin": "HackerRank"
         },
@@ -1731,7 +1731,7 @@
           "title_es": "Día 3 — Condicionales (Weird)",
           "file": "algorithms/alan-hackerrank-day3.md",
           "topics": [
-            "Misc"
+            "Math"
           ],
           "origin": "HackerRank"
         },
@@ -1871,7 +1871,7 @@
           "title_es": "Rectangle Intersection",
           "file": "algorithms/alan-newest-rectangleintersection.md",
           "topics": [
-            "Misc"
+            "Math"
           ],
           "origin": "Personal"
         },
@@ -1893,7 +1893,7 @@
           "title_es": "Count Div",
           "file": "algorithms/alan-older-countdiv.md",
           "topics": [
-            "Misc"
+            "Math / Number Theory"
           ],
           "origin": "Codility"
         },
@@ -1943,7 +1943,7 @@
           "title_es": "Bit Rev",
           "file": "algorithms/alan-todo-bit-rev.md",
           "topics": [
-            "Misc"
+            "Bit Manipulation"
           ],
           "origin": "Personal"
         },
@@ -1953,7 +1953,7 @@
           "title_es": "Heavy Decimal Count",
           "file": "algorithms/alan-todo-heavy-decimal-count.md",
           "topics": [
-            "Misc"
+            "Math / Number Theory"
           ],
           "origin": "Personal"
         },
@@ -1993,7 +1993,7 @@
           "title_es": "Correct Sentence Mejorar",
           "file": "algorithms/alan-toptal-tt17b-correctsentencemejorar.md",
           "topics": [
-            "Misc"
+            "Strings"
           ],
           "origin": "Toptal"
         },
@@ -2193,7 +2193,7 @@
           "title_es": "Modified Names Report",
           "file": "algorithms/anio2022-neginet-util-modifiednamesreport.md",
           "topics": [
-            "Misc"
+            "Strings"
           ],
           "origin": "NegiNet"
         },
@@ -2203,7 +2203,8 @@
           "title_es": "Name Count",
           "file": "algorithms/anio2022-neginet-util-namecount.md",
           "topics": [
-            "Misc"
+            "Strings",
+            "Hash Map"
           ],
           "origin": "NegiNet"
         },
@@ -2327,7 +2328,7 @@
           "title_es": "Check Rotation",
           "file": "algorithms/javaconceptoftheday-strings-checkrotation.md",
           "topics": [
-            "Misc"
+            "Strings"
           ],
           "origin": "JavaConceptOfTheDay"
         },
@@ -2357,7 +2358,8 @@
           "title_es": "Count Character Occurence",
           "file": "algorithms/javaconceptoftheday-strings-countcharacteroccurence.md",
           "topics": [
-            "Misc"
+            "Strings",
+            "Hash Map"
           ],
           "origin": "JavaConceptOfTheDay"
         },
@@ -2494,7 +2496,7 @@
           "title_es": "String Examples",
           "file": "algorithms/javaconceptoftheday-strings-stringexamples.md",
           "topics": [
-            "Misc"
+            "Strings"
           ],
           "origin": "JavaConceptOfTheDay"
         },
@@ -2525,7 +2527,7 @@
           "title_es": "Match Word",
           "file": "algorithms/lyft-matchword.md",
           "topics": [
-            "Misc"
+            "Strings"
           ],
           "origin": "Lyft"
         },
