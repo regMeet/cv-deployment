@@ -3,115 +3,2666 @@
     {
       "id": "oop-modern",
       "label": "OOP & Modern Java",
+      "label_es": "POO y Java moderno",
       "questions": [
-        { "id": "interface-vs-abstract", "title": "Interface vs Abstract Class", "file": "oop-modern/01-interface-vs-abstract.md" },
-        { "id": "records", "title": "Records (Java 16+)", "file": "oop-modern/02-records.md" },
-        { "id": "sealed-classes", "title": "Sealed Classes (Java 17)", "file": "oop-modern/03-sealed-classes.md" },
-        { "id": "decision-guide", "title": "Modern Java decision guide", "file": "oop-modern/04-modern-decision-guide.md" }
+        {
+          "id": "interface-vs-abstract",
+          "title": "Interface vs Abstract Class",
+          "title_es": "Interface vs Clase abstracta",
+          "file": "oop-modern/01-interface-vs-abstract.md"
+        },
+        {
+          "id": "records",
+          "title": "Records (Java 16+)",
+          "title_es": "Records (Java 16+)",
+          "file": "oop-modern/02-records.md"
+        },
+        {
+          "id": "sealed-classes",
+          "title": "Sealed Classes (Java 17)",
+          "title_es": "Sealed classes (Java 17)",
+          "file": "oop-modern/03-sealed-classes.md"
+        },
+        {
+          "id": "decision-guide",
+          "title": "Modern Java decision guide",
+          "title_es": "Guía de decisiones de Java moderno",
+          "file": "oop-modern/04-modern-decision-guide.md"
+        }
       ]
     },
     {
       "id": "streams-lambdas",
       "label": "Streams & Lambdas",
+      "label_es": "Streams y Lambdas",
       "questions": [
-        { "id": "functional-overview", "title": "Functional programming in Java", "file": "streams-lambdas/01-functional-overview.md" },
-        { "id": "lambdas", "title": "Lambdas — behavior as data", "file": "streams-lambdas/02-lambdas.md" },
-        { "id": "streams-pipeline", "title": "Streams pipeline & operations", "file": "streams-lambdas/03-streams-pipeline.md" },
-        { "id": "map-vs-flatmap", "title": "map vs flatMap", "file": "streams-lambdas/04-map-vs-flatmap.md" },
-        { "id": "parallel-streams", "title": "Parallel streams — when to use them", "file": "streams-lambdas/05-parallel-streams.md" },
-        { "id": "streams-vs-loops", "title": "Streams vs loops — hot paths", "file": "streams-lambdas/06-streams-vs-loops-hot-path.md" }
+        {
+          "id": "functional-overview",
+          "title": "Functional programming in Java",
+          "title_es": "Programación funcional en Java",
+          "file": "streams-lambdas/01-functional-overview.md"
+        },
+        {
+          "id": "lambdas",
+          "title": "Lambdas — behavior as data",
+          "title_es": "Lambdas — comportamiento como dato",
+          "file": "streams-lambdas/02-lambdas.md"
+        },
+        {
+          "id": "streams-pipeline",
+          "title": "Streams pipeline & operations",
+          "title_es": "Pipeline y operaciones de Streams",
+          "file": "streams-lambdas/03-streams-pipeline.md"
+        },
+        {
+          "id": "map-vs-flatmap",
+          "title": "map vs flatMap",
+          "title_es": "map vs flatMap",
+          "file": "streams-lambdas/04-map-vs-flatmap.md"
+        },
+        {
+          "id": "parallel-streams",
+          "title": "Parallel streams — when to use them",
+          "title_es": "Streams paralelos — cuándo usarlos",
+          "file": "streams-lambdas/05-parallel-streams.md"
+        },
+        {
+          "id": "streams-vs-loops",
+          "title": "Streams vs loops — hot paths",
+          "title_es": "Streams vs loops — hot paths",
+          "file": "streams-lambdas/06-streams-vs-loops-hot-path.md"
+        }
       ]
     },
     {
       "id": "concurrency",
       "label": "Concurrency",
+      "label_es": "Concurrencia",
       "questions": [
-        { "id": "race-conditions", "title": "How do you avoid race conditions?", "file": "concurrency/01-race-conditions.md" },
-        { "id": "virtual-vs-platform", "title": "Virtual threads vs platform threads", "file": "concurrency/02-virtual-vs-platform-threads.md" },
-        { "id": "locks-vs-lock-free", "title": "Locks vs lock-free (CAS)", "file": "concurrency/03-locks-vs-lock-free.md" },
-        { "id": "backpressure", "title": "What is backpressure?", "file": "concurrency/04-backpressure.md" },
-        { "id": "thread-saturation", "title": "What happens when threads saturate?", "file": "concurrency/05-thread-saturation.md" }
+        {
+          "id": "race-conditions",
+          "title": "How do you avoid race conditions?",
+          "title_es": "¿Cómo evitás race conditions?",
+          "file": "concurrency/01-race-conditions.md"
+        },
+        {
+          "id": "virtual-vs-platform",
+          "title": "Virtual threads vs platform threads",
+          "title_es": "Virtual threads vs platform threads",
+          "file": "concurrency/02-virtual-vs-platform-threads.md"
+        },
+        {
+          "id": "locks-vs-lock-free",
+          "title": "Locks vs lock-free (CAS)",
+          "title_es": "Locks vs lock-free (CAS)",
+          "file": "concurrency/03-locks-vs-lock-free.md"
+        },
+        {
+          "id": "backpressure",
+          "title": "What is backpressure?",
+          "title_es": "¿Qué es backpressure?",
+          "file": "concurrency/04-backpressure.md"
+        },
+        {
+          "id": "thread-saturation",
+          "title": "What happens when threads saturate?",
+          "title_es": "¿Qué pasa cuando los threads se saturan?",
+          "file": "concurrency/05-thread-saturation.md"
+        }
       ]
     },
     {
       "id": "jvm-memory",
       "label": "JVM & Memory",
+      "label_es": "JVM y memoria",
       "questions": [
-        { "id": "memory-leaks", "title": "Memory leaks in Java (with GC?)", "file": "jvm-memory/01-memory-leaks.md" },
-        { "id": "detect-leak", "title": "How do you detect a memory leak?", "file": "jvm-memory/02-detect-memory-leak.md" }
+        {
+          "id": "memory-leaks",
+          "title": "Memory leaks in Java (with GC?)",
+          "title_es": "Memory leaks en Java (¿con GC?)",
+          "file": "jvm-memory/01-memory-leaks.md"
+        },
+        {
+          "id": "detect-leak",
+          "title": "How do you detect a memory leak?",
+          "title_es": "¿Cómo detectás un memory leak?",
+          "file": "jvm-memory/02-detect-memory-leak.md"
+        }
       ]
     },
     {
       "id": "database-hibernate",
       "label": "Database & Hibernate",
+      "label_es": "Base de datos e Hibernate",
       "questions": [
-        { "id": "n-plus-one", "title": "How do you detect N+1?", "file": "database-hibernate/01-n-plus-one.md" },
-        { "id": "fetch-strategies", "title": "JOIN FETCH vs @EntityGraph vs DTO projection", "file": "database-hibernate/02-fetch-strategies.md" },
-        { "id": "sibling-cartesian", "title": "Sibling collections — Cartesian product trap", "file": "database-hibernate/03-sibling-cartesian.md" },
-        { "id": "sibling-example", "title": "Sibling Cartesian — small example", "file": "database-hibernate/04-sibling-example.md" },
-        { "id": "hibernate-dangers", "title": "Why Hibernate is dangerous at scale", "file": "database-hibernate/05-hibernate-dangers.md" },
-        { "id": "acid", "title": "ACID — Atomicity, Consistency, Isolation, Durability", "file": "database-hibernate/06-acid.md" },
-        { "id": "saga-pattern", "title": "Saga pattern (distributed transactions)", "file": "database-hibernate/07-saga-pattern.md" },
-        { "id": "compensations-idempotency", "title": "Compensations & idempotency", "file": "database-hibernate/08-compensations-idempotency.md" }
+        {
+          "id": "n-plus-one",
+          "title": "How do you detect N+1?",
+          "title_es": "¿Cómo detectás N+1?",
+          "file": "database-hibernate/01-n-plus-one.md"
+        },
+        {
+          "id": "fetch-strategies",
+          "title": "JOIN FETCH vs @EntityGraph vs DTO projection",
+          "title_es": "JOIN FETCH vs @EntityGraph vs proyección DTO",
+          "file": "database-hibernate/02-fetch-strategies.md"
+        },
+        {
+          "id": "sibling-cartesian",
+          "title": "Sibling collections — Cartesian product trap",
+          "title_es": "Colecciones hermanas — la trampa del producto cartesiano",
+          "file": "database-hibernate/03-sibling-cartesian.md"
+        },
+        {
+          "id": "sibling-example",
+          "title": "Sibling Cartesian — small example",
+          "title_es": "Cartesiano entre hermanos — ejemplo concreto",
+          "file": "database-hibernate/04-sibling-example.md"
+        },
+        {
+          "id": "hibernate-dangers",
+          "title": "Why Hibernate is dangerous at scale",
+          "title_es": "Por qué Hibernate es peligroso a escala",
+          "file": "database-hibernate/05-hibernate-dangers.md"
+        },
+        {
+          "id": "acid",
+          "title": "ACID — Atomicity, Consistency, Isolation, Durability",
+          "title_es": "ACID — Atomicidad, Consistencia, Aislamiento, Durabilidad",
+          "file": "database-hibernate/06-acid.md"
+        },
+        {
+          "id": "saga-pattern",
+          "title": "Saga pattern (distributed transactions)",
+          "title_es": "Patrón Saga (transacciones distribuidas)",
+          "file": "database-hibernate/07-saga-pattern.md"
+        },
+        {
+          "id": "compensations-idempotency",
+          "title": "Compensations & idempotency",
+          "title_es": "Compensaciones e idempotencia",
+          "file": "database-hibernate/08-compensations-idempotency.md"
+        }
       ]
     },
     {
       "id": "performance",
       "label": "Performance",
+      "label_es": "Rendimiento",
       "questions": [
-        { "id": "case-study", "title": "Real case study — DB latency optimization (-12%)", "file": "performance/01-case-study.md" },
-        { "id": "query-consolidation", "title": "Query consolidation (chained queries → JOIN)", "file": "performance/02-query-consolidation.md" },
-        { "id": "batching-in", "title": "Batching with IN-clauses (kill N+1)", "file": "performance/03-batching-in-clauses.md" },
-        { "id": "parallel-completablefuture", "title": "Parallel queries with CompletableFuture", "file": "performance/04-parallel-completablefuture.md" },
-        { "id": "sibling-split", "title": "Split sibling collections into separate queries", "file": "performance/05-sibling-split.md" },
-        { "id": "inline-subqueries", "title": "Inline ID-resolving subqueries (max parallelism)", "file": "performance/06-inline-subqueries.md" },
-        { "id": "dto-projections", "title": "DTO projections with Java records", "file": "performance/07-dto-projections.md" },
-        { "id": "mdc-async", "title": "MDC propagation across async boundaries", "file": "performance/08-mdc-async.md" },
-        { "id": "latency-percentiles", "title": "Latency percentiles — p50/p95/p99", "file": "performance/09-latency-percentiles.md" }
+        {
+          "id": "case-study",
+          "title": "Real case study — DB latency optimization (-12%)",
+          "title_es": "Caso real — optimización de latencia de DB (-12%)",
+          "file": "performance/01-case-study.md"
+        },
+        {
+          "id": "query-consolidation",
+          "title": "Query consolidation (chained queries → JOIN)",
+          "title_es": "Consolidación de queries (queries encadenadas → JOIN)",
+          "file": "performance/02-query-consolidation.md"
+        },
+        {
+          "id": "batching-in",
+          "title": "Batching with IN-clauses (kill N+1)",
+          "title_es": "Batching con cláusulas IN (matar N+1)",
+          "file": "performance/03-batching-in-clauses.md"
+        },
+        {
+          "id": "parallel-completablefuture",
+          "title": "Parallel queries with CompletableFuture",
+          "title_es": "Queries paralelas con CompletableFuture",
+          "file": "performance/04-parallel-completablefuture.md"
+        },
+        {
+          "id": "sibling-split",
+          "title": "Split sibling collections into separate queries",
+          "title_es": "Separar colecciones hermanas en queries distintas",
+          "file": "performance/05-sibling-split.md"
+        },
+        {
+          "id": "inline-subqueries",
+          "title": "Inline ID-resolving subqueries (max parallelism)",
+          "title_es": "Subqueries inline para resolver IDs (máximo paralelismo)",
+          "file": "performance/06-inline-subqueries.md"
+        },
+        {
+          "id": "dto-projections",
+          "title": "DTO projections with Java records",
+          "title_es": "Proyecciones DTO con records de Java",
+          "file": "performance/07-dto-projections.md"
+        },
+        {
+          "id": "mdc-async",
+          "title": "MDC propagation across async boundaries",
+          "title_es": "Propagación de MDC entre fronteras async",
+          "file": "performance/08-mdc-async.md"
+        },
+        {
+          "id": "latency-percentiles",
+          "title": "Latency percentiles — p50/p95/p99",
+          "title_es": "Percentiles de latencia — p50/p95/p99",
+          "file": "performance/09-latency-percentiles.md"
+        }
       ]
     },
     {
       "id": "caching",
       "label": "Caching",
+      "label_es": "Caché",
       "questions": [
-        { "id": "l1-l2", "title": "L1 vs L2 cache", "file": "caching/01-l1-l2.md" },
-        { "id": "multi-layer", "title": "Multi-layer caching strategy", "file": "caching/02-multi-layer-strategy.md" },
-        { "id": "invalidation", "title": "Cache invalidation strategies", "file": "caching/03-cache-invalidation.md" }
+        {
+          "id": "l1-l2",
+          "title": "L1 vs L2 cache",
+          "title_es": "Caché L1 vs L2",
+          "file": "caching/01-l1-l2.md"
+        },
+        {
+          "id": "multi-layer",
+          "title": "Multi-layer caching strategy",
+          "title_es": "Estrategia de caché multi-capa",
+          "file": "caching/02-multi-layer-strategy.md"
+        },
+        {
+          "id": "invalidation",
+          "title": "Cache invalidation strategies",
+          "title_es": "Estrategias de invalidación de caché",
+          "file": "caching/03-cache-invalidation.md"
+        }
       ]
     },
     {
       "id": "distributed-systems",
       "label": "Distributed Systems",
+      "label_es": "Sistemas distribuidos",
       "questions": [
-        { "id": "high-traffic-design", "title": "Design a system for 1M req/min", "file": "distributed-systems/01-high-traffic-design.md" },
-        { "id": "notifications-system", "title": "Design a notifications system (airline)", "file": "distributed-systems/02-notifications-system.md" },
-        { "id": "microservices-problems", "title": "Real problems with microservices in production", "file": "distributed-systems/03-microservices-problems.md" },
-        { "id": "eventual-consistency", "title": "Eventual consistency", "file": "distributed-systems/04-eventual-consistency.md" },
-        { "id": "distributed-tracing", "title": "Debugging across 10 services (distributed tracing)", "file": "distributed-systems/05-distributed-tracing.md" },
-        { "id": "cascading-failures", "title": "How do you avoid cascading failures?", "file": "distributed-systems/06-cascading-failures.md" }
+        {
+          "id": "high-traffic-design",
+          "title": "Design a system for 1M req/min",
+          "title_es": "Diseñar un sistema para 1M req/min",
+          "file": "distributed-systems/01-high-traffic-design.md"
+        },
+        {
+          "id": "notifications-system",
+          "title": "Design a notifications system (airline)",
+          "title_es": "Diseñar un sistema de notificaciones (aerolínea)",
+          "file": "distributed-systems/02-notifications-system.md"
+        },
+        {
+          "id": "microservices-problems",
+          "title": "Real problems with microservices in production",
+          "title_es": "Problemas reales con microservicios en producción",
+          "file": "distributed-systems/03-microservices-problems.md"
+        },
+        {
+          "id": "eventual-consistency",
+          "title": "Eventual consistency",
+          "title_es": "Eventual consistency",
+          "file": "distributed-systems/04-eventual-consistency.md"
+        },
+        {
+          "id": "distributed-tracing",
+          "title": "Debugging across 10 services (distributed tracing)",
+          "title_es": "Debugging en 10 servicios (distributed tracing)",
+          "file": "distributed-systems/05-distributed-tracing.md"
+        },
+        {
+          "id": "cascading-failures",
+          "title": "How do you avoid cascading failures?",
+          "title_es": "¿Cómo evitás fallas en cascada?",
+          "file": "distributed-systems/06-cascading-failures.md"
+        }
       ]
     },
     {
       "id": "resilience-patterns",
       "label": "Resilience Patterns",
+      "label_es": "Patrones de resiliencia",
       "questions": [
-        { "id": "catalog", "title": "Resilience patterns catalog (one-page reference)", "file": "resilience-patterns/01-patterns-catalog.md" }
+        {
+          "id": "catalog",
+          "title": "Resilience patterns catalog (one-page reference)",
+          "title_es": "Catálogo de patrones de resiliencia (referencia de una página)",
+          "file": "resilience-patterns/01-patterns-catalog.md"
+        }
       ]
     },
     {
       "id": "observability",
       "label": "Observability",
+      "label_es": "Observabilidad",
       "questions": [
-        { "id": "key-metrics", "title": "Which metrics do you always monitor?", "file": "observability/01-key-metrics.md" },
-        { "id": "leading-indicators", "title": "Detecting issues before users see them", "file": "observability/02-leading-indicators.md" }
+        {
+          "id": "key-metrics",
+          "title": "Which metrics do you always monitor?",
+          "title_es": "¿Qué métricas monitoreás siempre?",
+          "file": "observability/01-key-metrics.md"
+        },
+        {
+          "id": "leading-indicators",
+          "title": "Detecting issues before users see them",
+          "title_es": "Detectar problemas antes que los vean los usuarios",
+          "file": "observability/02-leading-indicators.md"
+        }
       ]
     },
     {
       "id": "live-coding",
       "label": "Live Coding",
+      "label_es": "Live Coding",
       "questions": [
-        { "id": "clarifying-questions", "title": "Framework for clarifying questions", "file": "live-coding/01-clarifying-questions.md" },
-        { "id": "sliding-window-counter", "title": "Counter for API calls in past 5 minutes", "file": "live-coding/02-sliding-window-counter.md" }
+        {
+          "id": "sliding-window-counter",
+          "title": "Counter for API calls in past 5 minutes",
+          "title_es": "Contador de llamadas a la API en los últimos 5 minutos",
+          "file": "live-coding/02-sliding-window-counter.md",
+          "topics": [
+            "Sliding Window"
+          ],
+          "origin": "Amex"
+        },
+        {
+          "id": "reverse-linked-list",
+          "title": "Reverse a singly linked list",
+          "title_es": "Invertir una linked list simple",
+          "file": "live-coding/03-reverse-linked-list.md",
+          "topics": [
+            "Linked List"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "min-max-stack",
+          "title": "Min-Max Stack — push, pop, min, max in O(1)",
+          "title_es": "Min-Max Stack — push, pop, min, max en O(1)",
+          "file": "live-coding/04-min-max-stack.md",
+          "topics": [
+            "Stack"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "common-node-linked-lists",
+          "title": "Common node where two linked lists merge",
+          "title_es": "Nodo común donde dos linked lists se mergean",
+          "file": "live-coding/05-common-node-linked-lists.md",
+          "topics": [
+            "Linked List",
+            "Two Pointers"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "random-pointer-reversal",
+          "title": "Reverse a linked list with next and random pointers",
+          "title_es": "Invertir una linked list con next y random pointers",
+          "file": "live-coding/06-random-pointer-reversal.md",
+          "topics": [
+            "Linked List"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "run-length-encoding",
+          "title": "Run-length encoding",
+          "title_es": "Run-length encoding",
+          "file": "live-coding/07-run-length-encoding.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "closed-chain-of-words",
+          "title": "Closed chain of words (Eulerian circuit)",
+          "title_es": "Cadena cerrada de palabras (circuito Euleriano)",
+          "file": "live-coding/08-closed-chain-of-words.md",
+          "topics": [
+            "Graph",
+            "Strings"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "range-search",
+          "title": "Range search in sorted array",
+          "title_es": "Range search en array ordenado",
+          "file": "live-coding/09-range-search.md",
+          "topics": [
+            "Binary Search"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "fixed-point",
+          "title": "Fixed point in sorted array",
+          "title_es": "Fixed point en array ordenado",
+          "file": "live-coding/10-fixed-point.md",
+          "topics": [
+            "Binary Search"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "subarray-with-sum",
+          "title": "Subarray with given sum",
+          "title_es": "Subarray con suma dada",
+          "file": "live-coding/11-subarray-with-sum.md",
+          "topics": [
+            "Sliding Window",
+            "Prefix Sum"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "constant-boundary-separation",
+          "title": "Pair with given difference in sorted array",
+          "title_es": "Par con diferencia dada en array ordenado",
+          "file": "live-coding/12-constant-boundary-separation.md",
+          "topics": [
+            "Two Pointers"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "bitonic-array",
+          "title": "Find peak in a bitonic array",
+          "title_es": "Encontrar peak en array bitónico",
+          "file": "live-coding/13-bitonic-array.md",
+          "topics": [
+            "Binary Search"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "search-sorted-matrix",
+          "title": "Search in row-and-column sorted matrix",
+          "title_es": "Search en matriz ordenada por filas y columnas",
+          "file": "live-coding/14-search-sorted-matrix.md",
+          "topics": [
+            "Matrix",
+            "Two Pointers"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "kth-smallest-two-arrays",
+          "title": "Kth smallest in union of two sorted arrays",
+          "title_es": "K-ésimo más chico en unión de dos arrays ordenados",
+          "file": "live-coding/15-kth-smallest-two-arrays.md",
+          "topics": [
+            "Binary Search",
+            "Divide and Conquer"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "largest-100",
+          "title": "Top-K largest from large stream (min-heap)",
+          "title_es": "Top-K más grandes de un stream grande (min-heap)",
+          "file": "live-coding/16-largest-100.md",
+          "topics": [
+            "Heap"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "lonely-element",
+          "title": "Lonely element with XOR",
+          "title_es": "Elemento solitario con XOR",
+          "file": "live-coding/17-lonely-element.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "check-range",
+          "title": "Check if values are exactly the range [N, N+M-1]",
+          "title_es": "Verificar si los valores son exactamente el rango [N, N+M-1]",
+          "file": "live-coding/18-check-range.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "find-repeated-element",
+          "title": "Find repeated element in 1..N-1 array",
+          "title_es": "Encontrar elemento repetido en array 1..N-1",
+          "file": "live-coding/19-find-repeated-element.md",
+          "topics": [
+            "Math",
+            "Bit Manipulation",
+            "Cycle Detection"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "majority-element",
+          "title": "Majority element (Boyer-Moore)",
+          "title_es": "Majority element (Boyer-Moore)",
+          "file": "live-coding/20-majority-element.md",
+          "topics": [
+            "Voting"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "second-minimum",
+          "title": "Second minimum in fewer than 2N comparisons",
+          "title_es": "Segundo mínimo en menos de 2N comparaciones",
+          "file": "live-coding/21-second-minimum.md",
+          "topics": [
+            "Tournament"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "pairs-with-sum-n",
+          "title": "All pairs in sorted array summing to N",
+          "title_es": "Todos los pares en array ordenado que suman N",
+          "file": "live-coding/22-pairs-with-sum-n.md",
+          "topics": [
+            "Two Pointers"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "consecutive-pairs-equal-sum",
+          "title": "Consecutive pairs with equal sum across two sorted arrays",
+          "title_es": "Pares consecutivos con suma igual entre dos arrays ordenados",
+          "file": "live-coding/23-consecutive-pairs-equal-sum.md",
+          "topics": [
+            "Two Pointers"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "maximum-subarray",
+          "title": "Maximum subarray sum (Kadane)",
+          "title_es": "Maximum subarray sum (Kadane)",
+          "file": "live-coding/24-maximum-subarray.md",
+          "topics": [
+            "Dynamic Programming"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "largest-non-consecutive-subsequence",
+          "title": "Max sum subsequence with no two adjacent",
+          "title_es": "Subsecuencia con suma máxima sin adyacentes",
+          "file": "live-coding/25-largest-non-consecutive-subsequence.md",
+          "topics": [
+            "Dynamic Programming"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "no-three-consecutive",
+          "title": "Max sum with no three consecutive elements",
+          "title_es": "Suma máxima sin tres consecutivos",
+          "file": "live-coding/26-no-three-consecutive.md",
+          "topics": [
+            "Dynamic Programming"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "largest-absolute-sum",
+          "title": "Subarray with largest absolute sum",
+          "title_es": "Subarray con suma absoluta máxima",
+          "file": "live-coding/27-largest-absolute-sum.md",
+          "topics": [
+            "Dynamic Programming"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "adjacent-removal",
+          "title": "Recursively remove adjacent duplicates",
+          "title_es": "Remover pares adyacentes recursivamente",
+          "file": "live-coding/28-adjacent-removal.md",
+          "topics": [
+            "Stack",
+            "Strings"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "zero-the-matrix",
+          "title": "Zero out rows and columns of a matrix",
+          "title_es": "Cerar filas y columnas de una matriz",
+          "file": "live-coding/29-zero-the-matrix.md",
+          "topics": [
+            "Matrix"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "product-array",
+          "title": "Product array except self (no division)",
+          "title_es": "Product array except self (sin división)",
+          "file": "live-coding/30-product-array.md",
+          "topics": [
+            "Prefix Product"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "modified-2-color-sort",
+          "title": "Modified 2-color sort (0s even, 1s odd)",
+          "title_es": "Modified 2-color sort (0s pares, 1s impares)",
+          "file": "live-coding/31-modified-2-color-sort.md",
+          "topics": [
+            "Two Pointers"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "occurrence-count",
+          "title": "Count occurrences of K in sorted array",
+          "title_es": "Contar ocurrencias de K en array ordenado",
+          "file": "live-coding/32-occurrence-count.md",
+          "topics": [
+            "Binary Search"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "integer-binary-roots",
+          "title": "Symmetric binary roots",
+          "title_es": "Raíces binarias simétricas",
+          "file": "live-coding/33-integer-binary-roots.md",
+          "topics": [
+            "Bit Manipulation",
+            "Math"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "circular-swap",
+          "title": "Circular swap of three variables in one statement",
+          "title_es": "Swap circular de tres variables en un statement",
+          "file": "live-coding/34-circular-swap.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "add-without-operators",
+          "title": "Add two integers without arithmetic operators",
+          "title_es": "Sumar enteros sin operadores aritméticos",
+          "file": "live-coding/35-add-without-operators.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "swap-without-temp",
+          "title": "Swap two integers without temp variable",
+          "title_es": "Swap de dos enteros sin temp",
+          "file": "live-coding/36-swap-without-temp.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "multiply-by-7",
+          "title": "Multiply by 7 without using *",
+          "title_es": "Multiplicar por 7 sin usar *",
+          "file": "live-coding/37-multiply-by-7.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "difference-of-powers-of-2",
+          "title": "Is N of the form 2^x - 2^y?",
+          "title_es": "¿Es N de la forma 2^x - 2^y?",
+          "file": "live-coding/38-difference-of-powers-of-2.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "sum-of-powers-of-2",
+          "title": "Is N of the form 2^x + 2^y?",
+          "title_es": "¿Es N de la forma 2^x + 2^y?",
+          "file": "live-coding/39-sum-of-powers-of-2.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "non-existence-bitmap",
+          "title": "Verify absence in huge sorted file (bitmap)",
+          "title_es": "Verificar ausencia en archivo enorme ordenado (bitmap)",
+          "file": "live-coding/40-non-existence-bitmap.md",
+          "topics": [
+            "Bit Manipulation",
+            "Systems"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "next-same-set-bits",
+          "title": "Next integer with same number of set bits",
+          "title_es": "Próximo entero con el mismo número de bits seteados",
+          "file": "live-coding/41-next-same-set-bits.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "last-non-zero-digit-factorial",
+          "title": "Last non-zero digit of N!",
+          "title_es": "Último dígito no-cero de N!",
+          "file": "live-coding/42-last-non-zero-digit-of-factorial.md",
+          "topics": [
+            "Math",
+            "Number Theory"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "trailing-zeros-factorial",
+          "title": "Trailing zeros in N!",
+          "title_es": "Ceros trailing en N!",
+          "file": "live-coding/43-trailing-zeros-factorial.md",
+          "topics": [
+            "Math",
+            "Number Theory"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "reservoir-sampling",
+          "title": "Pick K random elements from unknown-length stream",
+          "title_es": "Elegir K elementos random de stream de largo desconocido",
+          "file": "live-coding/44-reservoir-sampling.md",
+          "topics": [
+            "Sampling",
+            "Probability"
+          ],
+          "origin": "Algorithms Forever"
+        },
+        {
+          "id": "codility-arrays-cyclicrotation",
+          "title": "Cyclic Rotation",
+          "title_es": "Cyclic Rotation",
+          "file": "algorithms/codility-arrays-cyclicrotation.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-arrays-oddoccurrencesinarray",
+          "title": "Odd Occurrences In Array",
+          "title_es": "Odd Occurrences In Array",
+          "file": "algorithms/codility-arrays-oddoccurrencesinarray.md",
+          "topics": [
+            "Hash Set",
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-challenges-alpha2010",
+          "title": "Alpha 2010",
+          "title_es": "Alpha 2010",
+          "file": "algorithms/codility-challenges-alpha2010.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-challenges-beta2010",
+          "title": "Beta 2010",
+          "title_es": "Beta 2010",
+          "file": "algorithms/codility-challenges-beta2010.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-challenges-delta2011",
+          "title": "Delta 2011",
+          "title_es": "Delta 2011",
+          "file": "algorithms/codility-challenges-delta2011.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-challenges-gamma2011",
+          "title": "Gamma 2011",
+          "title_es": "Gamma 2011",
+          "file": "algorithms/codility-challenges-gamma2011.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-challenges-sulphur2014",
+          "title": "Sulphur 2014",
+          "title_es": "Sulphur 2014",
+          "file": "algorithms/codility-challenges-sulphur2014.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-iterations-binarygap",
+          "title": "Binary Gap",
+          "title_es": "Binary Gap",
+          "file": "algorithms/codility-iterations-binarygap.md",
+          "topics": [
+            "Sorting",
+            "Linked List",
+            "Bit Manipulation"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson1-frogjmp",
+          "title": "Frog Jmp — Lesson 1",
+          "title_es": "Frog Jmp — Lesson 1",
+          "file": "algorithms/codility-lessons-lesson1-frogjmp.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson1-permmissingelem",
+          "title": "Perm Missing Elem — Lesson 1",
+          "title_es": "Perm Missing Elem — Lesson 1",
+          "file": "algorithms/codility-lessons-lesson1-permmissingelem.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson1-tapeequilibrium",
+          "title": "Tape Equilibrium — Lesson 1",
+          "title_es": "Tape Equilibrium — Lesson 1",
+          "file": "algorithms/codility-lessons-lesson1-tapeequilibrium.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson10-chocolatesbynumbers",
+          "title": "Chocolates By Numbers — Lesson 10",
+          "title_es": "Chocolates By Numbers — Lesson 10",
+          "file": "algorithms/codility-lessons-lesson10-chocolatesbynumbers.md",
+          "topics": [
+            "Math / Number Theory"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson10-commondivisors",
+          "title": "Common Divisors — Lesson 10",
+          "title_es": "Common Divisors — Lesson 10",
+          "file": "algorithms/codility-lessons-lesson10-commondivisors.md",
+          "topics": [
+            "Math / Number Theory"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson10-commonprimedivisors",
+          "title": "Common Prime Divisors — Lesson 10",
+          "title_es": "Common Prime Divisors — Lesson 10",
+          "file": "algorithms/codility-lessons-lesson10-commonprimedivisors.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson11-fibfrog",
+          "title": "Fib Frog — Lesson 11",
+          "title_es": "Fib Frog — Lesson 11",
+          "file": "algorithms/codility-lessons-lesson11-fibfrog.md",
+          "topics": [
+            "Binary Search",
+            "Recursion / Backtracking",
+            "Dynamic Programming"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson11-ladder",
+          "title": "Ladder — Lesson 11",
+          "title_es": "Ladder — Lesson 11",
+          "file": "algorithms/codility-lessons-lesson11-ladder.md",
+          "topics": [
+            "Math / Number Theory",
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson12-minmaxdivision",
+          "title": "Min Max Division — Lesson 12",
+          "title_es": "Min Max Division — Lesson 12",
+          "file": "algorithms/codility-lessons-lesson12-minmaxdivision.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson12-nailingplanks",
+          "title": "Nailing Planks — Lesson 12",
+          "title_es": "Nailing Planks — Lesson 12",
+          "file": "algorithms/codility-lessons-lesson12-nailingplanks.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson13-absdistinct",
+          "title": "Abs Distinct — Lesson 13",
+          "title_es": "Abs Distinct — Lesson 13",
+          "file": "algorithms/codility-lessons-lesson13-absdistinct.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson13-countdistinctslices",
+          "title": "Count Distinct Slices — Lesson 13",
+          "title_es": "Count Distinct Slices — Lesson 13",
+          "file": "algorithms/codility-lessons-lesson13-countdistinctslices.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson13-counttriangles",
+          "title": "Count Triangles — Lesson 13",
+          "title_es": "Count Triangles — Lesson 13",
+          "file": "algorithms/codility-lessons-lesson13-counttriangles.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson13-minabssumoftwo",
+          "title": "Min Abs Sum Of Two — Lesson 13",
+          "title_es": "Min Abs Sum Of Two — Lesson 13",
+          "file": "algorithms/codility-lessons-lesson13-minabssumoftwo.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson14-maxnonoverlappingsegments",
+          "title": "Max Nonoverlapping Segments — Lesson 14",
+          "title_es": "Max Nonoverlapping Segments — Lesson 14",
+          "file": "algorithms/codility-lessons-lesson14-maxnonoverlappingsegments.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson14-tieropes",
+          "title": "Tie Ropes — Lesson 14",
+          "title_es": "Tie Ropes — Lesson 14",
+          "file": "algorithms/codility-lessons-lesson14-tieropes.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson15-minabssum",
+          "title": "Min Abs Sum — Lesson 15",
+          "title_es": "Min Abs Sum — Lesson 15",
+          "file": "algorithms/codility-lessons-lesson15-minabssum.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson15-numbersolitaire",
+          "title": "Number Solitaire — Lesson 15",
+          "title_es": "Number Solitaire — Lesson 15",
+          "file": "algorithms/codility-lessons-lesson15-numbersolitaire.md",
+          "topics": [
+            "Dynamic Programming"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson2-frogriverone",
+          "title": "Frog River One — Lesson 2",
+          "title_es": "Frog River One — Lesson 2",
+          "file": "algorithms/codility-lessons-lesson2-frogriverone.md",
+          "topics": [
+            "Hash Set",
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson2-maxcounters",
+          "title": "Max Counters — Lesson 2",
+          "title_es": "Max Counters — Lesson 2",
+          "file": "algorithms/codility-lessons-lesson2-maxcounters.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson2-missinginteger",
+          "title": "Missing Integer — Lesson 2",
+          "title_es": "Missing Integer — Lesson 2",
+          "file": "algorithms/codility-lessons-lesson2-missinginteger.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson2-permcheck",
+          "title": "Perm Check — Lesson 2",
+          "title_es": "Perm Check — Lesson 2",
+          "file": "algorithms/codility-lessons-lesson2-permcheck.md",
+          "topics": [
+            "Hash Set",
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson3-countdiv",
+          "title": "Count Div — Lesson 3",
+          "title_es": "Count Div — Lesson 3",
+          "file": "algorithms/codility-lessons-lesson3-countdiv.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson3-genomicrangequery",
+          "title": "Genomic Range Query — Lesson 3",
+          "title_es": "Genomic Range Query — Lesson 3",
+          "file": "algorithms/codility-lessons-lesson3-genomicrangequery.md",
+          "topics": [
+            "Prefix Sums"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson3-minavgtwoslice",
+          "title": "Min Avg Two Slice — Lesson 3",
+          "title_es": "Min Avg Two Slice — Lesson 3",
+          "file": "algorithms/codility-lessons-lesson3-minavgtwoslice.md",
+          "topics": [
+            "Prefix Sums"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson3-passingcars",
+          "title": "Passing Cars — Lesson 3",
+          "title_es": "Passing Cars — Lesson 3",
+          "file": "algorithms/codility-lessons-lesson3-passingcars.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson4-distinct",
+          "title": "Distinct — Lesson 4",
+          "title_es": "Distinct — Lesson 4",
+          "file": "algorithms/codility-lessons-lesson4-distinct.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson4-maxproductofthree",
+          "title": "Max Product Of Three — Lesson 4",
+          "title_es": "Max Product Of Three — Lesson 4",
+          "file": "algorithms/codility-lessons-lesson4-maxproductofthree.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson4-numberofdiscintersections",
+          "title": "Number Of Disc Intersections — Lesson 4",
+          "title_es": "Number Of Disc Intersections — Lesson 4",
+          "file": "algorithms/codility-lessons-lesson4-numberofdiscintersections.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson4-triangle",
+          "title": "Triangle — Lesson 4",
+          "title_es": "Triangle — Lesson 4",
+          "file": "algorithms/codility-lessons-lesson4-triangle.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson5-brackets",
+          "title": "Brackets — Lesson 5",
+          "title_es": "Brackets — Lesson 5",
+          "file": "algorithms/codility-lessons-lesson5-brackets.md",
+          "topics": [
+            "Stack"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson5-fish",
+          "title": "Fish — Lesson 5",
+          "title_es": "Fish — Lesson 5",
+          "file": "algorithms/codility-lessons-lesson5-fish.md",
+          "topics": [
+            "Stack"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson5-nesting",
+          "title": "Nesting — Lesson 5",
+          "title_es": "Nesting — Lesson 5",
+          "file": "algorithms/codility-lessons-lesson5-nesting.md",
+          "topics": [
+            "Stack"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson5-stonewall",
+          "title": "Stone Wall — Lesson 5",
+          "title_es": "Stone Wall — Lesson 5",
+          "file": "algorithms/codility-lessons-lesson5-stonewall.md",
+          "topics": [
+            "Stack"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson6-dominator",
+          "title": "Dominator — Lesson 6",
+          "title_es": "Dominator — Lesson 6",
+          "file": "algorithms/codility-lessons-lesson6-dominator.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson6-equileader",
+          "title": "Equi Leader — Lesson 6",
+          "title_es": "Equi Leader — Lesson 6",
+          "file": "algorithms/codility-lessons-lesson6-equileader.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson7-maxdoubleslicesum",
+          "title": "Max Double Slice Sum — Lesson 7",
+          "title_es": "Max Double Slice Sum — Lesson 7",
+          "file": "algorithms/codility-lessons-lesson7-maxdoubleslicesum.md",
+          "topics": [
+            "Prefix Sums"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson7-maxprofit",
+          "title": "Max Profit — Lesson 7",
+          "title_es": "Max Profit — Lesson 7",
+          "file": "algorithms/codility-lessons-lesson7-maxprofit.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson7-maxslicesum",
+          "title": "Max Slice Sum — Lesson 7",
+          "title_es": "Max Slice Sum — Lesson 7",
+          "file": "algorithms/codility-lessons-lesson7-maxslicesum.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson8-countfactors",
+          "title": "Count Factors — Lesson 8",
+          "title_es": "Count Factors — Lesson 8",
+          "file": "algorithms/codility-lessons-lesson8-countfactors.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson8-flags",
+          "title": "Flags — Lesson 8",
+          "title_es": "Flags — Lesson 8",
+          "file": "algorithms/codility-lessons-lesson8-flags.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson8-minperimeterrectangle",
+          "title": "Min Perimeter Rectangle — Lesson 8",
+          "title_es": "Min Perimeter Rectangle — Lesson 8",
+          "file": "algorithms/codility-lessons-lesson8-minperimeterrectangle.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson8-peaks",
+          "title": "Peaks — Lesson 8",
+          "title_es": "Peaks — Lesson 8",
+          "file": "algorithms/codility-lessons-lesson8-peaks.md",
+          "topics": [
+            "Graph"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson9-countnondivisible",
+          "title": "Count Non Divisible — Lesson 9",
+          "title_es": "Count Non Divisible — Lesson 9",
+          "file": "algorithms/codility-lessons-lesson9-countnondivisible.md",
+          "topics": [
+            "Hash Map",
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson9-countsemiprimes",
+          "title": "Count Semiprimes — Lesson 9",
+          "title_es": "Count Semiprimes — Lesson 9",
+          "file": "algorithms/codility-lessons-lesson9-countsemiprimes.md",
+          "topics": [
+            "Math / Number Theory",
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson99-arrayinversioncount",
+          "title": "Array Inversion Count — Lesson 99",
+          "title_es": "Array Inversion Count — Lesson 99",
+          "file": "algorithms/codility-lessons-lesson99-arrayinversioncount.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson99-strsymmetrypoint",
+          "title": "Str Symmetry Point — Lesson 99",
+          "title_es": "Str Symmetry Point — Lesson 99",
+          "file": "algorithms/codility-lessons-lesson99-strsymmetrypoint.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "codility-lessons-lesson99-treeheight",
+          "title": "Tree Height — Lesson 99",
+          "title_es": "Tree Height — Lesson 99",
+          "file": "algorithms/codility-lessons-lesson99-treeheight.md",
+          "topics": [
+            "Graph",
+            "Recursion / Backtracking"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "alan-exercises-arrayjmp",
+          "title": "Array Jmp",
+          "title_es": "Array Jmp",
+          "file": "algorithms/alan-exercises-arrayjmp.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-exercises-dominant",
+          "title": "Dominant",
+          "title_es": "Dominant",
+          "file": "algorithms/alan-exercises-dominant.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-algebra-gauss-seidel",
+          "title": "Gauss Seidel",
+          "title_es": "Gauss Seidel",
+          "file": "algorithms/alan-algebra-gauss-seidel.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Math Practice"
+        },
+        {
+          "id": "alan-amazon-interview-baseball",
+          "title": "Baseball",
+          "title_es": "Baseball",
+          "file": "algorithms/alan-amazon-interview-baseball.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Amazon"
+        },
+        {
+          "id": "alan-amazon-interview-movie",
+          "title": "Movie",
+          "title_es": "Movie",
+          "file": "algorithms/alan-amazon-interview-movie.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Amazon"
+        },
+        {
+          "id": "alan-amazon-interview-moviessolution",
+          "title": "Movies Solution",
+          "title_es": "Movies Solution",
+          "file": "algorithms/alan-amazon-interview-moviessolution.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Amazon"
+        },
+        {
+          "id": "alan-amazon-practice-breadthfirsttraversal",
+          "title": "Breadth First Traversal",
+          "title_es": "Breadth First Traversal",
+          "file": "algorithms/alan-amazon-practice-breadthfirsttraversal.md",
+          "topics": [
+            "Linked List",
+            "Queue",
+            "Tree / BST"
+          ],
+          "origin": "Amazon"
+        },
+        {
+          "id": "alan-amazon-practice-levelbylevel",
+          "title": "Level By Level",
+          "title_es": "Level By Level",
+          "file": "algorithms/alan-amazon-practice-levelbylevel.md",
+          "topics": [
+            "Tree / BST",
+            "Recursion / Backtracking"
+          ],
+          "origin": "Amazon"
+        },
+        {
+          "id": "alan-amazon-practice-node",
+          "title": "Node",
+          "title_es": "Node",
+          "file": "algorithms/alan-amazon-practice-node.md",
+          "topics": [
+            "Linked List"
+          ],
+          "origin": "Amazon"
+        },
+        {
+          "id": "alan-amazon-practice-sort",
+          "title": "Sort",
+          "title_es": "Sort",
+          "file": "algorithms/alan-amazon-practice-sort.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Amazon"
+        },
+        {
+          "id": "alan-codility-integertostringwithcomma",
+          "title": "Integer To String With Comma",
+          "title_es": "Integer To String With Comma",
+          "file": "algorithms/alan-codility-integertostringwithcomma.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "alan-codility-permutationprint",
+          "title": "Permutation Print",
+          "title_es": "Permutation Print",
+          "file": "algorithms/alan-codility-permutationprint.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "alan-codility-permutationset",
+          "title": "Permutation Set",
+          "title_es": "Permutation Set",
+          "file": "algorithms/alan-codility-permutationset.md",
+          "topics": [
+            "Hash Set",
+            "Strings"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "alan-hackerrank-day1",
+          "title": "Day 1 — Data Types",
+          "title_es": "Día 1 — Tipos de datos",
+          "file": "algorithms/alan-hackerrank-day1.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day10",
+          "title": "Day 10 — Binary Numbers (longest run of 1s)",
+          "title_es": "Día 10 — Binarios (cadena más larga de 1s)",
+          "file": "algorithms/alan-hackerrank-day10.md",
+          "topics": [
+            "Bit Manipulation",
+            "Strings"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day11-hourglass",
+          "title": "Day 11 — 2D Arrays (Hourglass sum)",
+          "title_es": "Día 11 — Arrays 2D (suma de reloj de arena)",
+          "file": "algorithms/alan-hackerrank-day11-hourglass.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day12",
+          "title": "Day 12 — Inheritance (Person → Student)",
+          "title_es": "Día 12 — Herencia (Person → Student)",
+          "file": "algorithms/alan-hackerrank-day12.md",
+          "topics": [
+            "Design / OOP"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day13",
+          "title": "Day 13 — Abstract Classes (Book)",
+          "title_es": "Día 13 — Clases abstractas (Book)",
+          "file": "algorithms/alan-hackerrank-day13.md",
+          "topics": [
+            "Design / OOP"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day14",
+          "title": "Day 14 — Scope (max array difference)",
+          "title_es": "Día 14 — Scope (máxima diferencia)",
+          "file": "algorithms/alan-hackerrank-day14.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day15",
+          "title": "Day 15 — Linked List (insert + display)",
+          "title_es": "Día 15 — Lista enlazada (insertar + mostrar)",
+          "file": "algorithms/alan-hackerrank-day15.md",
+          "topics": [
+            "Linked List"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day16",
+          "title": "Day 16 — Exceptions (String → Integer)",
+          "title_es": "Día 16 — Excepciones (String → Integer)",
+          "file": "algorithms/alan-hackerrank-day16.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day17",
+          "title": "Day 17 — More Exceptions (Calculator power)",
+          "title_es": "Día 17 — Más excepciones (Calculator power)",
+          "file": "algorithms/alan-hackerrank-day17.md",
+          "topics": [
+            "Design / OOP"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day18",
+          "title": "Day 18 — Queues and Stacks (palindrome)",
+          "title_es": "Día 18 — Colas y pilas (palíndromo)",
+          "file": "algorithms/alan-hackerrank-day18.md",
+          "topics": [
+            "Stack",
+            "Queue",
+            "Strings"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day19",
+          "title": "Day 19 — Interfaces (divisor sum)",
+          "title_es": "Día 19 — Interfaces (suma de divisores)",
+          "file": "algorithms/alan-hackerrank-day19.md",
+          "topics": [
+            "Design / OOP"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day2",
+          "title": "Day 2 — Operators",
+          "title_es": "Día 2 — Operadores",
+          "file": "algorithms/alan-hackerrank-day2.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day20",
+          "title": "Day 20 — Sorting (Bubble Sort)",
+          "title_es": "Día 20 — Sorting (Bubble Sort)",
+          "file": "algorithms/alan-hackerrank-day20.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day21",
+          "title": "Day 21 — Generics (printArray)",
+          "title_es": "Día 21 — Generics (printArray)",
+          "file": "algorithms/alan-hackerrank-day21.md",
+          "topics": [
+            "Design / OOP"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day22-tree-height",
+          "title": "Day 22 — Binary Search Trees (height)",
+          "title_es": "Día 22 — BST (altura)",
+          "file": "algorithms/alan-hackerrank-day22-tree-height.md",
+          "topics": [
+            "Tree / BST",
+            "Recursion / Backtracking"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day23",
+          "title": "Day 23 — BST Level-Order Traversal",
+          "title_es": "Día 23 — Recorrido por niveles de BST",
+          "file": "algorithms/alan-hackerrank-day23.md",
+          "topics": [
+            "Tree / BST",
+            "Queue"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day24",
+          "title": "Day 24 — Linked List (remove duplicates)",
+          "title_es": "Día 24 — Lista enlazada (quitar duplicados)",
+          "file": "algorithms/alan-hackerrank-day24.md",
+          "topics": [
+            "Linked List",
+            "Hash Set"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day25-primes",
+          "title": "Day 25 — Running Time & Complexity (Primes)",
+          "title_es": "Día 25 — Tiempo de ejecución y complejidad (primos)",
+          "file": "algorithms/alan-hackerrank-day25-primes.md",
+          "topics": [
+            "Math / Number Theory"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day26",
+          "title": "Day 26 — Nested Logic (library fine)",
+          "title_es": "Día 26 — Lógica anidada (multa de biblioteca)",
+          "file": "algorithms/alan-hackerrank-day26.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day27",
+          "title": "Day 27 — Testing (generate test cases)",
+          "title_es": "Día 27 — Testing (generar casos de prueba)",
+          "file": "algorithms/alan-hackerrank-day27.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day28",
+          "title": "Day 28 — RegEx & Patterns (filter Gmail users)",
+          "title_es": "Día 28 — RegEx y patrones (filtrar usuarios Gmail)",
+          "file": "algorithms/alan-hackerrank-day28.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day29",
+          "title": "Day 29 — Bitwise AND (max under limit)",
+          "title_es": "Día 29 — Bitwise AND (máximo bajo límite)",
+          "file": "algorithms/alan-hackerrank-day29.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day3",
+          "title": "Day 3 — Conditional Statements (Weird)",
+          "title_es": "Día 3 — Condicionales (Weird)",
+          "file": "algorithms/alan-hackerrank-day3.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day4",
+          "title": "Day 4 — Class vs. Instance",
+          "title_es": "Día 4 — Clase vs. Instancia",
+          "file": "algorithms/alan-hackerrank-day4.md",
+          "topics": [
+            "Design / OOP"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day5",
+          "title": "Day 5 — Loops (multiplication table)",
+          "title_es": "Día 5 — Bucles (tabla de multiplicar)",
+          "file": "algorithms/alan-hackerrank-day5.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day6",
+          "title": "Day 6 — Let's Review (even/odd chars)",
+          "title_es": "Día 6 — Repaso (chars pares/impares)",
+          "file": "algorithms/alan-hackerrank-day6.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day7",
+          "title": "Day 7 — Arrays (reverse)",
+          "title_es": "Día 7 — Arrays (invertir)",
+          "file": "algorithms/alan-hackerrank-day7.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day8",
+          "title": "Day 8 — Dictionaries and Maps (phone book)",
+          "title_es": "Día 8 — Diccionarios y mapas (agenda)",
+          "file": "algorithms/alan-hackerrank-day8.md",
+          "topics": [
+            "Hash Map"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-day9",
+          "title": "Day 9 — Recursion (factorial)",
+          "title_es": "Día 9 — Recursión (factorial)",
+          "file": "algorithms/alan-hackerrank-day9.md",
+          "topics": [
+            "Recursion / Backtracking"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-hackerrank-sumarray",
+          "title": "Sum Array",
+          "title_es": "Sum Array",
+          "file": "algorithms/alan-hackerrank-sumarray.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "HackerRank"
+        },
+        {
+          "id": "alan-math",
+          "title": "Math",
+          "title_es": "Math",
+          "file": "algorithms/alan-math.md",
+          "topics": [
+            "Math / Number Theory"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-newest-circularprime",
+          "title": "Circular Prime",
+          "title_es": "Circular Prime",
+          "file": "algorithms/alan-newest-circularprime.md",
+          "topics": [
+            "Dynamic Programming"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-newest-prime",
+          "title": "Prime",
+          "title_es": "Prime",
+          "file": "algorithms/alan-newest-prime.md",
+          "topics": [
+            "Math / Number Theory"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-newest-binaryperiod",
+          "title": "Binary Period",
+          "title_es": "Binary Period",
+          "file": "algorithms/alan-newest-binaryperiod.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-newest-binaryperiod2",
+          "title": "Binary Period 2",
+          "title_es": "Binary Period 2",
+          "file": "algorithms/alan-newest-binaryperiod2.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-newest-decimal-repr",
+          "title": "Decimal Repr",
+          "title_es": "Decimal Repr",
+          "file": "algorithms/alan-newest-decimal-repr.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-newest-rectangleintersection",
+          "title": "Rectangle Intersection",
+          "title_es": "Rectangle Intersection",
+          "file": "algorithms/alan-newest-rectangleintersection.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-older-binary-gap",
+          "title": "Binary Gap",
+          "title_es": "Binary Gap",
+          "file": "algorithms/alan-older-binary-gap.md",
+          "topics": [
+            "Sorting",
+            "Linked List",
+            "Bit Manipulation"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "alan-older-countdiv",
+          "title": "Count Div",
+          "title_es": "Count Div",
+          "file": "algorithms/alan-older-countdiv.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "alan-older-equi",
+          "title": "Equi",
+          "title_es": "Equi",
+          "file": "algorithms/alan-older-equi.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "alan-older-triplet",
+          "title": "Triplet",
+          "title_es": "Triplet",
+          "file": "algorithms/alan-older-triplet.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Codility"
+        },
+        {
+          "id": "alan-test",
+          "title": "Test",
+          "title_es": "Test",
+          "file": "algorithms/alan-test.md",
+          "topics": [
+            "Bit Manipulation"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-todo-absdistinct",
+          "title": "Abs Distinct",
+          "title_es": "Abs Distinct",
+          "file": "algorithms/alan-todo-absdistinct.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-todo-bit-rev",
+          "title": "Bit Rev",
+          "title_es": "Bit Rev",
+          "file": "algorithms/alan-todo-bit-rev.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-todo-heavy-decimal-count",
+          "title": "Heavy Decimal Count",
+          "title_es": "Heavy Decimal Count",
+          "file": "algorithms/alan-todo-heavy-decimal-count.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Personal"
+        },
+        {
+          "id": "alan-toptal-tt17-coins",
+          "title": "Coins",
+          "title_es": "Coins",
+          "file": "algorithms/alan-toptal-tt17-coins.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt17-domino",
+          "title": "Domino",
+          "title_es": "Domino",
+          "file": "algorithms/alan-toptal-tt17-domino.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt17b-correctsentence",
+          "title": "Correct Sentence",
+          "title_es": "Correct Sentence",
+          "file": "algorithms/alan-toptal-tt17b-correctsentence.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt17b-correctsentencemejorar",
+          "title": "Correct Sentence Mejorar",
+          "title_es": "Correct Sentence Mejorar",
+          "file": "algorithms/alan-toptal-tt17b-correctsentencemejorar.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt17b-domino",
+          "title": "Domino",
+          "title_es": "Domino",
+          "file": "algorithms/alan-toptal-tt17b-domino.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt2016-anagram",
+          "title": "Anagram",
+          "title_es": "Anagram",
+          "file": "algorithms/alan-toptal-tt2016-anagram.md",
+          "topics": [
+            "Hash Set",
+            "Strings",
+            "Arrays"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt2016-integertostring",
+          "title": "Integer To String",
+          "title_es": "Integer To String",
+          "file": "algorithms/alan-toptal-tt2016-integertostring.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt2016-negatebinarynumbers",
+          "title": "Negate Binary Numbers",
+          "title_es": "Negate Binary Numbers",
+          "file": "algorithms/alan-toptal-tt2016-negatebinarynumbers.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt2016-palindrome",
+          "title": "Palindrome",
+          "title_es": "Palindrome",
+          "file": "algorithms/alan-toptal-tt2016-palindrome.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt2016-snake",
+          "title": "Snake",
+          "title_es": "Snake",
+          "file": "algorithms/alan-toptal-tt2016-snake.md",
+          "topics": [
+            "Hash Set",
+            "Arrays"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt2016b-circularprime",
+          "title": "Circular Prime",
+          "title_es": "Circular Prime",
+          "file": "algorithms/alan-toptal-tt2016b-circularprime.md",
+          "topics": [
+            "Math / Number Theory",
+            "Strings"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "alan-toptal-tt2016b-decksamount",
+          "title": "Decks Amount",
+          "title_es": "Decks Amount",
+          "file": "algorithms/alan-toptal-tt2016b-decksamount.md",
+          "topics": [
+            "Strings",
+            "Arrays",
+            "Design / OOP"
+          ],
+          "origin": "Toptal"
+        },
+        {
+          "id": "anio2022-adyen-result",
+          "title": "Result",
+          "title_es": "Result",
+          "file": "algorithms/anio2022-adyen-result.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Adyen"
+        },
+        {
+          "id": "anio2022-adyen-binarysearch-person",
+          "title": "Person",
+          "title_es": "Person",
+          "file": "algorithms/anio2022-adyen-binarysearch-person.md",
+          "topics": [
+            "Binary Search"
+          ],
+          "origin": "Adyen"
+        },
+        {
+          "id": "anio2022-adyen-binarysearch-testbinarysearch",
+          "title": "Test Binary Search",
+          "title_es": "Test Binary Search",
+          "file": "algorithms/anio2022-adyen-binarysearch-testbinarysearch.md",
+          "topics": [
+            "Binary Search",
+            "Sorting"
+          ],
+          "origin": "Adyen"
+        },
+        {
+          "id": "anio2022-amazon-test1",
+          "title": "Test 1",
+          "title_es": "Test 1",
+          "file": "algorithms/anio2022-amazon-test1.md",
+          "topics": [
+            "Hash Map",
+            "Arrays"
+          ],
+          "origin": "Amazon"
+        },
+        {
+          "id": "anio2022-amazon-test2",
+          "title": "Test 2",
+          "title_es": "Test 2",
+          "file": "algorithms/anio2022-amazon-test2.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Amazon"
+        },
+        {
+          "id": "anio2022-mission-test1",
+          "title": "Test 1",
+          "title_es": "Test 1",
+          "file": "algorithms/anio2022-mission-test1.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Mission"
+        },
+        {
+          "id": "anio2022-mission-test2",
+          "title": "Test 2",
+          "title_es": "Test 2",
+          "file": "algorithms/anio2022-mission-test2.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Mission"
+        },
+        {
+          "id": "anio2022-neginet-test",
+          "title": "Test",
+          "title_es": "Test",
+          "file": "algorithms/anio2022-neginet-test.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "NegiNet"
+        },
+        {
+          "id": "anio2022-neginet-testpriorityqueue",
+          "title": "Test Priority Queue",
+          "title_es": "Test Priority Queue",
+          "file": "algorithms/anio2022-neginet-testpriorityqueue.md",
+          "topics": [
+            "Queue",
+            "Heap / PQ"
+          ],
+          "origin": "NegiNet"
+        },
+        {
+          "id": "anio2022-neginet-testtree",
+          "title": "Test Tree",
+          "title_es": "Test Tree",
+          "file": "algorithms/anio2022-neginet-testtree.md",
+          "topics": [
+            "Hash Set",
+            "Arrays"
+          ],
+          "origin": "NegiNet"
+        },
+        {
+          "id": "anio2022-neginet-util-modifiednamesreport",
+          "title": "Modified Names Report",
+          "title_es": "Modified Names Report",
+          "file": "algorithms/anio2022-neginet-util-modifiednamesreport.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "NegiNet"
+        },
+        {
+          "id": "anio2022-neginet-util-namecount",
+          "title": "Name Count",
+          "title_es": "Name Count",
+          "file": "algorithms/anio2022-neginet-util-namecount.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "NegiNet"
+        },
+        {
+          "id": "anio2022-neginet-util-peoplenameinsights",
+          "title": "People Name Insights",
+          "title_es": "People Name Insights",
+          "file": "algorithms/anio2022-neginet-util-peoplenameinsights.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "NegiNet"
+        },
+        {
+          "id": "anio2022-neginet-util-top10report",
+          "title": "Top 10 Report",
+          "title_es": "Top 10 Report",
+          "file": "algorithms/anio2022-neginet-util-top10report.md",
+          "topics": [
+            "Hash Map",
+            "Linked List",
+            "Queue"
+          ],
+          "origin": "NegiNet"
+        },
+        {
+          "id": "fb-fb",
+          "title": "Fb",
+          "title_es": "Fb",
+          "file": "algorithms/fb-fb.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Facebook"
+        },
+        {
+          "id": "hackealo-avanzado",
+          "title": "Avanzado",
+          "title_es": "Avanzado",
+          "file": "algorithms/hackealo-avanzado.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Hackealo"
+        },
+        {
+          "id": "hackealo-intermedio",
+          "title": "Intermedio",
+          "title_es": "Intermedio",
+          "file": "algorithms/hackealo-intermedio.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Hackealo"
+        },
+        {
+          "id": "hackealo-principiante",
+          "title": "Principiante",
+          "title_es": "Principiante",
+          "file": "algorithms/hackealo-principiante.md",
+          "topics": [
+            "Hash Map"
+          ],
+          "origin": "Hackealo"
+        },
+        {
+          "id": "javaconceptoftheday-files-filewriterexample",
+          "title": "File Writer Example",
+          "title_es": "File Writer Example",
+          "file": "algorithms/javaconceptoftheday-files-filewriterexample.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-files-repeatedwordinfile",
+          "title": "Repeated Word In File",
+          "title_es": "Repeated Word In File",
+          "file": "algorithms/javaconceptoftheday-files-repeatedwordinfile.md",
+          "topics": [
+            "Hash Map",
+            "Hash Set",
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-files-wordcountinfile",
+          "title": "Word Count In File",
+          "title_es": "Word Count In File",
+          "file": "algorithms/javaconceptoftheday-files-wordcountinfile.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-anagram",
+          "title": "Anagram",
+          "title_es": "Anagram",
+          "file": "algorithms/javaconceptoftheday-strings-anagram.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-characterpercentages",
+          "title": "Character Percentages",
+          "title_es": "Character Percentages",
+          "file": "algorithms/javaconceptoftheday-strings-characterpercentages.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-checkrotation",
+          "title": "Check Rotation",
+          "title_es": "Check Rotation",
+          "file": "algorithms/javaconceptoftheday-strings-checkrotation.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-convertinttostring",
+          "title": "Convert Int To String",
+          "title_es": "Convert Int To String",
+          "file": "algorithms/javaconceptoftheday-strings-convertinttostring.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-convertstringtointeger",
+          "title": "Convert String To Integer",
+          "title_es": "Convert String To Integer",
+          "file": "algorithms/javaconceptoftheday-strings-convertstringtointeger.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-countcharacteroccurence",
+          "title": "Count Character Occurence",
+          "title_es": "Count Character Occurence",
+          "file": "algorithms/javaconceptoftheday-strings-countcharacteroccurence.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-countcharactersocurrence",
+          "title": "Count Characters Ocurrence",
+          "title_es": "Count Characters Ocurrence",
+          "file": "algorithms/javaconceptoftheday-strings-countcharactersocurrence.md",
+          "topics": [
+            "Hash Map",
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-countthewords",
+          "title": "Count The Words",
+          "title_es": "Count The Words",
+          "file": "algorithms/javaconceptoftheday-strings-countthewords.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-duplicatecharactersinstring",
+          "title": "Duplicate Characters In String",
+          "title_es": "Duplicate Characters In String",
+          "file": "algorithms/javaconceptoftheday-strings-duplicatecharactersinstring.md",
+          "topics": [
+            "Hash Map",
+            "Hash Set",
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-duplicatewordsinstring",
+          "title": "Duplicate Words In String",
+          "title_es": "Duplicate Words In String",
+          "file": "algorithms/javaconceptoftheday-strings-duplicatewordsinstring.md",
+          "topics": [
+            "Hash Map",
+            "Hash Set",
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-firstrepeatednonrepeatedchar",
+          "title": "First Repeated Non Repeated Char",
+          "title_es": "First Repeated Non Repeated Char",
+          "file": "algorithms/javaconceptoftheday-strings-firstrepeatednonrepeatedchar.md",
+          "topics": [
+            "Hash Map",
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-longestsubstring",
+          "title": "Longest Substring",
+          "title_es": "Longest Substring",
+          "file": "algorithms/javaconceptoftheday-strings-longestsubstring.md",
+          "topics": [
+            "Hash Map",
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-permutation",
+          "title": "Permutation",
+          "title_es": "Permutation",
+          "file": "algorithms/javaconceptoftheday-strings-permutation.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-removewhitespaces",
+          "title": "Remove White Spaces",
+          "title_es": "Remove White Spaces",
+          "file": "algorithms/javaconceptoftheday-strings-removewhitespaces.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-reverseeachword",
+          "title": "Reverse Each Word",
+          "title_es": "Reverse Each Word",
+          "file": "algorithms/javaconceptoftheday-strings-reverseeachword.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-reversepreservingspaces",
+          "title": "Reverse Preserving Spaces",
+          "title_es": "Reverse Preserving Spaces",
+          "file": "algorithms/javaconceptoftheday-strings-reversepreservingspaces.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-reversestringpreservingspaces",
+          "title": "Reverse String Preserving Spaces",
+          "title_es": "Reverse String Preserving Spaces",
+          "file": "algorithms/javaconceptoftheday-strings-reversestringpreservingspaces.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-reversethestring",
+          "title": "Reverse The String",
+          "title_es": "Reverse The String",
+          "file": "algorithms/javaconceptoftheday-strings-reversethestring.md",
+          "topics": [
+            "Recursion / Backtracking"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-stringexamples",
+          "title": "String Examples",
+          "title_es": "String Examples",
+          "file": "algorithms/javaconceptoftheday-strings-stringexamples.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "javaconceptoftheday-strings-swap2strings",
+          "title": "Swap 2 Strings",
+          "title_es": "Swap 2 Strings",
+          "file": "algorithms/javaconceptoftheday-strings-swap2strings.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "JavaConceptOfTheDay"
+        },
+        {
+          "id": "lyft-lifttest",
+          "title": "Lift Test",
+          "title_es": "Lift Test",
+          "file": "algorithms/lyft-lifttest.md",
+          "topics": [
+            "Strings",
+            "Arrays"
+          ],
+          "origin": "Lyft"
+        },
+        {
+          "id": "lyft-matchword",
+          "title": "Match Word",
+          "title_es": "Match Word",
+          "file": "algorithms/lyft-matchword.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Lyft"
+        },
+        {
+          "id": "lyft-trie",
+          "title": "Trie",
+          "title_es": "Trie",
+          "file": "algorithms/lyft-trie.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Lyft"
+        },
+        {
+          "id": "telegram-echobot",
+          "title": "Echo Bot",
+          "title_es": "Echo Bot",
+          "file": "algorithms/telegram-echobot.md",
+          "topics": [
+            "Misc"
+          ],
+          "origin": "Telegram"
+        },
+        {
+          "id": "telegram-telegram",
+          "title": "Telegram",
+          "title_es": "Telegram",
+          "file": "algorithms/telegram-telegram.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "Telegram"
+        },
+        {
+          "id": "test0",
+          "title": "Test 0",
+          "title_es": "Test 0",
+          "file": "algorithms/test0.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Other"
+        },
+        {
+          "id": "test1",
+          "title": "Test 1",
+          "title_es": "Test 1",
+          "file": "algorithms/test1.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Other"
+        },
+        {
+          "id": "test2",
+          "title": "Test 2",
+          "title_es": "Test 2",
+          "file": "algorithms/test2.md",
+          "topics": [
+            "Sorting"
+          ],
+          "origin": "Other"
+        },
+        {
+          "id": "test3",
+          "title": "Test 3",
+          "title_es": "Test 3",
+          "file": "algorithms/test3.md",
+          "topics": [
+            "Arrays"
+          ],
+          "origin": "Other"
+        },
+        {
+          "id": "wallethub-complimentarypairs",
+          "title": "Complimentary Pairs",
+          "title_es": "Complimentary Pairs",
+          "file": "algorithms/wallethub-complimentarypairs.md",
+          "topics": [
+            "Hash Set",
+            "Arrays"
+          ],
+          "origin": "WalletHub"
+        },
+        {
+          "id": "wallethub-palindrome",
+          "title": "Palindrome",
+          "title_es": "Palindrome",
+          "file": "algorithms/wallethub-palindrome.md",
+          "topics": [
+            "Strings"
+          ],
+          "origin": "WalletHub"
+        },
+        {
+          "id": "wallethub-topphrases",
+          "title": "Top Phrases",
+          "title_es": "Top Phrases",
+          "file": "algorithms/wallethub-topphrases.md",
+          "topics": [
+            "Hash Map",
+            "Strings"
+          ],
+          "origin": "WalletHub"
+        },
+        {
+          "id": "zalando-selfcache-selfexpiringhashmap",
+          "title": "Self Expiring Hash Map",
+          "title_es": "Self Expiring Hash Map",
+          "file": "algorithms/zalando-selfcache-selfexpiringhashmap.md",
+          "topics": [
+            "Hash Map",
+            "Queue"
+          ],
+          "origin": "Zalando"
+        },
+        {
+          "id": "zalando-selfcache-selfexpiringmap",
+          "title": "Self Expiring Map",
+          "title_es": "Self Expiring Map",
+          "file": "algorithms/zalando-selfcache-selfexpiringmap.md",
+          "topics": [
+            "Hash Map",
+            "Design / OOP"
+          ],
+          "origin": "Zalando"
+        },
+        {
+          "id": "zalando-selfcache-test",
+          "title": "Test",
+          "title_es": "Test",
+          "file": "algorithms/zalando-selfcache-test.md",
+          "topics": [
+            "Hash Map"
+          ],
+          "origin": "Zalando"
+        }
       ]
     }
   ]
