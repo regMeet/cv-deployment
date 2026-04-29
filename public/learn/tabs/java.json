@@ -879,8 +879,8 @@
         },
         {
           "id": "codility-lessons-lesson1-frogjmp",
-          "title": "Frog Jmp — Lesson 1",
-          "title_es": "Frog Jmp — Lesson 1",
+          "title": "Frog Jump — Lesson 1",
+          "title_es": "Frog Jump — Lesson 1",
           "file": "algorithms/codility-lessons-lesson1-frogjmp.md",
           "topics": [
             "Math"
@@ -889,8 +889,8 @@
         },
         {
           "id": "codility-lessons-lesson1-permmissingelem",
-          "title": "Perm Missing Elem — Lesson 1",
-          "title_es": "Perm Missing Elem — Lesson 1",
+          "title": "Permutation Missing Element — Lesson 1",
+          "title_es": "Permutation Missing Element — Lesson 1",
           "file": "algorithms/codility-lessons-lesson1-permmissingelem.md",
           "topics": [
             "Arrays"
@@ -1093,8 +1093,8 @@
         },
         {
           "id": "codility-lessons-lesson2-permcheck",
-          "title": "Perm Check — Lesson 2",
-          "title_es": "Perm Check — Lesson 2",
+          "title": "Permutation Check — Lesson 2",
+          "title_es": "Permutation Check — Lesson 2",
           "file": "algorithms/codility-lessons-lesson2-permcheck.md",
           "topics": [
             "Hash Set",
@@ -1124,8 +1124,8 @@
         },
         {
           "id": "codility-lessons-lesson3-minavgtwoslice",
-          "title": "Min Avg Two Slice — Lesson 3",
-          "title_es": "Min Avg Two Slice — Lesson 3",
+          "title": "Min Average Two Slice — Lesson 3",
+          "title_es": "Min Average Two Slice — Lesson 3",
           "file": "algorithms/codility-lessons-lesson3-minavgtwoslice.md",
           "topics": [
             "Prefix Sums"
@@ -1346,8 +1346,8 @@
         },
         {
           "id": "codility-lessons-lesson99-strsymmetrypoint",
-          "title": "Str Symmetry Point — Lesson 99",
-          "title_es": "Str Symmetry Point — Lesson 99",
+          "title": "String Symmetry Point — Lesson 99",
+          "title_es": "String Symmetry Point — Lesson 99",
           "file": "algorithms/codility-lessons-lesson99-strsymmetrypoint.md",
           "topics": [
             "Strings"
@@ -1367,8 +1367,8 @@
         },
         {
           "id": "alan-exercises-arrayjmp",
-          "title": "Array Jmp",
-          "title_es": "Array Jmp",
+          "title": "Array Jump",
+          "title_es": "Array Jump",
           "file": "algorithms/alan-exercises-arrayjmp.md",
           "topics": [
             "Arrays"
@@ -1397,7 +1397,7 @@
         },
         {
           "id": "alan-amazon-interview-baseball",
-          "title": "Baseball",
+          "title": "Baseball Game",
           "title_es": "Baseball",
           "file": "algorithms/alan-amazon-interview-baseball.md",
           "topics": [
@@ -1407,8 +1407,8 @@
         },
         {
           "id": "alan-amazon-interview-movie",
-          "title": "Movie",
-          "title_es": "Movie",
+          "title": "Movie Schedule",
+          "title_es": "Movie Schedule",
           "file": "algorithms/alan-amazon-interview-movie.md",
           "topics": [
             "Arrays"
@@ -1417,8 +1417,8 @@
         },
         {
           "id": "alan-amazon-interview-moviessolution",
-          "title": "Movies Solution",
-          "title_es": "Movies Solution",
+          "title": "Movie Schedule (solution)",
+          "title_es": "Movie Schedule (solution)",
           "file": "algorithms/alan-amazon-interview-moviessolution.md",
           "topics": [
             "Sorting"
@@ -1450,8 +1450,8 @@
         },
         {
           "id": "alan-amazon-practice-node",
-          "title": "Node",
-          "title_es": "Node",
+          "title": "Tree Node",
+          "title_es": "Tree Node",
           "file": "algorithms/alan-amazon-practice-node.md",
           "topics": [
             "Linked List"
@@ -1460,8 +1460,8 @@
         },
         {
           "id": "alan-amazon-practice-sort",
-          "title": "Sort",
-          "title_es": "Sort",
+          "title": "Sort (practice)",
+          "title_es": "Sort (práctica)",
           "file": "algorithms/alan-amazon-practice-sort.md",
           "topics": [
             "Arrays"
@@ -1807,8 +1807,8 @@
         },
         {
           "id": "alan-math",
-          "title": "Math",
-          "title_es": "Math",
+          "title": "Math Snippets",
+          "title_es": "Math Snippets",
           "file": "algorithms/alan-math.md",
           "topics": [
             "Math / Number Theory"
@@ -1857,8 +1857,8 @@
         },
         {
           "id": "alan-newest-decimal-repr",
-          "title": "Decimal Repr",
-          "title_es": "Decimal Repr",
+          "title": "Decimal Representation",
+          "title_es": "Representación decimal",
           "file": "algorithms/alan-newest-decimal-repr.md",
           "topics": [
             "Strings"
@@ -1899,8 +1899,8 @@
         },
         {
           "id": "alan-older-equi",
-          "title": "Equi",
-          "title_es": "Equi",
+          "title": "Equi (equilibrium index)",
+          "title_es": "Equi (equilibrium index)",
           "file": "algorithms/alan-older-equi.md",
           "topics": [
             "Arrays"
@@ -1909,8 +1909,8 @@
         },
         {
           "id": "alan-older-triplet",
-          "title": "Triplet",
-          "title_es": "Triplet",
+          "title": "Triplet Sum",
+          "title_es": "Triplet Sum",
           "file": "algorithms/alan-older-triplet.md",
           "topics": [
             "Sorting"
@@ -1919,8 +1919,8 @@
         },
         {
           "id": "alan-test",
-          "title": "Test",
-          "title_es": "Test",
+          "title": "Bit Manipulation Test",
+          "title_es": "Bit Manipulation Test",
           "file": "algorithms/alan-test.md",
           "topics": [
             "Bit Manipulation"
@@ -1929,8 +1929,8 @@
         },
         {
           "id": "alan-todo-absdistinct",
-          "title": "Abs Distinct",
-          "title_es": "Abs Distinct",
+          "title": "Absolute Distinct",
+          "title_es": "Absolute Distinct",
           "file": "algorithms/alan-todo-absdistinct.md",
           "topics": [
             "Arrays"
@@ -1939,8 +1939,8 @@
         },
         {
           "id": "alan-todo-bit-rev",
-          "title": "Bit Rev",
-          "title_es": "Bit Rev",
+          "title": "Bit Reversal",
+          "title_es": "Bit Reversal",
           "file": "algorithms/alan-todo-bit-rev.md",
           "topics": [
             "Bit Manipulation"
@@ -1969,8 +1969,8 @@
         },
         {
           "id": "alan-toptal-tt17-domino",
-          "title": "Domino",
-          "title_es": "Domino",
+          "title": "Domino (TT17)",
+          "title_es": "Domino (TT17)",
           "file": "algorithms/alan-toptal-tt17-domino.md",
           "topics": [
             "Strings"
@@ -1989,8 +1989,8 @@
         },
         {
           "id": "alan-toptal-tt17b-correctsentencemejorar",
-          "title": "Correct Sentence Mejorar",
-          "title_es": "Correct Sentence Mejorar",
+          "title": "Correct Sentence (Improved)",
+          "title_es": "Correct Sentence (Improved)",
           "file": "algorithms/alan-toptal-tt17b-correctsentencemejorar.md",
           "topics": [
             "Strings"
@@ -1999,8 +1999,8 @@
         },
         {
           "id": "alan-toptal-tt17b-domino",
-          "title": "Domino",
-          "title_es": "Domino",
+          "title": "Domino (TT17B)",
+          "title_es": "Domino (TT17B)",
           "file": "algorithms/alan-toptal-tt17b-domino.md",
           "topics": [
             "Strings"
@@ -2051,7 +2051,7 @@
         },
         {
           "id": "alan-toptal-tt2016-snake",
-          "title": "Snake",
+          "title": "Snake Game",
           "title_es": "Snake",
           "file": "algorithms/alan-toptal-tt2016-snake.md",
           "topics": [
@@ -2085,8 +2085,8 @@
         },
         {
           "id": "anio2022-adyen-result",
-          "title": "Result",
-          "title_es": "Result",
+          "title": "Adyen Result",
+          "title_es": "Adyen Result",
           "file": "algorithms/anio2022-adyen-result.md",
           "topics": [
             "Sorting"
@@ -2095,8 +2095,8 @@
         },
         {
           "id": "anio2022-adyen-binarysearch-person",
-          "title": "Person",
-          "title_es": "Person",
+          "title": "Person (binary search)",
+          "title_es": "Person (binary search)",
           "file": "algorithms/anio2022-adyen-binarysearch-person.md",
           "topics": [
             "Binary Search"
@@ -2105,8 +2105,8 @@
         },
         {
           "id": "anio2022-adyen-binarysearch-testbinarysearch",
-          "title": "Test Binary Search",
-          "title_es": "Test Binary Search",
+          "title": "Adyen Binary Search Test",
+          "title_es": "Adyen Binary Search Test",
           "file": "algorithms/anio2022-adyen-binarysearch-testbinarysearch.md",
           "topics": [
             "Binary Search",
@@ -2116,8 +2116,8 @@
         },
         {
           "id": "anio2022-amazon-test1",
-          "title": "Test 1",
-          "title_es": "Test 1",
+          "title": "Amazon Test 1 (2022)",
+          "title_es": "Amazon Test 1 (2022)",
           "file": "algorithms/anio2022-amazon-test1.md",
           "topics": [
             "Hash Map",
@@ -2127,8 +2127,8 @@
         },
         {
           "id": "anio2022-amazon-test2",
-          "title": "Test 2",
-          "title_es": "Test 2",
+          "title": "Amazon Test 2 (2022)",
+          "title_es": "Amazon Test 2 (2022)",
           "file": "algorithms/anio2022-amazon-test2.md",
           "topics": [
             "Arrays"
@@ -2137,8 +2137,8 @@
         },
         {
           "id": "anio2022-mission-test1",
-          "title": "Test 1",
-          "title_es": "Test 1",
+          "title": "Mission Test 1 (2022)",
+          "title_es": "Mission Test 1 (2022)",
           "file": "algorithms/anio2022-mission-test1.md",
           "topics": [
             "Arrays"
@@ -2147,8 +2147,8 @@
         },
         {
           "id": "anio2022-mission-test2",
-          "title": "Test 2",
-          "title_es": "Test 2",
+          "title": "Mission Test 2 (2022)",
+          "title_es": "Mission Test 2 (2022)",
           "file": "algorithms/anio2022-mission-test2.md",
           "topics": [
             "Arrays"
@@ -2157,8 +2157,8 @@
         },
         {
           "id": "anio2022-neginet-test",
-          "title": "Test",
-          "title_es": "Test",
+          "title": "NegiNet Test",
+          "title_es": "NegiNet Test",
           "file": "algorithms/anio2022-neginet-test.md",
           "topics": [
             "Misc"
@@ -2167,8 +2167,8 @@
         },
         {
           "id": "anio2022-neginet-testpriorityqueue",
-          "title": "Test Priority Queue",
-          "title_es": "Test Priority Queue",
+          "title": "NegiNet PriorityQueue Test",
+          "title_es": "NegiNet PriorityQueue Test",
           "file": "algorithms/anio2022-neginet-testpriorityqueue.md",
           "topics": [
             "Queue",
@@ -2178,8 +2178,8 @@
         },
         {
           "id": "anio2022-neginet-testtree",
-          "title": "Test Tree",
-          "title_es": "Test Tree",
+          "title": "NegiNet Tree Test",
+          "title_es": "NegiNet Tree Test",
           "file": "algorithms/anio2022-neginet-testtree.md",
           "topics": [
             "Hash Set",
@@ -2232,8 +2232,8 @@
         },
         {
           "id": "fb-fb",
-          "title": "Fb",
-          "title_es": "Fb",
+          "title": "Facebook",
+          "title_es": "Facebook",
           "file": "algorithms/fb-fb.md",
           "topics": [
             "Strings"
@@ -2242,8 +2242,8 @@
         },
         {
           "id": "hackealo-avanzado",
-          "title": "Avanzado",
-          "title_es": "Avanzado",
+          "title": "Hackealo — Advanced",
+          "title_es": "Hackealo — Avanzado",
           "file": "algorithms/hackealo-avanzado.md",
           "topics": [
             "Misc"
@@ -2252,8 +2252,8 @@
         },
         {
           "id": "hackealo-intermedio",
-          "title": "Intermedio",
-          "title_es": "Intermedio",
+          "title": "Hackealo — Intermediate",
+          "title_es": "Hackealo — Intermedio",
           "file": "algorithms/hackealo-intermedio.md",
           "topics": [
             "Sorting"
@@ -2262,8 +2262,8 @@
         },
         {
           "id": "hackealo-principiante",
-          "title": "Principiante",
-          "title_es": "Principiante",
+          "title": "Hackealo — Beginner",
+          "title_es": "Hackealo — Principiante",
           "file": "algorithms/hackealo-principiante.md",
           "topics": [
             "Hash Map"
@@ -2354,8 +2354,8 @@
         },
         {
           "id": "javaconceptoftheday-strings-countcharacteroccurence",
-          "title": "Count Character Occurence",
-          "title_es": "Count Character Occurence",
+          "title": "Count Character Occurrences",
+          "title_es": "Count Character Occurrences",
           "file": "algorithms/javaconceptoftheday-strings-countcharacteroccurence.md",
           "topics": [
             "Strings",
@@ -2365,8 +2365,8 @@
         },
         {
           "id": "javaconceptoftheday-strings-countcharactersocurrence",
-          "title": "Count Characters Ocurrence",
-          "title_es": "Count Characters Ocurrence",
+          "title": "Count Character Occurrences (variant)",
+          "title_es": "Count Character Occurrences (variant)",
           "file": "algorithms/javaconceptoftheday-strings-countcharactersocurrence.md",
           "topics": [
             "Hash Map",
@@ -2512,8 +2512,8 @@
         },
         {
           "id": "lyft-lifttest",
-          "title": "Lift Test",
-          "title_es": "Lift Test",
+          "title": "Lyft Test",
+          "title_es": "Lyft Test",
           "file": "algorithms/lyft-lifttest.md",
           "topics": [
             "Strings",
@@ -2533,8 +2533,8 @@
         },
         {
           "id": "lyft-trie",
-          "title": "Trie",
-          "title_es": "Trie",
+          "title": "Trie Implementation",
+          "title_es": "Trie Implementation",
           "file": "algorithms/lyft-trie.md",
           "topics": [
             "Sorting"
@@ -2553,8 +2553,8 @@
         },
         {
           "id": "telegram-telegram",
-          "title": "Telegram",
-          "title_es": "Telegram",
+          "title": "Telegram Integration",
+          "title_es": "Telegram Integration",
           "file": "algorithms/telegram-telegram.md",
           "topics": [
             "Strings"
@@ -2563,8 +2563,8 @@
         },
         {
           "id": "test0",
-          "title": "Test 0",
-          "title_es": "Test 0",
+          "title": "Other Test 0",
+          "title_es": "Other Test 0",
           "file": "algorithms/test0.md",
           "topics": [
             "Arrays"
@@ -2573,8 +2573,8 @@
         },
         {
           "id": "test1",
-          "title": "Test 1",
-          "title_es": "Test 1",
+          "title": "Other Test 1",
+          "title_es": "Other Test 1",
           "file": "algorithms/test1.md",
           "topics": [
             "Arrays"
@@ -2583,8 +2583,8 @@
         },
         {
           "id": "test2",
-          "title": "Test 2",
-          "title_es": "Test 2",
+          "title": "Other Test 2",
+          "title_es": "Other Test 2",
           "file": "algorithms/test2.md",
           "topics": [
             "Sorting"
@@ -2593,8 +2593,8 @@
         },
         {
           "id": "test3",
-          "title": "Test 3",
-          "title_es": "Test 3",
+          "title": "Other Test 3",
+          "title_es": "Other Test 3",
           "file": "algorithms/test3.md",
           "topics": [
             "Arrays"
@@ -2657,8 +2657,8 @@
         },
         {
           "id": "zalando-selfcache-test",
-          "title": "Test",
-          "title_es": "Test",
+          "title": "Self-Expiring Cache Test",
+          "title_es": "Self-Expiring Cache Test",
           "file": "algorithms/zalando-selfcache-test.md",
           "topics": [
             "Hash Map"
