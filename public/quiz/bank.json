@@ -1,0 +1,996 @@
+{
+  "categories": [
+    {
+      "id": "java",
+      "label": "Java",
+      "label_es": "Java",
+      "icon": "☕",
+      "questions": [
+        {
+          "id": "j-eq-equals",
+          "question": "What is the difference between `==` and `.equals()` for `String` in Java?",
+          "question_es": "¿Cuál es la diferencia entre `==` y `.equals()` para `String` en Java?",
+          "options": [
+            "They are equivalent for Strings",
+            "`==` compares references; `.equals()` compares character content",
+            "`.equals()` is faster",
+            "`==` only works on primitives"
+          ],
+          "options_es": [
+            "Son equivalentes para Strings",
+            "`==` compara referencias; `.equals()` compara contenido",
+            "`.equals()` es más rápido",
+            "`==` sólo funciona con primitivos"
+          ],
+          "correct": 1,
+          "explanation": "`==` compares object references. `.equals()` (overridden in String) compares actual content. Two distinct String objects with the same text are `.equals()` but not `==`.",
+          "explanation_es": "`==` compara referencias de objeto. `.equals()` (sobreescrito en String) compara el contenido real. Dos String distintos con el mismo texto son `.equals()` pero no `==`."
+        },
+        {
+          "id": "j-checked-unchecked",
+          "question": "Which is a *checked* exception in Java?",
+          "question_es": "¿Cuál es una excepción *checked* en Java?",
+          "options": [
+            "NullPointerException",
+            "IllegalArgumentException",
+            "IOException",
+            "ArrayIndexOutOfBoundsException"
+          ],
+          "options_es": [
+            "NullPointerException",
+            "IllegalArgumentException",
+            "IOException",
+            "ArrayIndexOutOfBoundsException"
+          ],
+          "correct": 2,
+          "explanation": "Checked exceptions extend `Exception` (but not `RuntimeException`) and must be declared or caught. `IOException` is checked; the others extend `RuntimeException`.",
+          "explanation_es": "Las checked extienden `Exception` (pero no `RuntimeException`) y se deben declarar o catchear. `IOException` es checked; las otras extienden `RuntimeException`."
+        },
+        {
+          "id": "j-hashmap-collision",
+          "question": "How does HashMap handle collisions in modern Java (8+)?",
+          "question_es": "¿Cómo maneja HashMap las colisiones en Java moderno (8+)?",
+          "options": [
+            "Open addressing — probes the next slot",
+            "Linked list per bucket; promoted to a balanced tree once a bucket grows past a threshold",
+            "It rejects the new key",
+            "It rehashes the entire map on every collision"
+          ],
+          "options_es": [
+            "Open addressing — sondea el siguiente slot",
+            "Lista enlazada por bucket; se convierte en árbol balanceado al pasar cierto umbral",
+            "Rechaza la nueva clave",
+            "Rehashea todo el map en cada colisión"
+          ],
+          "correct": 1,
+          "explanation": "Each bucket is a linked list. When a bucket holds 8+ entries with a sized-large-enough table, it converts to a red-black tree, dropping lookups from O(n) to O(log n).",
+          "explanation_es": "Cada bucket es una lista enlazada. Cuando un bucket llega a 8+ entradas y la tabla es lo bastante grande, se convierte en árbol rojinegro, bajando lookups de O(n) a O(log n)."
+        },
+        {
+          "id": "j-volatile",
+          "question": "What does `volatile` guarantee on a field?",
+          "question_es": "¿Qué garantiza `volatile` en un field?",
+          "options": [
+            "Atomic compound operations like `i++`",
+            "Mutual exclusion across threads",
+            "Visibility of writes across threads + ordering (no reordering across the access)",
+            "Thread-local storage"
+          ],
+          "options_es": [
+            "Operaciones compuestas atómicas como `i++`",
+            "Exclusión mutua entre threads",
+            "Visibilidad de escrituras entre threads + ordering (sin reordenar a través del acceso)",
+            "Thread-local storage"
+          ],
+          "correct": 2,
+          "explanation": "`volatile` ensures reads see the latest write and prevents reordering. It does NOT make compound operations atomic — for that you need `synchronized` or `AtomicInteger`.",
+          "explanation_es": "`volatile` asegura que las lecturas ven la última escritura y previene reordenamientos. NO hace atómicas las operaciones compuestas — para eso necesitás `synchronized` o `AtomicInteger`."
+        },
+        {
+          "id": "j-stream-lazy",
+          "question": "Are Stream intermediate operations (map, filter) eager or lazy?",
+          "question_es": "¿Las operaciones intermedias de Stream (map, filter) son eager o lazy?",
+          "options": [
+            "Eager — they execute when called",
+            "Lazy — they only execute when a terminal operation runs",
+            "Always parallel",
+            "It depends on the source"
+          ],
+          "options_es": [
+            "Eager — corren al llamarlas",
+            "Lazy — sólo corren cuando se ejecuta una operación terminal",
+            "Siempre paralelas",
+            "Depende del source"
+          ],
+          "correct": 1,
+          "explanation": "Intermediate ops build a pipeline. Nothing runs until a terminal operation (collect, forEach, count, …) pulls elements through.",
+          "explanation_es": "Las intermedias arman un pipeline. Nada corre hasta que una terminal (collect, forEach, count, …) tira los elementos a través."
+        },
+        {
+          "id": "j-records",
+          "question": "What does a `record` give you for free in Java 16+?",
+          "question_es": "¿Qué te da gratis un `record` en Java 16+?",
+          "options": [
+            "Setters for all fields",
+            "Final fields, canonical constructor, accessors, equals/hashCode/toString — all by name",
+            "Lazy initialization",
+            "Built-in serialization to JSON"
+          ],
+          "options_es": [
+            "Setters para todos los fields",
+            "Fields final, constructor canónico, accessors, equals/hashCode/toString — todo por nombre",
+            "Inicialización lazy",
+            "Serialización a JSON incluida"
+          ],
+          "correct": 1,
+          "explanation": "Records are immutable data carriers: the compiler synthesizes the canonical constructor, accessors, and value-based equals/hashCode/toString.",
+          "explanation_es": "Los records son carriers de datos inmutables: el compilador sintetiza el constructor canónico, accessors, y equals/hashCode/toString por valor."
+        },
+        {
+          "id": "j-virtual-threads",
+          "question": "What's the main benefit of virtual threads (Project Loom) over platform threads?",
+          "question_es": "¿Cuál es el beneficio principal de los virtual threads (Project Loom) vs platform threads?",
+          "options": [
+            "They're always faster on CPU-bound work",
+            "They're cheap to create, so blocking I/O scales without a thread-pool dance",
+            "They use SIMD instructions automatically",
+            "They share memory between threads"
+          ],
+          "options_es": [
+            "Siempre son más rápidos en trabajo CPU-bound",
+            "Son baratos de crear, así que I/O bloqueante escala sin acrobacias de thread-pool",
+            "Usan instrucciones SIMD automáticamente",
+            "Comparten memoria entre threads"
+          ],
+          "correct": 1,
+          "explanation": "Virtual threads are cheap; you can create millions. Synchronous-style blocking I/O scales to high concurrency without async/reactive complexity.",
+          "explanation_es": "Los virtual threads son baratos; podés crear millones. I/O bloqueante en estilo sincrónico escala a alta concurrencia sin la complejidad de async/reactivo."
+        },
+        {
+          "id": "j-arraylist-vs-linkedlist",
+          "question": "When would LinkedList beat ArrayList in real-world Java code?",
+          "question_es": "¿Cuándo LinkedList le gana a ArrayList en código Java real?",
+          "options": [
+            "Random access by index",
+            "Iterating in order",
+            "Almost never — even for frequent insert/remove, ArrayList is usually faster due to cache locality",
+            "When the list has more than 1000 elements"
+          ],
+          "options_es": [
+            "Acceso random por índice",
+            "Iterar en orden",
+            "Casi nunca — aún para insertar/quitar mucho, ArrayList suele ser más rápida por cache locality",
+            "Cuando la lista tiene más de 1000 elementos"
+          ],
+          "correct": 2,
+          "explanation": "LinkedList's O(1) inserts are theoretical wins erased by pointer chasing on modern CPUs. Default to ArrayList unless you have a measured reason.",
+          "explanation_es": "Las inserciones O(1) de LinkedList son ganancias teóricas que se borran con el pointer chasing en CPUs modernas. Default a ArrayList salvo que tengas razón medida."
+        },
+        {
+          "id": "j-final-keyword",
+          "question": "Which is FALSE about `final` in Java?",
+          "question_es": "¿Cuál es FALSO sobre `final` en Java?",
+          "options": [
+            "`final` on a method prevents overriding",
+            "`final` on a class prevents subclassing",
+            "`final` on a reference prevents the referenced object from being mutated",
+            "`final` on a local variable lets it be captured by an inner class / lambda"
+          ],
+          "options_es": [
+            "`final` en un método previene override",
+            "`final` en una clase previene subclassing",
+            "`final` en una referencia previene mutar el objeto referenciado",
+            "`final` en variable local permite capturarla en una inner class / lambda"
+          ],
+          "correct": 2,
+          "explanation": "A final reference can't be reassigned, but the object it points to can still be mutated. `final List<X> xs = new ArrayList<>(); xs.add(...);` is legal.",
+          "explanation_es": "Una referencia final no se puede reasignar, pero el objeto al que apunta sí se puede mutar. `final List<X> xs = new ArrayList<>(); xs.add(...);` es legal."
+        },
+        {
+          "id": "j-string-pool",
+          "question": "Where do String literals live by default?",
+          "question_es": "¿Dónde viven los String literals por default?",
+          "options": [
+            "On the stack",
+            "In the String constant pool (interned)",
+            "In thread-local storage",
+            "In a separate metaspace per class"
+          ],
+          "options_es": [
+            "En el stack",
+            "En el String constant pool (interned)",
+            "En thread-local storage",
+            "En un metaspace separado por clase"
+          ],
+          "correct": 1,
+          "explanation": "String literals are interned in the constant pool, so identical literals share the same reference. `\"a\" == \"a\"` is true; `new String(\"a\") == \"a\"` is false.",
+          "explanation_es": "Los literales de String se internan en el pool, así que literales iguales comparten referencia. `\"a\" == \"a\"` es true; `new String(\"a\") == \"a\"` es false."
+        },
+        {
+          "id": "j-completable-future",
+          "question": "What does `CompletableFuture.thenApply(fn)` do?",
+          "question_es": "¿Qué hace `CompletableFuture.thenApply(fn)`?",
+          "options": [
+            "Blocks until the value is ready, then applies fn",
+            "Schedules fn to run when the value completes; returns a new CompletableFuture",
+            "Runs fn on a fresh thread immediately",
+            "Discards the value and runs fn"
+          ],
+          "options_es": [
+            "Bloquea hasta tener el valor y aplica fn",
+            "Encola fn para correr cuando el valor complete; devuelve un nuevo CompletableFuture",
+            "Corre fn ya en un thread fresco",
+            "Descarta el valor y corre fn"
+          ],
+          "correct": 1,
+          "explanation": "`thenApply` chains a transformation. It returns a new future that completes with the transformed value once the source completes.",
+          "explanation_es": "`thenApply` encadena una transformación. Devuelve un nuevo future que completa con el valor transformado una vez que el source complete."
+        },
+        {
+          "id": "j-gc-roots",
+          "question": "Which is NOT a GC root in the JVM?",
+          "question_es": "¿Cuál NO es un GC root en la JVM?",
+          "options": [
+            "Local variables on the call stack",
+            "Static fields of loaded classes",
+            "JNI references from native code",
+            "Objects on the heap reachable through other heap objects"
+          ],
+          "options_es": [
+            "Variables locales en el stack de llamadas",
+            "Static fields de clases cargadas",
+            "Referencias JNI desde código nativo",
+            "Objetos en el heap alcanzables vía otros objetos del heap"
+          ],
+          "correct": 3,
+          "explanation": "GC roots are the *starting points* — stacks, statics, JNI, etc. Heap-to-heap references are what GC traces *from* the roots; they aren't roots themselves.",
+          "explanation_es": "Los GC roots son los *puntos de partida* — stacks, statics, JNI, etc. Las referencias heap-a-heap son lo que el GC traza *desde* los roots; no son roots en sí."
+        }
+      ]
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "label_es": "React",
+      "icon": "⚛️",
+      "questions": [
+        {
+          "id": "r-keys",
+          "question": "Why do React lists need a stable, unique `key`?",
+          "question_es": "¿Por qué las listas de React necesitan un `key` estable y único?",
+          "options": [
+            "For accessibility — screen readers use it",
+            "So React can match items between renders and avoid re-creating DOM nodes unnecessarily",
+            "To enable transitions",
+            "It's a CSS hook"
+          ],
+          "options_es": [
+            "Por accesibilidad — los screen readers lo usan",
+            "Para que React matchee items entre renders y evite recrear nodos del DOM",
+            "Para habilitar transitions",
+            "Es un hook de CSS"
+          ],
+          "correct": 1,
+          "explanation": "Keys identify items across renders. Index-as-key breaks if items reorder or get removed from the middle, causing wrong state to stick to wrong items.",
+          "explanation_es": "Las keys identifican items entre renders. Index como key rompe si los items reordenan o se quitan del medio, haciendo que el estado equivocado quede pegado a items equivocados."
+        },
+        {
+          "id": "r-strict-mode",
+          "question": "What does React Strict Mode do in development?",
+          "question_es": "¿Qué hace React Strict Mode en desarrollo?",
+          "options": [
+            "Throws if you misuse hooks",
+            "Double-invokes some functions (renders, effects) to surface side effects and impurities",
+            "Enables TypeScript checking",
+            "Adds CSS resets"
+          ],
+          "options_es": [
+            "Tira excepción si usás mal los hooks",
+            "Invoca dos veces ciertas funciones (renders, effects) para exponer side effects e impurezas",
+            "Habilita chequeo de TypeScript",
+            "Agrega resets de CSS"
+          ],
+          "correct": 1,
+          "explanation": "Strict Mode intentionally double-invokes renders and (in 18+) mounts, so non-idempotent code or missed cleanups break loudly in dev.",
+          "explanation_es": "Strict Mode invoca dos veces a propósito renders y (en 18+) montajes, así que código no idempotente o cleanups olvidados rompen ruidosamente en dev."
+        },
+        {
+          "id": "r-useeffect-cleanup",
+          "question": "What is the purpose of the function returned from `useEffect`?",
+          "question_es": "¿Para qué sirve la función que devuelve `useEffect`?",
+          "options": [
+            "It runs after render",
+            "It's a cleanup that runs before the next effect and on unmount",
+            "It runs on errors",
+            "It's the actual effect to perform"
+          ],
+          "options_es": [
+            "Corre después del render",
+            "Es un cleanup que corre antes del próximo effect y al desmontar",
+            "Corre en errores",
+            "Es el effect en sí"
+          ],
+          "correct": 1,
+          "explanation": "Cleanup runs before the effect re-runs (when deps change) and on unmount. Use it to remove listeners, abort fetches, clear timers.",
+          "explanation_es": "El cleanup corre antes de que el effect vuelva a correr (cuando cambian las deps) y al desmontar. Sirve para quitar listeners, abortar fetches, limpiar timers."
+        },
+        {
+          "id": "r-memo-vs-usememo",
+          "question": "What's the difference between `React.memo` and `useMemo`?",
+          "question_es": "¿Cuál es la diferencia entre `React.memo` y `useMemo`?",
+          "options": [
+            "They're aliases",
+            "`React.memo` memoizes a *component*; `useMemo` memoizes a *value*",
+            "`React.memo` is for class components only",
+            "`useMemo` is deprecated"
+          ],
+          "options_es": [
+            "Son alias",
+            "`React.memo` memoriza un *componente*; `useMemo` memoriza un *valor*",
+            "`React.memo` es sólo para class components",
+            "`useMemo` está deprecado"
+          ],
+          "correct": 1,
+          "explanation": "`React.memo(Component)` skips re-render when props are shallowly equal. `useMemo(fn, deps)` caches the result of fn until deps change.",
+          "explanation_es": "`React.memo(Component)` salta el re-render cuando las props son shallowly iguales. `useMemo(fn, deps)` cachea el resultado de fn hasta que cambien las deps."
+        },
+        {
+          "id": "r-state-batching",
+          "question": "In React 18, when are state updates batched?",
+          "question_es": "En React 18, ¿cuándo se batchean los state updates?",
+          "options": [
+            "Only inside event handlers",
+            "Automatically — across event handlers, promises, timeouts, and native events",
+            "Never — every setState renders",
+            "Only when wrapped in `flushSync`"
+          ],
+          "options_es": [
+            "Sólo dentro de event handlers",
+            "Automáticamente — a través de event handlers, promesas, timeouts, y eventos nativos",
+            "Nunca — cada setState renderiza",
+            "Sólo cuando se envuelve con `flushSync`"
+          ],
+          "correct": 1,
+          "explanation": "React 18 introduced automatic batching everywhere. Pre-18, only React event handlers batched; promises/timeouts didn't.",
+          "explanation_es": "React 18 introdujo batching automático en todos lados. Antes de 18, sólo los event handlers de React batcheaban; promesas/timeouts no."
+        },
+        {
+          "id": "r-context-rerender",
+          "question": "When a Context value changes, who re-renders?",
+          "question_es": "Cuando cambia un valor de Context, ¿quién re-renderiza?",
+          "options": [
+            "The Provider only",
+            "Every component in the tree",
+            "Every consumer of that context (using useContext)",
+            "Only the immediate child"
+          ],
+          "options_es": [
+            "Sólo el Provider",
+            "Todos los componentes del árbol",
+            "Todos los consumers de ese context (con useContext)",
+            "Sólo el hijo inmediato"
+          ],
+          "correct": 2,
+          "explanation": "Every component reading the context via `useContext` re-renders. This is why Context isn't great for high-frequency state — split the value or lift to a state library.",
+          "explanation_es": "Cada componente que lee el context vía `useContext` re-renderiza. Por eso Context no es ideal para estado de alta frecuencia — partilo o lifteá a una state library."
+        },
+        {
+          "id": "r-server-components",
+          "question": "What's the key property of a React Server Component?",
+          "question_es": "¿Cuál es la propiedad clave de un React Server Component?",
+          "options": [
+            "It re-renders on the client every interaction",
+            "It runs on the server, has zero client-side JS, and can't use hooks like useState",
+            "It's faster than a client component for interactivity",
+            "It uses WebSockets by default"
+          ],
+          "options_es": [
+            "Re-renderiza en el cliente con cada interacción",
+            "Corre en el server, no tiene JS en el cliente, y no puede usar hooks como useState",
+            "Es más rápido que un client component para interactividad",
+            "Usa WebSockets por default"
+          ],
+          "correct": 1,
+          "explanation": "RSCs run on the server, ship no JS for themselves, and can fetch directly. They can't be interactive — for that you nest a client component (\"use client\").",
+          "explanation_es": "Los RSC corren en el server, no envían JS propio, y pueden fetchear directo. No pueden ser interactivos — para eso anidás un client component (\"use client\")."
+        },
+        {
+          "id": "r-fetch-race",
+          "question": "What's the most common race condition in `useEffect` data fetching?",
+          "question_es": "¿Cuál es la race condition más común al fetchear data en `useEffect`?",
+          "options": [
+            "useEffect runs twice in dev",
+            "A slow first request resolves *after* a fast second request, overwriting it",
+            "useState is synchronous",
+            "Fetch can't be aborted"
+          ],
+          "options_es": [
+            "useEffect corre dos veces en dev",
+            "Un request lento resuelve *después* de un segundo request rápido, pisándolo",
+            "useState es sincrónico",
+            "Fetch no se puede abortar"
+          ],
+          "correct": 1,
+          "explanation": "If you fetch on each id change, the slow response from id=A may arrive after the fast id=B. Use AbortController in the cleanup, or a cancellation flag.",
+          "explanation_es": "Si fetcheás con cada cambio de id, la respuesta lenta de id=A puede llegar después de la rápida de id=B. Usá AbortController en el cleanup, o un flag de cancelación."
+        },
+        {
+          "id": "r-derived-state",
+          "question": "You need to filter a list by a search query. The right approach is:",
+          "question_es": "Necesitás filtrar una lista por una query de búsqueda. El enfoque correcto es:",
+          "options": [
+            "Store the filtered list in useState; sync with useEffect",
+            "Compute the filtered list during render from items + query",
+            "Use a class component for the filtering",
+            "Mutate the original list in place"
+          ],
+          "options_es": [
+            "Guardar la lista filtrada en useState; sincronizar con useEffect",
+            "Computar la lista filtrada durante el render desde items + query",
+            "Usar un class component para filtrar",
+            "Mutar la lista original in place"
+          ],
+          "correct": 1,
+          "explanation": "Derived state should be computed during render. Storing it adds an extra render cycle and risks staleness.",
+          "explanation_es": "El estado derivado debería computarse durante el render. Guardarlo agrega un ciclo de render extra y arriesga staleness."
+        },
+        {
+          "id": "r-useref",
+          "question": "Which is NOT a typical use of `useRef`?",
+          "question_es": "¿Cuál NO es un uso típico de `useRef`?",
+          "options": [
+            "Holding a DOM node reference",
+            "Storing a mutable value that doesn't trigger a re-render",
+            "Triggering a re-render when the value changes",
+            "Keeping the latest callback for an event listener"
+          ],
+          "options_es": [
+            "Tener referencia a un nodo del DOM",
+            "Guardar un valor mutable que no dispara re-render",
+            "Disparar un re-render cuando cambia el valor",
+            "Tener el último callback para un event listener"
+          ],
+          "correct": 2,
+          "explanation": "Mutating a ref does NOT trigger a re-render. That's the whole point — ref is escape-hatch state. Use useState if you need re-renders.",
+          "explanation_es": "Mutar un ref NO dispara un re-render. Esa es justamente la idea — ref es state de escape. Usá useState si necesitás re-renders."
+        },
+        {
+          "id": "r-suspense",
+          "question": "What does a `<Suspense>` boundary catch?",
+          "question_es": "¿Qué atrapa un boundary `<Suspense>`?",
+          "options": [
+            "Render-time errors",
+            "Promises thrown by descendants (e.g. lazy components, server components, data fetching libs that integrate with it)",
+            "Network errors",
+            "Re-render loops"
+          ],
+          "options_es": [
+            "Errores en render",
+            "Promesas tiradas por descendientes (p.ej. lazy components, server components, libs de data fetching que integran con esto)",
+            "Errores de red",
+            "Loops de re-render"
+          ],
+          "correct": 1,
+          "explanation": "Suspense catches a thrown promise and shows the fallback while it pends. Errors are caught by `<ErrorBoundary>`, not Suspense.",
+          "explanation_es": "Suspense atrapa una promesa tirada y muestra el fallback mientras está pending. Los errores los atrapa `<ErrorBoundary>`, no Suspense."
+        },
+        {
+          "id": "r-custom-hook",
+          "question": "What makes a function a \"custom hook\"?",
+          "question_es": "¿Qué hace que una función sea un \"custom hook\"?",
+          "options": [
+            "It's exported as default",
+            "Its name starts with `use` and it can call other hooks",
+            "It's defined inside a component",
+            "It returns JSX"
+          ],
+          "options_es": [
+            "Se exporta como default",
+            "Su nombre empieza con `use` y puede llamar a otros hooks",
+            "Se define adentro de un componente",
+            "Devuelve JSX"
+          ],
+          "correct": 1,
+          "explanation": "The `use` prefix lets the linter enforce hook rules (call order, no conditionals). It's not magic — it's convention React relies on.",
+          "explanation_es": "El prefijo `use` deja que el linter aplique las reglas de hooks (orden de llamadas, sin condicionales). No es magia — es convención que React usa."
+        }
+      ]
+    },
+    {
+      "id": "sql",
+      "label": "SQL",
+      "label_es": "SQL",
+      "icon": "🗄️",
+      "questions": [
+        {
+          "id": "s-inner-vs-left",
+          "question": "What's the difference between INNER JOIN and LEFT JOIN?",
+          "question_es": "¿Cuál es la diferencia entre INNER JOIN y LEFT JOIN?",
+          "options": [
+            "INNER returns all rows from both sides; LEFT returns only matches",
+            "INNER returns only matching rows; LEFT returns all left-side rows + matched right rows (NULLs on no match)",
+            "They are aliases",
+            "LEFT only works with two tables"
+          ],
+          "options_es": [
+            "INNER devuelve todas las filas de ambos lados; LEFT sólo los matches",
+            "INNER devuelve sólo filas que matchean; LEFT devuelve todas las del lado izquierdo + las del derecho que matchean (NULL si no hay match)",
+            "Son alias",
+            "LEFT sólo funciona con dos tablas"
+          ],
+          "correct": 1,
+          "explanation": "INNER drops rows without a match. LEFT keeps all left rows; right-side columns are NULL for unmatched left rows.",
+          "explanation_es": "INNER descarta filas sin match. LEFT conserva todas las del izquierdo; las columnas del derecho son NULL si no hay match."
+        },
+        {
+          "id": "s-where-vs-having",
+          "question": "What's the difference between WHERE and HAVING?",
+          "question_es": "¿Cuál es la diferencia entre WHERE y HAVING?",
+          "options": [
+            "They are equivalent",
+            "WHERE filters rows before grouping; HAVING filters groups (after aggregation)",
+            "HAVING is faster",
+            "WHERE only works in SELECT"
+          ],
+          "options_es": [
+            "Son equivalentes",
+            "WHERE filtra filas antes de agrupar; HAVING filtra grupos (después de agregar)",
+            "HAVING es más rápido",
+            "WHERE sólo funciona en SELECT"
+          ],
+          "correct": 1,
+          "explanation": "WHERE applies before GROUP BY (per-row). HAVING applies after, on the aggregated result. `HAVING COUNT(*) > 5` is valid; `WHERE COUNT(*) > 5` is not.",
+          "explanation_es": "WHERE se aplica antes de GROUP BY (por fila). HAVING se aplica después, sobre el resultado agregado. `HAVING COUNT(*) > 5` es válido; `WHERE COUNT(*) > 5` no."
+        },
+        {
+          "id": "s-union-vs-union-all",
+          "question": "What does UNION do that UNION ALL does not?",
+          "question_es": "¿Qué hace UNION que UNION ALL no?",
+          "options": [
+            "Sorts the result",
+            "Removes duplicate rows",
+            "Allows different column counts",
+            "Runs in parallel"
+          ],
+          "options_es": [
+            "Ordena el resultado",
+            "Elimina filas duplicadas",
+            "Permite distinta cantidad de columnas",
+            "Corre en paralelo"
+          ],
+          "correct": 1,
+          "explanation": "UNION dedupes (implicit DISTINCT — extra cost). UNION ALL keeps all rows. Use UNION ALL unless you actually need to dedupe.",
+          "explanation_es": "UNION deduplica (DISTINCT implícito — costo extra). UNION ALL conserva todas las filas. Usá UNION ALL salvo que realmente necesites deduplicar."
+        },
+        {
+          "id": "s-row-number-vs-rank",
+          "question": "Difference between ROW_NUMBER() and RANK() on ties?",
+          "question_es": "¿Diferencia entre ROW_NUMBER() y RANK() ante empates?",
+          "options": [
+            "Identical",
+            "ROW_NUMBER assigns unique sequential numbers; RANK gives ties the same rank and skips the next (1, 2, 2, 4)",
+            "RANK is faster",
+            "ROW_NUMBER allows NULL in PARTITION BY"
+          ],
+          "options_es": [
+            "Idénticos",
+            "ROW_NUMBER asigna números únicos; RANK le da a los empates el mismo rank y saltea el siguiente (1, 2, 2, 4)",
+            "RANK es más rápido",
+            "ROW_NUMBER permite NULL en PARTITION BY"
+          ],
+          "correct": 1,
+          "explanation": "ROW_NUMBER: 1,2,3,4. RANK: 1,2,2,4 (gap). DENSE_RANK: 1,2,2,3 (no gap).",
+          "explanation_es": "ROW_NUMBER: 1,2,3,4. RANK: 1,2,2,4 (con gap). DENSE_RANK: 1,2,2,3 (sin gap)."
+        },
+        {
+          "id": "s-acid",
+          "question": "What does the I in ACID stand for?",
+          "question_es": "¿Qué significa la I en ACID?",
+          "options": [
+            "Idempotency",
+            "Isolation",
+            "Integrity",
+            "Indexing"
+          ],
+          "options_es": [
+            "Idempotencia",
+            "Aislamiento (Isolation)",
+            "Integridad",
+            "Indexing"
+          ],
+          "correct": 1,
+          "explanation": "Atomicity, Consistency, Isolation, Durability. Isolation: concurrent transactions don't see each other's intermediate state.",
+          "explanation_es": "Atomicity, Consistency, Isolation, Durability. Isolation: las transacciones concurrentes no ven el estado intermedio de las otras."
+        },
+        {
+          "id": "s-isolation-default",
+          "question": "What's the default isolation level in PostgreSQL?",
+          "question_es": "¿Cuál es el isolation level por default en PostgreSQL?",
+          "options": [
+            "READ UNCOMMITTED",
+            "READ COMMITTED",
+            "REPEATABLE READ",
+            "SERIALIZABLE"
+          ],
+          "options_es": [
+            "READ UNCOMMITTED",
+            "READ COMMITTED",
+            "REPEATABLE READ",
+            "SERIALIZABLE"
+          ],
+          "correct": 1,
+          "explanation": "Postgres defaults to READ COMMITTED (no dirty reads, but non-repeatable reads possible). MySQL/InnoDB defaults to REPEATABLE READ.",
+          "explanation_es": "Postgres por default es READ COMMITTED (sin dirty reads, pero permite non-repeatable reads). MySQL/InnoDB por default es REPEATABLE READ."
+        },
+        {
+          "id": "s-explain",
+          "question": "What does EXPLAIN show?",
+          "question_es": "¿Qué muestra EXPLAIN?",
+          "options": [
+            "The query results",
+            "The query execution plan: how the optimizer will run the query (joins, scans, indexes used, estimated costs)",
+            "The schema of involved tables",
+            "Lock contention"
+          ],
+          "options_es": [
+            "Los resultados de la query",
+            "El plan de ejecución: cómo el optimizer va a correr la query (joins, scans, índices usados, costos estimados)",
+            "El schema de las tablas",
+            "Contención de locks"
+          ],
+          "correct": 1,
+          "explanation": "EXPLAIN shows the plan. EXPLAIN ANALYZE actually runs and reports real timings — preferred for tuning.",
+          "explanation_es": "EXPLAIN muestra el plan. EXPLAIN ANALYZE realmente corre y reporta tiempos reales — preferible para tunear."
+        },
+        {
+          "id": "s-keyset-pagination",
+          "question": "Why is keyset pagination preferred over OFFSET at scale?",
+          "question_es": "¿Por qué se prefiere paginación por keyset sobre OFFSET a escala?",
+          "options": [
+            "OFFSET breaks ordering",
+            "OFFSET requires the DB to count and skip N rows every page — O(N) per page; keyset uses an index seek",
+            "OFFSET doesn't work in PostgreSQL",
+            "Keyset returns fewer columns"
+          ],
+          "options_es": [
+            "OFFSET rompe el ordering",
+            "OFFSET hace que la DB cuente y saltee N filas en cada página — O(N) por página; keyset hace un index seek",
+            "OFFSET no funciona en PostgreSQL",
+            "Keyset devuelve menos columnas"
+          ],
+          "correct": 1,
+          "explanation": "OFFSET 100000 reads and discards 100000 rows. Keyset (`WHERE id > $last_seen ORDER BY id LIMIT 50`) jumps via index — constant cost per page.",
+          "explanation_es": "OFFSET 100000 lee y descarta 100000 filas. Keyset (`WHERE id > $last_seen ORDER BY id LIMIT 50`) salta vía índice — costo constante por página."
+        },
+        {
+          "id": "s-composite-index-order",
+          "question": "Composite index `(a, b, c)`. Which query *won't* use it efficiently?",
+          "question_es": "Índice compuesto `(a, b, c)`. ¿Cuál query *no* lo va a usar eficientemente?",
+          "options": [
+            "WHERE a = 1",
+            "WHERE a = 1 AND b = 2",
+            "WHERE b = 2 AND c = 3",
+            "WHERE a = 1 AND b = 2 AND c = 3"
+          ],
+          "options_es": [
+            "WHERE a = 1",
+            "WHERE a = 1 AND b = 2",
+            "WHERE b = 2 AND c = 3",
+            "WHERE a = 1 AND b = 2 AND c = 3"
+          ],
+          "correct": 2,
+          "explanation": "Composite indexes are usable left-to-right. Without `a` in the predicate, the index can't be seek-ed efficiently — at best a full index scan.",
+          "explanation_es": "Los índices compuestos se usan de izquierda a derecha. Sin `a` en el predicado, el índice no se puede seekear eficientemente — a lo sumo un index scan completo."
+        },
+        {
+          "id": "s-exists-vs-in",
+          "question": "When is EXISTS typically preferred over IN?",
+          "question_es": "¿Cuándo se prefiere típicamente EXISTS sobre IN?",
+          "options": [
+            "Never — IN is always faster",
+            "When the subquery is correlated and may return many rows; EXISTS short-circuits on first match",
+            "When using LIMIT",
+            "EXISTS is required by ANSI SQL"
+          ],
+          "options_es": [
+            "Nunca — IN siempre es más rápido",
+            "Cuando el subquery está correlacionado y puede devolver muchas filas; EXISTS corta en el primer match",
+            "Cuando usás LIMIT",
+            "EXISTS es requerido por ANSI SQL"
+          ],
+          "correct": 1,
+          "explanation": "Modern optimizers often equalize them, but EXISTS still wins for large correlated subqueries because it can stop at the first hit and handles NULLs cleanly.",
+          "explanation_es": "Los optimizers modernos suelen igualarlos, pero EXISTS aún gana para subqueries correlacionadas grandes porque puede frenar en el primer hit y maneja bien los NULLs."
+        },
+        {
+          "id": "s-cte-vs-subquery",
+          "question": "In modern Postgres (12+), what's true about CTEs?",
+          "question_es": "En Postgres moderno (12+), ¿qué es cierto sobre las CTEs?",
+          "options": [
+            "Always materialized — slower than subqueries",
+            "Inlined by default (since 12); explicitly MATERIALIZED if you need the fence",
+            "Can't reference other CTEs",
+            "Don't support recursion"
+          ],
+          "options_es": [
+            "Siempre materializadas — más lentas que subqueries",
+            "Inlineadas por default (desde 12); explícitamente MATERIALIZED si querés la barrera",
+            "No pueden referenciar otras CTEs",
+            "No soportan recursión"
+          ],
+          "correct": 1,
+          "explanation": "Pre-12, CTEs were always materialized (\"optimization fence\"). 12+ inlines them like subqueries unless you write `WITH x AS MATERIALIZED (...)`.",
+          "explanation_es": "Antes de 12, las CTEs siempre se materializaban (barrera al optimizer). 12+ las inlinea como subqueries salvo que escribas `WITH x AS MATERIALIZED (...)`."
+        },
+        {
+          "id": "s-locking",
+          "question": "What's the difference between optimistic and pessimistic locking?",
+          "question_es": "¿Cuál es la diferencia entre locking optimista y pesimista?",
+          "options": [
+            "Optimistic locks rows immediately; pessimistic checks at commit",
+            "Optimistic checks for conflicts at write time (e.g. version column); pessimistic acquires a row lock up front",
+            "They are aliases",
+            "Pessimistic is only for read-only queries"
+          ],
+          "options_es": [
+            "Optimista lockea las filas ya; pesimista chequea al commit",
+            "Optimista chequea conflictos al escribir (p.ej. columna version); pesimista toma un row lock al inicio",
+            "Son alias",
+            "Pesimista es sólo para queries de solo lectura"
+          ],
+          "correct": 1,
+          "explanation": "Optimistic: assume no conflict, detect at update time (version mismatch → retry). Pessimistic: SELECT FOR UPDATE — others wait. Optimistic scales better in low-contention paths.",
+          "explanation_es": "Optimista: asumís que no hay conflicto, detectás al actualizar (version mismatch → reintentar). Pesimista: SELECT FOR UPDATE — los demás esperan. Optimista escala mejor en paths con poca contención."
+        }
+      ]
+    },
+    {
+      "id": "manager",
+      "label": "Manager",
+      "label_es": "Manager",
+      "icon": "👔",
+      "questions": [
+        {
+          "id": "m-star-method",
+          "question": "What does the STAR method structure for behavioral questions stand for?",
+          "question_es": "¿Qué significa el método STAR para preguntas conductuales?",
+          "options": [
+            "Strategy, Tactics, Action, Result",
+            "Situation, Task, Action, Result",
+            "Story, Theme, Arc, Resolution",
+            "Skill, Technique, Approach, Reflection"
+          ],
+          "options_es": [
+            "Strategy, Tactics, Action, Result",
+            "Situation, Task, Action, Result",
+            "Story, Theme, Arc, Resolution",
+            "Skill, Technique, Approach, Reflection"
+          ],
+          "correct": 1,
+          "explanation": "Situation, Task, Action, Result. Set context briefly, state your responsibility, focus on what *you* did, end with measurable outcome.",
+          "explanation_es": "Situation, Task, Action, Result. Setealá contexto breve, decí tu responsabilidad, enfocate en lo que *vos* hiciste, cerrá con un outcome medible."
+        },
+        {
+          "id": "m-mistake",
+          "question": "Best framing for \"tell me about a mistake you made\"?",
+          "question_es": "Mejor framing para \"contame un error que cometiste\"?",
+          "options": [
+            "Pick a tiny mistake to seem flawless",
+            "A real mistake with concrete impact, what you learned, and what you'd do differently",
+            "Blame a teammate or process",
+            "Say you can't think of one"
+          ],
+          "options_es": [
+            "Elegir un error chiquito para parecer impecable",
+            "Un error real con impacto concreto, qué aprendiste, y qué harías distinto",
+            "Echarle la culpa a un compañero o al proceso",
+            "Decir que no se te ocurre ninguno"
+          ],
+          "correct": 1,
+          "explanation": "Pick something real with consequences. Show ownership and learning. \"I can't think of one\" reads as low self-awareness; tiny mistakes feel evasive.",
+          "explanation_es": "Elegí algo real con consecuencias. Mostrá ownership y aprendizaje. \"No se me ocurre ninguno\" se lee como poca autoconciencia; un error chiquito se siente evasivo."
+        },
+        {
+          "id": "m-disagreement",
+          "question": "Best way to handle a disagreement with a teammate?",
+          "question_es": "¿Mejor forma de manejar un desacuerdo con un compañero?",
+          "options": [
+            "Escalate to your manager immediately",
+            "State your position firmly and don't back down",
+            "Understand their reasoning first, find shared goals, propose data or a small experiment to resolve it",
+            "Avoid them until the issue passes"
+          ],
+          "options_es": [
+            "Escalar al manager ya",
+            "Plantar tu postura firme y no ceder",
+            "Entender primero su razonamiento, encontrar objetivos comunes, proponer data o un experimento chico para resolverlo",
+            "Evitarlo hasta que pase"
+          ],
+          "correct": 2,
+          "explanation": "\"Strong opinions, weakly held.\" Listen first; align on outcomes; let evidence settle it when possible. Escalation is a last resort.",
+          "explanation_es": "\"Strong opinions, weakly held.\" Escuchá primero; alineá en outcomes; dejá que la evidencia decida cuando se pueda. Escalar es último recurso."
+        },
+        {
+          "id": "m-tech-debt",
+          "question": "How should you frame a tech debt cleanup proposal to a non-technical PM?",
+          "question_es": "¿Cómo deberías framear una propuesta de cleanup de deuda técnica a un PM no técnico?",
+          "options": [
+            "Demand the time without justification",
+            "Translate to business terms: incident cost, velocity impact, risk to upcoming features",
+            "Just do it without telling anyone",
+            "Wait for a quiet sprint"
+          ],
+          "options_es": [
+            "Exigir el tiempo sin justificación",
+            "Traducir a términos de negocio: costo de incidentes, impacto en velocidad, riesgo para features próximas",
+            "Hacerlo sin avisar a nadie",
+            "Esperar a un sprint tranquilo"
+          ],
+          "correct": 1,
+          "explanation": "PMs prioritize what's quantified. \"This refactor unblocks Feature X and removes 3 of last quarter's pages\" wins over \"the code is ugly\".",
+          "explanation_es": "Los PMs priorizan lo cuantificado. \"Este refactor desbloquea Feature X y elimina 3 pages del último trimestre\" gana sobre \"el código es feo\"."
+        },
+        {
+          "id": "m-code-review",
+          "question": "What's a hallmark of a senior code review?",
+          "question_es": "¿Qué hace que una code review se sienta de senior?",
+          "options": [
+            "Lots of style nitpicks",
+            "Approving fast to avoid friction",
+            "Distinguishing must-fix (correctness, security) from suggestions; explaining the *why*; respecting the author's time",
+            "Demanding rewrites for taste preferences"
+          ],
+          "options_es": [
+            "Muchos nitpicks de estilo",
+            "Aprobar rápido para evitar fricción",
+            "Distinguir must-fix (correctness, seguridad) de sugerencias; explicar el *por qué*; respetar el tiempo del autor",
+            "Pedir rewrites por preferencias de gusto"
+          ],
+          "correct": 2,
+          "explanation": "Tag comments by severity (`nit`, `suggestion`, `blocker`). Be explicit about why. Make it easy to disagree.",
+          "explanation_es": "Etiquetá comentarios por severidad (`nit`, `suggestion`, `blocker`). Sé explícito con el por qué. Hacé fácil estar en desacuerdo."
+        },
+        {
+          "id": "m-on-call",
+          "question": "What's the most important property of a good alert?",
+          "question_es": "¿Cuál es la propiedad más importante de una buena alerta?",
+          "options": [
+            "It fires often",
+            "It's actionable and corresponds to user-visible impact (or imminent risk of it)",
+            "It includes lots of metric panels",
+            "It pages on every error"
+          ],
+          "options_es": [
+            "Dispara seguido",
+            "Es accionable y corresponde a impacto visible para el usuario (o riesgo inminente)",
+            "Incluye muchos paneles de métricas",
+            "Pagea por cada error"
+          ],
+          "correct": 1,
+          "explanation": "Alerts that aren't actionable get muted or burn out the team. Tie alerts to SLOs or user impact, not just to thresholds.",
+          "explanation_es": "Las alertas no accionables se mutean o queman al equipo. Atá las alertas a SLOs o a impacto al usuario, no sólo a umbrales."
+        },
+        {
+          "id": "m-mentoring",
+          "question": "When mentoring a junior who keeps getting stuck, what helps most?",
+          "question_es": "Mentoreando a un junior que se traba siempre, ¿qué ayuda más?",
+          "options": [
+            "Take the task and finish it quickly",
+            "Pair on it once, model your debugging process, then let them attempt similar problems alone with check-ins",
+            "Tell them to read the docs",
+            "Move them to easier work indefinitely"
+          ],
+          "options_es": [
+            "Agarrar la task y terminarla vos rápido",
+            "Pair una vez, modelá tu proceso de debugging, después dejalos intentar problemas similares solos con check-ins",
+            "Decirles que lean los docs",
+            "Moverlos a tareas más fáciles indefinidamente"
+          ],
+          "correct": 1,
+          "explanation": "Modeling teaches reasoning, not answers. Then graduated independence. Doing it for them denies the practice; pure docs-reading skips the process.",
+          "explanation_es": "Modelar enseña razonamiento, no respuestas. Después independencia gradual. Hacerlo por ellos les niega la práctica; mandarlos a docs solos saltea el proceso."
+        },
+        {
+          "id": "m-build-vs-buy",
+          "question": "Which factor most often tips a Build vs Buy decision toward Buy?",
+          "question_es": "¿Qué factor más a menudo inclina una decisión Build vs Buy hacia Buy?",
+          "options": [
+            "The vendor is cheaper for the first month",
+            "The capability is not your core differentiator and the vendor is mature",
+            "Engineers want to learn the domain",
+            "You haven't tried building yet"
+          ],
+          "options_es": [
+            "El vendor es más barato el primer mes",
+            "La capacidad no es tu diferencial central y el vendor es maduro",
+            "Los ingenieros quieren aprender el dominio",
+            "Todavía no probaron construir"
+          ],
+          "correct": 1,
+          "explanation": "Build what's strategic; buy commodity. \"Mature vendor + non-core capability\" → buy and reinvest engineering on the moat.",
+          "explanation_es": "Construí lo estratégico; comprá commodity. \"Vendor maduro + capacidad no core\" → comprá y reinvertí ingeniería en el moat."
+        },
+        {
+          "id": "m-estimation",
+          "question": "What's the most defensible way to give an estimate for an ambiguous task?",
+          "question_es": "¿La forma más defendible de dar un estimate para una task ambigua?",
+          "options": [
+            "Give the most optimistic number to look fast",
+            "Refuse to estimate until specs are perfect",
+            "Give a range with assumptions; commit to a check-in/spike to tighten it",
+            "Pad heavily so you always beat it"
+          ],
+          "options_es": [
+            "Dar el número más optimista para parecer rápido",
+            "Negarte a estimar hasta tener specs perfectas",
+            "Dar un rango con assumptions; comprometerte a un check-in/spike para ajustarlo",
+            "Agregar mucho padding para siempre superarlo"
+          ],
+          "correct": 2,
+          "explanation": "Ranges are honest about uncertainty. Naming assumptions exposes risk early. A short spike often turns a [3d–3w] into a [5d–8d].",
+          "explanation_es": "Los rangos son honestos sobre la incertidumbre. Nombrar assumptions expone el riesgo temprano. Un spike corto a menudo convierte un [3d–3w] en un [5d–8d]."
+        },
+        {
+          "id": "m-1on1",
+          "question": "What's the primary purpose of a 1:1 with your direct?",
+          "question_es": "¿Cuál es el propósito principal de un 1:1 con tu directo?",
+          "options": [
+            "Status update on tasks",
+            "Their agenda — career, blockers, feedback up and down — not yours",
+            "Performance scoring",
+            "Project planning"
+          ],
+          "options_es": [
+            "Status update de tasks",
+            "La agenda de ellos — carrera, blockers, feedback en ambos sentidos — no la tuya",
+            "Calificación de performance",
+            "Planning de proyectos"
+          ],
+          "correct": 1,
+          "explanation": "Status belongs in standups/written updates. 1:1 time is for the report's growth, blockers, and bidirectional feedback. Default the agenda to them.",
+          "explanation_es": "El status va en standups/updates escritos. El tiempo del 1:1 es para crecimiento del report, blockers y feedback bidireccional. La agenda por default es de ellos."
+        },
+        {
+          "id": "m-postmortem",
+          "question": "A core property of a healthy postmortem culture is:",
+          "question_es": "Una propiedad central de una cultura de postmortems sana es:",
+          "options": [
+            "Naming who broke production",
+            "Blameless — focus on systems, processes, and feedback loops that allowed the incident",
+            "Skipping it for small incidents",
+            "Always reverting the change"
+          ],
+          "options_es": [
+            "Nombrar quién rompió producción",
+            "Blameless — foco en sistemas, procesos y feedback loops que permitieron el incidente",
+            "Saltearla para incidentes chicos",
+            "Siempre revertir el cambio"
+          ],
+          "correct": 1,
+          "explanation": "Blame burns trust and hides the real causes. Healthy teams ask \"what made this easy to ship?\" and fix the system, not the human.",
+          "explanation_es": "La culpa quema confianza y esconde las causas reales. Los equipos sanos preguntan \"¿qué hizo fácil que esto saliera?\" y arreglan el sistema, no a la persona."
+        },
+        {
+          "id": "m-feedback",
+          "question": "Best timing/format for delivering critical feedback?",
+          "question_es": "¿Mejor timing/formato para dar feedback crítico?",
+          "options": [
+            "In a public channel so the team learns",
+            "In writing, so it's documented",
+            "Privately, soon after the event, specific and behavior-focused — not personal",
+            "Save it for the annual review"
+          ],
+          "options_es": [
+            "En canal público para que aprenda el equipo",
+            "Por escrito, para documentarlo",
+            "En privado, pronto después del hecho, específico y enfocado en conducta — no personal",
+            "Guardarlo para la review anual"
+          ],
+          "correct": 2,
+          "explanation": "Private, timely, specific, behavioral. \"In yesterday's review you cut Ana off three times — that landed badly\" beats \"you should be more respectful\" or saving it 6 months.",
+          "explanation_es": "Privado, oportuno, específico, conductual. \"En la review de ayer cortaste a Ana tres veces — eso cayó mal\" gana sobre \"deberías ser más respetuoso\" o guardarlo 6 meses."
+        }
+      ]
+    }
+  ]
+}

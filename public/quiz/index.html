@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Quiz</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a2a3a'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='32' font-weight='900' fill='%232980b9'%3E?%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="quiz.css">
+    <script src="quiz.js" defer></script>
+</head>
+<body>
+    <header class="qheader">
+        <div class="qheader-inner">
+            <a href="/learn/" class="brand-link">
+                <span class="brand-arrow">←</span>
+                <span data-i18n="back">Learn</span>
+            </a>
+            <h1 class="qbrand"><span class="qbrand-icon">🧠</span> <span data-i18n="title">Daily Quiz</span></h1>
+            <div class="lang-toggle" aria-label="Language">
+                <button data-lang="en" class="lang-btn active" type="button">🇬🇧</button>
+                <button data-lang="es" class="lang-btn" type="button">🇪🇸</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="qmain">
+        <!-- Loading -->
+        <section id="screen-loading" class="qcard">
+            <p class="qhint" data-i18n="loading">Loading…</p>
+        </section>
+
+        <!-- Intro / start -->
+        <section id="screen-intro" class="qcard" hidden>
+            <h2 class="qtitle" data-i18n="introTitle">Stay sharp.</h2>
+            <p class="qbody" data-i18n="introBody">One random multiple-choice question per category. Track your streak, beat your average, never see the same question twice (until the pool resets).</p>
+            <div class="qstats" id="stats-row"></div>
+            <button id="btn-start" class="qbutton qbutton-primary" type="button" data-i18n="start">Start</button>
+            <details class="qdetails">
+                <summary data-i18n="historyTitle">History</summary>
+                <ol id="history-list" class="qhistory"></ol>
+                <button id="btn-reset-history" class="qlink" type="button" data-i18n="resetHistory">Reset history</button>
+            </details>
+        </section>
+
+        <!-- Question -->
+        <section id="screen-question" class="qcard" hidden>
+            <div class="qprogress">
+                <span id="q-cat-icon" class="q-cat-icon"></span>
+                <span id="q-cat-label" class="q-cat-label"></span>
+                <span class="q-progress-text" id="q-progress-text"></span>
+            </div>
+            <h2 id="q-text" class="qquestion"></h2>
+            <ol id="q-options" class="qoptions"></ol>
+            <div id="q-feedback" class="qfeedback" hidden></div>
+            <div class="qactions">
+                <button id="btn-next" class="qbutton qbutton-primary" type="button" hidden data-i18n="next">Next</button>
+            </div>
+        </section>
+
+        <!-- Result -->
+        <section id="screen-result" class="qcard" hidden>
+            <h2 class="qtitle" id="result-headline"></h2>
+            <p class="qresult-score" id="result-score"></p>
+            <ul class="qrecap" id="result-recap"></ul>
+            <div class="qactions qactions-row">
+                <button id="btn-again" class="qbutton qbutton-primary" type="button" data-i18n="again">Another round</button>
+                <a href="/learn/" class="qbutton qbutton-ghost" data-i18n="backHome">Back to Learn</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
