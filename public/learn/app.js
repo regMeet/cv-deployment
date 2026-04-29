@@ -12,7 +12,7 @@ const searchStatusEl = document.getElementById('search-status');
 
 const FAV_KEY = 'learn:favorites';
 const LANG_KEY = 'app:lang';
-const TAB_ICONS = { java: '☕', react: '⚛️', manager: '👔' };
+const TAB_ICONS = { java: '☕', react: '⚛️', sql: '🗄️', manager: '👔' };
 
 const mdCache = new Map();              // path → text (raw)
 const searchIndices = { en: null, es: null };

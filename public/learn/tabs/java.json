@@ -113,15 +113,6 @@
         { "id": "clarifying-questions", "title": "Framework for clarifying questions", "file": "live-coding/01-clarifying-questions.md" },
         { "id": "sliding-window-counter", "title": "Counter for API calls in past 5 minutes", "file": "live-coding/02-sliding-window-counter.md" }
       ]
-    },
-    {
-      "id": "sql",
-      "label": "SQL",
-      "questions": [
-        { "id": "duplicates", "title": "Users with more than one email", "file": "sql/01-duplicates.md" },
-        { "id": "second-highest-salary", "title": "Second-highest salary", "file": "sql/02-second-highest-salary.md" },
-        { "id": "employees-no-salary", "title": "Employees with no salary", "file": "sql/03-employees-no-salary.md" }
-      ]
     }
   ]
 }

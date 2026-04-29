@@ -2,6 +2,7 @@
   "tabs": [
     { "id": "java", "label": "Java" },
     { "id": "react", "label": "React" },
+    { "id": "sql", "label": "SQL" },
     { "id": "manager", "label": "Manager Situations" }
   ]
 }

@@ -1,0 +1,58 @@
+{
+  "sections": [
+    {
+      "id": "theory",
+      "label": "Theory",
+      "questions": [
+        { "id": "command-categories", "title": "SQL command categories (DQL/DML/DDL/DCL/TCL)", "file": "theory/01-command-categories.md" },
+        { "id": "select-anatomy", "title": "SELECT anatomy & clause execution order", "file": "theory/02-select-anatomy.md" },
+        { "id": "join-types", "title": "JOIN types — INNER / LEFT / RIGHT / FULL / CROSS / SELF", "file": "theory/03-join-types.md" },
+        { "id": "subqueries", "title": "Subqueries — scalar, derived, correlated", "file": "theory/04-subqueries.md" },
+        { "id": "set-operations", "title": "Set operations — UNION / INTERSECT / EXCEPT", "file": "theory/05-set-operations.md" },
+        { "id": "group-by-aggregations", "title": "GROUP BY & aggregations", "file": "theory/06-group-by-aggregations.md" },
+        { "id": "ctes", "title": "CTEs (WITH clause)", "file": "theory/07-ctes.md" }
+      ]
+    },
+    {
+      "id": "common-patterns",
+      "label": "Common Patterns",
+      "questions": [
+        { "id": "top-n-per-group", "title": "Top-N per group", "file": "common-patterns/01-top-n-per-group.md" },
+        { "id": "exists-vs-in", "title": "EXISTS vs IN vs JOIN+DISTINCT", "file": "common-patterns/02-exists-vs-in.md" }
+      ]
+    },
+    {
+      "id": "window-functions",
+      "label": "Window Functions",
+      "questions": [
+        { "id": "overview", "title": "Window functions — RANK / LAG / running totals", "file": "window-functions/01-overview.md" }
+      ]
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "questions": [
+        { "id": "indexes", "title": "Indexes — strategy & gotchas", "file": "performance/01-indexes.md" },
+        { "id": "explain", "title": "Reading EXPLAIN / query plans", "file": "performance/02-explain.md" },
+        { "id": "pagination-keyset", "title": "Pagination at scale — OFFSET vs keyset", "file": "performance/03-pagination-keyset.md" }
+      ]
+    },
+    {
+      "id": "advanced",
+      "label": "Advanced",
+      "questions": [
+        { "id": "recursive-ctes", "title": "Recursive CTEs (hierarchies, graphs)", "file": "advanced/01-recursive-ctes.md" },
+        { "id": "locking", "title": "Locking — pessimistic vs optimistic", "file": "advanced/02-locking.md" }
+      ]
+    },
+    {
+      "id": "live-coding",
+      "label": "Live Coding",
+      "questions": [
+        { "id": "duplicates", "title": "Users with more than one email", "file": "live-coding/01-duplicates.md" },
+        { "id": "second-highest-salary", "title": "Second-highest salary", "file": "live-coding/02-second-highest-salary.md" },
+        { "id": "employees-no-salary", "title": "Employees with no salary", "file": "live-coding/03-employees-no-salary.md" }
+      ]
+    }
+  ]
+}
