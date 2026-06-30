@@ -1,0 +1,47 @@
+{
+  "sections": [
+    {
+      "id": "type-system",
+      "label": "Type System",
+      "label_es": "Sistema de tipos",
+      "questions": [
+        { "id": "type-vs-interface",   "title": "type vs interface — when to use each",       "title_es": "type vs interface — cuándo usar cada uno", "file": "type-system/01-type-vs-interface.md" },
+        { "id": "union-intersection",  "title": "Union & intersection types",                 "title_es": "Tipos unión e intersección",               "file": "type-system/02-union-intersection.md" },
+        { "id": "generics",            "title": "Generics — reusable typed code",             "title_es": "Generics — código tipado reutilizable",    "file": "type-system/03-generics.md" }
+      ]
+    },
+    {
+      "id": "advanced-types",
+      "label": "Advanced Types",
+      "label_es": "Tipos avanzados",
+      "questions": [
+        { "id": "utility-types",       "title": "Utility types — Partial, Pick, Omit, Record…",   "title_es": "Utility types — Partial, Pick, Omit, Record…", "file": "advanced-types/01-utility-types.md" },
+        { "id": "keyof-typeof",        "title": "keyof, typeof & indexed access types",            "title_es": "keyof, typeof y acceso indexado",             "file": "advanced-types/02-keyof-typeof.md" },
+        { "id": "mapped-types",        "title": "Mapped types & template literal types",           "title_es": "Mapped types y template literal types",       "file": "advanced-types/03-mapped-types.md" },
+        { "id": "conditional-types",   "title": "Conditional types & infer",                       "title_es": "Tipos condicionales e infer",                  "file": "advanced-types/04-conditional-types.md" }
+      ]
+    },
+    {
+      "id": "patterns",
+      "label": "Patterns & Best Practices",
+      "label_es": "Patrones y buenas prácticas",
+      "questions": [
+        { "id": "type-guards",            "title": "Type guards — narrowing safely",          "title_es": "Type guards — narrowing seguro",           "file": "patterns/01-type-guards.md" },
+        { "id": "discriminated-unions",   "title": "Discriminated unions",                   "title_es": "Uniones discriminadas",                    "file": "patterns/02-discriminated-unions.md" },
+        { "id": "ts-with-react",          "title": "TypeScript with React — props, hooks, events", "title_es": "TypeScript con React — props, hooks, eventos", "file": "patterns/03-ts-with-react.md" }
+      ]
+    },
+    {
+      "id": "live-coding",
+      "label": "Live Coding",
+      "label_es": "Live Coding",
+      "questions": [
+        { "id": "type-the-function",       "title": "Type these functions (progressively harder)",      "title_es": "Tipá estas funciones (progresivamente más difícil)", "file": "live-coding/01-type-the-function.md",       "topics": ["Generics", "Functions"],               "origin": "Medium" },
+        { "id": "fix-the-types",           "title": "Fix the TypeScript errors",                        "title_es": "Corregí los errores de TypeScript",                 "file": "live-coding/02-fix-the-types.md",           "topics": ["Type System", "Narrowing"],            "origin": "Easy" },
+        { "id": "generic-fetcher",         "title": "Build a typed generic data fetcher",               "title_es": "Construir un fetcher genérico tipado",              "file": "live-coding/03-generic-fetcher.md",         "topics": ["Generics", "Async"],                   "origin": "Medium" },
+        { "id": "discriminated-exercise",  "title": "Model a payment system with discriminated unions", "title_es": "Modelar un sistema de pagos con uniones discriminadas", "file": "live-coding/04-discriminated-union-exercise.md", "topics": ["Discriminated Unions", "Patterns"], "origin": "Hard" },
+        { "id": "utility-from-scratch",    "title": "Implement Partial<T> and Pick<T,K> from scratch", "title_es": "Implementar Partial<T> y Pick<T,K> desde cero",    "file": "live-coding/05-utility-from-scratch.md",    "topics": ["Mapped Types", "Advanced Types"],      "origin": "Hard" }
+      ]
+    }
+  ]
+}

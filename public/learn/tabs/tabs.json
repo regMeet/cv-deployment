@@ -2,6 +2,8 @@
   "tabs": [
     { "id": "java", "label": "Java", "label_es": "Java" },
     { "id": "react", "label": "React", "label_es": "React" },
+    { "id": "javascript", "label": "JavaScript", "label_es": "JavaScript" },
+    { "id": "typescript", "label": "TypeScript", "label_es": "TypeScript" },
     { "id": "sql", "label": "SQL", "label_es": "SQL" },
     { "id": "manager", "label": "Manager Situations", "label_es": "Situaciones de Manager" }
   ]

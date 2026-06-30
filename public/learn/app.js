@@ -29,7 +29,7 @@ const PROGRESS_KEY = 'learn:progress';
 const LANG_KEY = 'app:lang';
 const STATUS_CYCLE = ['pending', 'progress', 'solved'];
 const STATUS_GLYPH = { pending: '○', progress: '◐', solved: '●' };
-const TAB_ICONS = { java: '☕', react: '⚛️', sql: '🗄️', manager: '👔' };
+const TAB_ICONS = { java: '☕', react: '⚛️', javascript: '🟨', typescript: '🔷', sql: '🗄️', manager: '👔' };
 
 const I18N = {
     en: {

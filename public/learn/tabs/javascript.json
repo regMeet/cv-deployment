@@ -1,0 +1,69 @@
+{
+  "sections": [
+    {
+      "id": "event-loop",
+      "label": "Event Loop",
+      "label_es": "Event Loop",
+      "questions": [
+        { "id": "event-loop-basics",       "title": "How the event loop works",                         "title_es": "Cómo funciona el event loop",                        "file": "event-loop/01-event-loop-basics.md" },
+        { "id": "microtasks-macrotasks",   "title": "Microtasks vs Macrotasks — Promise vs setTimeout", "title_es": "Microtasks vs Macrotasks — Promise vs setTimeout",   "file": "event-loop/02-microtasks-vs-macrotasks.md" }
+      ]
+    },
+    {
+      "id": "closures-scope",
+      "label": "Closures & Scope",
+      "label_es": "Closures y Scope",
+      "questions": [
+        { "id": "lexical-scope",     "title": "Lexical scope and closures",                    "title_es": "Scope léxico y closures",                        "file": "closures-scope/01-lexical-scope.md" },
+        { "id": "var-let-const",     "title": "var vs let vs const — hoisting & TDZ",          "title_es": "var vs let vs const — hoisting y TDZ",           "file": "closures-scope/02-var-let-const.md" },
+        { "id": "closure-patterns",  "title": "Closure patterns — module, memoization, IIFE",  "title_es": "Patrones de closure — módulo, memoización, IIFE", "file": "closures-scope/03-closure-patterns.md" }
+      ]
+    },
+    {
+      "id": "async-patterns",
+      "label": "Async Patterns",
+      "label_es": "Patrones Async",
+      "questions": [
+        { "id": "promises",       "title": "Promises — creation, chaining, error handling", "title_es": "Promises — creación, chaining, manejo de errores", "file": "async-patterns/01-promises.md" },
+        { "id": "async-await",    "title": "async/await — pitfalls and error handling",     "title_es": "async/await — trampas y manejo de errores",       "file": "async-patterns/02-async-await.md" },
+        { "id": "parallel-async", "title": "Promise.all / allSettled / race / any",         "title_es": "Promise.all / allSettled / race / any",            "file": "async-patterns/03-parallel-async.md" }
+      ]
+    },
+    {
+      "id": "prototypes-this",
+      "label": "Prototypes & this",
+      "label_es": "Prototipos y this",
+      "questions": [
+        { "id": "prototype-chain", "title": "Prototype chain and inheritance",  "title_es": "Cadena de prototipos y herencia", "file": "prototypes-this/01-prototype-chain.md" },
+        { "id": "this-binding",    "title": "this — 4 binding rules",           "title_es": "this — las 4 reglas de binding",  "file": "prototypes-this/02-this-binding.md" },
+        { "id": "class-syntax",    "title": "class syntax vs prototype",        "title_es": "Sintaxis class vs prototipo",      "file": "prototypes-this/03-class-syntax.md" }
+      ]
+    },
+    {
+      "id": "browser-apis",
+      "label": "Web & Browser APIs",
+      "label_es": "APIs del navegador",
+      "questions": [
+        { "id": "web-workers",     "title": "Web Workers — offloading CPU work",             "title_es": "Web Workers — mover trabajo pesado fuera del main thread", "file": "browser-apis/01-web-workers.md" },
+        { "id": "service-workers", "title": "Service Workers — offline & caching strategies","title_es": "Service Workers — offline y estrategias de caché",          "file": "browser-apis/02-service-workers.md" }
+      ]
+    },
+    {
+      "id": "live-coding",
+      "label": "Live Coding",
+      "label_es": "Live Coding",
+      "questions": [
+        { "id": "event-loop-print",      "title": "What does this print? (event loop + Promises)", "title_es": "¿Qué imprime? (event loop + Promises)", "file": "live-coding/01-event-loop-print.md",      "topics": ["Event Loop", "Async"],         "origin": "Medium" },
+        { "id": "closure-loop",          "title": "What does this print? (var in loop)",           "title_es": "¿Qué imprime? (var en loop)",           "file": "live-coding/02-closure-loop.md",          "topics": ["Closures", "Scope"],           "origin": "Easy" },
+        { "id": "implement-debounce",    "title": "Implement debounce",                            "title_es": "Implementar debounce",                  "file": "live-coding/03-implement-debounce.md",    "topics": ["Closures", "Async"],           "origin": "Medium" },
+        { "id": "implement-throttle",    "title": "Implement throttle",                            "title_es": "Implementar throttle",                  "file": "live-coding/04-implement-throttle.md",    "topics": ["Closures", "Async"],           "origin": "Medium" },
+        { "id": "implement-deep-clone",  "title": "Implement deepClone",                           "title_es": "Implementar deepClone",                 "file": "live-coding/05-implement-deep-clone.md",  "topics": ["Objects", "Recursion"],        "origin": "Medium" },
+        { "id": "implement-flatten",     "title": "Implement flatten(arr, depth)",                 "title_es": "Implementar flatten(arr, depth)",        "file": "live-coding/06-implement-flatten.md",     "topics": ["Arrays", "Recursion"],         "origin": "Easy" },
+        { "id": "implement-curry",       "title": "Implement curry",                               "title_es": "Implementar curry",                     "file": "live-coding/07-implement-curry.md",       "topics": ["Closures", "Functions"],       "origin": "Hard" },
+        { "id": "implement-promise-all", "title": "Implement Promise.all from scratch",            "title_es": "Implementar Promise.all desde cero",    "file": "live-coding/08-implement-promise-all.md", "topics": ["Async", "Promises"],           "origin": "Hard" },
+        { "id": "implement-emitter",     "title": "Implement EventEmitter (on / off / emit)",     "title_es": "Implementar EventEmitter (on / off / emit)", "file": "live-coding/09-implement-event-emitter.md", "topics": ["Objects", "Patterns"],    "origin": "Medium" },
+        { "id": "parallel-fetch-limit",  "title": "Fetch N URLs with concurrency limit",           "title_es": "Fetch N URLs con límite de concurrencia", "file": "live-coding/10-parallel-fetch-limit.md", "topics": ["Async", "Promises"],          "origin": "Hard" }
+      ]
+    }
+  ]
+}
