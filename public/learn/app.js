@@ -561,6 +561,7 @@ async function selectTab(tab) {
     state.activeSection = null;
     state.activeQuestion = null;
     renderTabs();
+    updateMobileBreadcrumb();
     answerEl.innerHTML = `<p class="hint">${escapeHtml(t('pickSectionAndQuestion'))}</p>`;
     updateQnav();
 
@@ -586,6 +587,7 @@ function selectSection(section) {
     state.activeQuestion = null;
     renderSubtabs();
     renderQuestions();
+    updateMobileBreadcrumb();
     answerEl.innerHTML = `<p class="hint">${escapeHtml(t('pickQuestion'))}</p>`;
     updateQnav();
     updateHash();
@@ -597,7 +599,7 @@ async function selectQuestion(q, opts = {}) {
 
     const cached = mdCache.has(pathFor(state.activeTab.id, q.file, state.lang)) ||
                    mdCache.has(pathFor(state.activeTab.id, q.file, 'en'));
-    if (!cached) answerEl.innerHTML = `<p class="hint">${escapeHtml(t('loading'))}</p>`;
+    if (!cached) showSkeleton();
 
     try {
         const { text, fellBack } = await getQuestionContent(state.activeTab.id, q.file);
@@ -607,6 +609,7 @@ async function selectQuestion(q, opts = {}) {
         }
         answerEl.innerHTML = html;
         enhanceCodeBlocks(answerEl);
+        animateAnswer();
         updateQnav();
         updateHash();
         maybeCloseDrawer();
@@ -638,6 +641,16 @@ function enhanceCodeBlocks(root) {
         btn.addEventListener('click', () => copyCode(pre, btn));
         wrapper.appendChild(btn);
     });
+
+    // Wrap tables for horizontal scroll on mobile
+    root.querySelectorAll('table').forEach((table) => {
+        if (table.parentElement?.classList.contains('table-wrapper')) return;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-wrapper';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+    });
+
     if (window.Prism) {
         try { window.Prism.highlightAllUnder(root); } catch {}
     }
@@ -764,11 +777,13 @@ function isMobile() {
 function openDrawer() {
     document.body.classList.add('drawer-open');
     drawerToggleEl?.setAttribute('aria-expanded', 'true');
+    drawerToggleEl?.setAttribute('aria-label', 'Close menu');
 }
 
 function closeDrawer() {
     document.body.classList.remove('drawer-open');
     drawerToggleEl?.setAttribute('aria-expanded', 'false');
+    drawerToggleEl?.setAttribute('aria-label', 'Open menu');
 }
 
 function maybeCloseDrawer() {
@@ -785,6 +800,63 @@ function wireDrawer() {
     if (drawerBackdropEl) {
         drawerBackdropEl.addEventListener('click', closeDrawer);
     }
+}
+
+function wireSwipe() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    document.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    document.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+        if (dy > Math.abs(dx) * 1.5) return; // mostly vertical swipe — ignore
+        if (touchStartX < 30 && dx > 64) { openDrawer(); return; }
+        if (dx < -64 && document.body.classList.contains('drawer-open')) closeDrawer();
+    }, { passive: true });
+}
+
+// --- Mobile breadcrumb ---
+
+function updateMobileBreadcrumb() {
+    const locEl  = document.querySelector('.mobile-location');
+    const tabEl  = document.getElementById('mobile-tab-name');
+    const secEl  = document.getElementById('mobile-section-name');
+    const icon   = state.activeTab ? (TAB_ICONS[state.activeTab.id] || '') : '';
+    const tabTxt = state.activeTab ? (icon ? icon + ' ' : '') + pickLabel(state.activeTab) : 'Learn';
+    const secTxt = state.activeSection ? pickLabel(state.activeSection) : '';
+    if (tabEl) tabEl.textContent = tabTxt;
+    if (secEl) secEl.textContent = secTxt;
+    if (locEl) locEl.classList.toggle('has-section', !!state.activeSection);
+}
+
+// --- Skeleton loader ---
+
+function showSkeleton() {
+    answerEl.innerHTML = `
+        <div class="skeleton-loader" aria-busy="true" aria-label="Loading content">
+            <div class="skeleton skeleton-h1"></div>
+            <div class="skeleton skeleton-text w90"></div>
+            <div class="skeleton skeleton-text w75"></div>
+            <div class="skeleton skeleton-gap"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text w90"></div>
+            <div class="skeleton skeleton-code"></div>
+            <div class="skeleton skeleton-h2"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text w60"></div>
+        </div>
+    `;
+}
+
+// --- Content fade-in ---
+
+function animateAnswer() {
+    answerEl.classList.remove('answer-entered');
+    void answerEl.offsetWidth; // force reflow
+    answerEl.classList.add('answer-entered');
 }
 
 function parseHash() {
@@ -977,6 +1049,7 @@ function wireLangToggle() {
             localStorage.setItem(LANG_KEY, newLang);
             updateLangButtons();
             applyStaticI18n();
+            updateMobileBreadcrumb();
             renderTabs();
             renderSubtabs();
             renderQuestions();
@@ -1060,8 +1133,16 @@ async function init() {
     wireFilters();
     wireKeyboardNav();
     wireDrawer();
+    wireSwipe();
+    updateMobileBreadcrumb();
 
-    answerEl.innerHTML = `<p class="hint">${escapeHtml(t('pickCategoryAndQuestion'))}</p>`;
+    answerEl.innerHTML = `
+        <div class="empty-state">
+            <div class="empty-state-icon" aria-hidden="true">📖</div>
+            <h2 class="empty-state-title">Ready to learn?</h2>
+            <p class="empty-state-desc">Pick a category and a question from the sidebar to get started.</p>
+        </div>
+    `;
     questionsTitleEl.textContent = t('questionsHeader');
 
     try {
