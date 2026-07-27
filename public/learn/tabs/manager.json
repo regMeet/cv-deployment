@@ -15,6 +15,7 @@
         { "id": "impact-case-study", "title": "Tell me about a case where TDD/AI had real impact", "title_es": "Contame un caso donde TDD/AI tuvo impacto real", "file": "seniority/08-impact-case-study.md" },
         { "id": "pair-programming", "title": "Pair programming / mob programming?", "title_es": "¿Pair programming / mob programming?", "file": "seniority/09-pair-programming.md" },
         { "id": "ai-accelerator", "title": "AI as a development accelerator", "title_es": "AI como acelerador del desarrollo", "file": "seniority/10-ai-accelerator.md" },
+        { "id": "ai-security-concerns", "title": "AI tools — security concerns", "title_es": "Herramientas de IA — problemas de seguridad", "file": "seniority/18-ai-security-concerns.md" },
         { "id": "strategic-business-thinking", "title": "Strategic / business thinking", "title_es": "Pensamiento estratégico / de negocio", "file": "seniority/11-strategic-business-thinking.md" },
         { "id": "follow-up-depth", "title": "\"Tell me more...\" — going deep on follow-ups", "title_es": "\"Contame más...\" — profundizar en follow-ups", "file": "seniority/12-follow-up-depth.md" },
         { "id": "technical-debt", "title": "How do you handle technical debt?", "title_es": "¿Cómo manejás la deuda técnica?", "file": "seniority/13-technical-debt.md" },

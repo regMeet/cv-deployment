@@ -315,6 +315,31 @@
       ]
     },
     {
+      "id": "spring-web",
+      "label": "Spring & Reactive Web",
+      "label_es": "Spring y Web Reactivo",
+      "questions": [
+        {
+          "id": "mvc-vs-webflux",
+          "title": "Spring MVC vs WebFlux",
+          "title_es": "Spring MVC vs WebFlux",
+          "file": "spring-web/01-mvc-vs-webflux.md"
+        },
+        {
+          "id": "mono-flux",
+          "title": "Mono and Flux — did you use them?",
+          "title_es": "Mono y Flux — ¿los usaste?",
+          "file": "spring-web/02-mono-flux.md"
+        },
+        {
+          "id": "blocking-event-loop",
+          "title": "What happens if a thread blocks in WebFlux?",
+          "title_es": "¿Qué pasa si un thread se bloquea en WebFlux?",
+          "file": "spring-web/03-blocking-event-loop.md"
+        }
+      ]
+    },
+    {
       "id": "resilience-patterns",
       "label": "Resilience Patterns",
       "label_es": "Patrones de resiliencia",
