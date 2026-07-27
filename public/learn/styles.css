@@ -200,20 +200,26 @@ button { font-family: inherit; }
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 3px;
-    gap: 0;
+    gap: 2px;
     margin: 0 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
 
+.tabs::-webkit-scrollbar { display: none; }
+
 .tab {
-    flex: 1;
+    flex: 0 0 auto;
     background: transparent;
     border: none;
     color: var(--light-text);
-    padding: 7px 8px;
+    padding: 7px 10px;
     border-radius: 7px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
+    white-space: nowrap;
     transition: background 0.15s, color 0.15s, transform 0.1s;
     display: flex;
     align-items: center;
@@ -1174,7 +1180,9 @@ button { font-family: inherit; }
 
     /* --- Sidebar padding --- */
     .sidebar {
-        padding: 20px 14px 24px;
+        /* top padding clears the fixed .mobile-topbar (56px) so the
+           drawer's own header (brand + lang toggle) isn't hidden under it */
+        padding: 76px 14px 24px;
         gap: 14px;
     }
 
