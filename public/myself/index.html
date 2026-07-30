@@ -186,6 +186,7 @@
             <a href="#tell-me-about-yourself">Tell me about yourself</a>
             <a href="#guardrails">Datos que no puedo pisar</a>
             <a href="#followups">Follow-ups técnicos</a>
+            <a href="#other-questions">Otras preguntas</a>
         </nav>
 
         <section id="tell-me-about-yourself">
@@ -232,6 +233,25 @@
             <div class="warning-box">
                 ⚠️ Pendiente: todavía no armamos una versión de 30 segundos (para entrevistadores que cortan rápido). Agregar cuando la definamos.
             </div>
+        </section>
+
+        <section id="other-questions">
+            <h2>Otras preguntas frecuentes</h2>
+
+            <h3>"What's your biggest career achievement?"</h3>
+            <blockquote>
+                <p>Probably the Hawaii DHS project I mentioned — it's a public assistance system, so when API responses were taking over 2 minutes under load, that wasn't just a performance number, it meant caseworkers and applicants stuck waiting on a system that's supposed to help people get assistance. I dug into it, found N+1 queries and bottlenecks under concurrent load, and rebuilt that path with parallel processing and a two-layer caching strategy. We took it from over 2 minutes down to under 3 seconds. What I'm proudest of isn't just the number — it's that it's a government system running 24/7, and that fix directly changed how usable it is for the people depending on it.</p>
+            </blockquote>
+            <p class="note">Si ya conté esta historia en la intro, tener lista una segunda distinta:</p>
+            <blockquote>
+                <p>Earlier in my career, at Santex, I built a digital banking platform from scratch — architecture, APIs, data model, all of it — that ended up being used by multiple financial institutions, with payments and crypto features as modular add-ons. Going from a blank slate to something several banks actually run on is the kind of end-to-end ownership I'm proudest of.</p>
+            </blockquote>
+
+            <h3>"How do you use AI today, and are you careful about security?"</h3>
+            <blockquote>
+                <p>I use AI daily as an accelerator, not an autopilot. Day to day that means scaffolding boilerplate, a first pass of unit tests that I review and extend, and a lot of debugging — pasting a stack trace or a noisy log and narrowing down the likely root cause fast, especially in code I don't know well. I also use it to read legacy code before touching it, for refactors where I describe the target shape and review the diff carefully, and as a first-pass reviewer on my own PRs before a human looks at them.</p>
+                <p>On security — yes, I'm careful. I never paste secrets or proprietary business logic into a consumer-tier tool; anything touching company code goes through an enterprise setup with a no-training agreement. I also watch for hallucinated dependencies — AI can suggest a package that doesn't exist, and attackers register those names on public registries hoping someone installs them blindly. And AI-generated code goes through the same review and security scanning as anything else — nothing skips that just because AI wrote it.</p>
+            </blockquote>
         </section>
 
         <footer>
