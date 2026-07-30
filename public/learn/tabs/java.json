@@ -340,6 +340,19 @@
       ]
     },
     {
+      "id": "cicd",
+      "label": "CI/CD & DevOps",
+      "label_es": "CI/CD y DevOps",
+      "questions": [
+        {
+          "id": "what-is-cicd",
+          "title": "What is CI/CD for?",
+          "title_es": "¿Para qué sirve un CI/CD?",
+          "file": "cicd/01-what-is-cicd.md"
+        }
+      ]
+    },
+    {
       "id": "resilience-patterns",
       "label": "Resilience Patterns",
       "label_es": "Patrones de resiliencia",
