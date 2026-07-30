@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myself — Interview Cheat Sheet</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a2a3a'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='32' font-weight='900' fill='%232980b9'%3EAA%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2a3a;
+            --secondary: #34495e;
+            --accent: #2980b9;
+            --accent-soft: #eaf3fa;
+            --text: #222;
+            --light-text: #555;
+            --muted-text: #8a97a3;
+            --background: #fff;
+            --page-bg: #f0f2f5;
+            --border: #e4e8ec;
+            --warning-bg: #fff8e6;
+            --warning-border: #f0c766;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--page-bg);
+            margin: 0;
+            padding: 32px 20px 80px;
+        }
+
+        .paper {
+            background: var(--background);
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 36px 44px 48px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 18px;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            color: var(--primary);
+            letter-spacing: -0.4px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            color: var(--light-text);
+            font-size: 13.5px;
+            margin-top: 6px;
+        }
+
+        nav.toc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 10px;
+            margin: 20px 0 8px;
+            font-size: 12.5px;
+        }
+
+        nav.toc a {
+            color: var(--secondary);
+            background: var(--accent-soft);
+            padding: 5px 10px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav.toc a:hover { background: #d9ebf7; }
+
+        section {
+            margin-top: 34px;
+            scroll-margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 13.5px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin: 20px 0 8px;
+            font-weight: 700;
+        }
+
+        .note {
+            font-size: 13px;
+            color: var(--light-text);
+            margin: 0 0 12px;
+        }
+
+        blockquote {
+            background: var(--accent-soft);
+            border-left: 3px solid var(--accent);
+            margin: 0 0 12px;
+            padding: 12px 16px;
+            border-radius: 0 6px 6px 0;
+            font-size: 14.5px;
+            color: #1c2b3a;
+        }
+
+        blockquote p { margin: 0 0 10px; }
+        blockquote p:last-child { margin-bottom: 0; }
+
+        .guardrails {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        .guardrails li {
+            display: flex;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+        .guardrails li:last-child { border-bottom: none; }
+
+        .guardrails .label {
+            flex: 0 0 170px;
+            color: var(--muted-text);
+            font-weight: 600;
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            padding-top: 2px;
+        }
+
+        .guardrails .value b { color: #000; }
+
+        .warning-box {
+            background: var(--warning-bg);
+            border: 1px solid var(--warning-border);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #6b4e10;
+            margin-top: 10px;
+        }
+
+        footer {
+            margin-top: 44px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--muted-text);
+        }
+
+        @media (max-width: 600px) {
+            .paper { padding: 24px 20px 36px; }
+            .guardrails li { flex-direction: column; gap: 2px; }
+            .guardrails .label { flex: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="paper">
+        <header>
+            <h1>Myself — Interview Cheat Sheet</h1>
+            <div class="subtitle">Notas privadas para mí — qué decir cuando preguntan por mi experiencia, y cómo ampliarlo si repreguntan.</div>
+        </header>
+
+        <nav class="toc">
+            <a href="#tell-me-about-yourself">Tell me about yourself</a>
+            <a href="#guardrails">Datos que no puedo pisar</a>
+            <a href="#followups">Follow-ups técnicos</a>
+        </nav>
+
+        <section id="tell-me-about-yourself">
+            <h2>"Tell me about yourself" / "Contame algo de vos"</h2>
+            <p class="note">Estructura: Presente → lo que fue constante en tu carrera → qué te diferencia. 60–90 segundos, sin fechas de graduación ni lista cronológica de empleos.</p>
+            <blockquote>
+                <p>I'm a Senior Full Stack Engineer, fully remote. Right now I'm at eWorldES working on a public assistance system for the State of Hawaii — a mission-critical, 24/7 platform where the main focus has been performance: we brought API response times down from over 2 minutes to under 3 seconds, through multi-threaded processing and a layered caching strategy.</p>
+                <p>What's been consistent across my career has been full-stack work — Java/Spring on the backend, React on the frontend — building distributed, high-scale systems in fintech, banking, and e-commerce. I spent nine years at Santex as a Senior Software Engineer, where I was the one driving architecture and technical decisions on several projects — things like a digital banking platform used by multiple financial institutions, and microservice and queue-based integrations with Mercado Libre. Along the way I ended up mentoring and unblocking a lot of people on the team, even without a formal lead title. Before that, real-time flight notification systems for airlines, plus hands-on production support keeping those systems live around the clock.</p>
+                <p>What sets me apart is that I'm equally effective building a system from scratch — defining architecture, APIs, data model — as I am stabilizing and scaling something already running in production under heavy load. That's the kind of work I want to keep doing: systems where reliability and performance actually matter.</p>
+            </blockquote>
+
+            <h3>Si preguntan directo "were you a tech lead?"</h3>
+            <blockquote>
+                <p>Not by title — I was Senior the whole time at Santex. But in practice I was the one driving architecture and technical decisions on several projects, and people came to me for that, formally or not.</p>
+            </blockquote>
+        </section>
+
+        <section id="guardrails">
+            <h2>Datos que no puedo pisar</h2>
+            <p class="note">Para que la entrevista nunca contradiga el CV público (<a href="/cv.html" target="_blank" rel="noopener">cv.html</a>).</p>
+            <ul class="guardrails">
+                <li><span class="label">Título en Santex</span><span class="value"><b>Senior Software Engineer</b> — nunca Tech Lead formal, aunque lideré técnicamente varios proyectos.</span></li>
+                <li><span class="label">Años en Santex</span><span class="value"><b>9 años</b> (Jul 2015 – Jul 2024).</span></li>
+                <li><span class="label">Empresa actual</span><span class="value"><b>eWorldES</b> (Ago 2024 – presente), proyecto PAIS para el estado de Hawaii (DHS).</span></li>
+                <li><span class="label">Métrica ancla</span><span class="value">Latencia de API: <b>2+ minutos → menos de 3 segundos</b>.</span></li>
+                <li><span class="label">Cómo se logró</span><span class="value">Multi-threaded processing (virtual threads / <code>CompletableFuture</code>) + caching en dos capas (L1 in-process + Redis L2).</span></li>
+            </ul>
+        </section>
+
+        <section id="followups">
+            <h2>Follow-ups técnicos</h2>
+
+            <h3>"What do you mean by multi-threaded processing?"</h3>
+            <blockquote>
+                <p>A lot of the slowness there came from independent lookups being fetched sequentially, when they didn't actually depend on each other — fetch A, then B, then C, then assemble. I refactored that path to fire those calls in parallel using <code>CompletableFuture</code> over a dedicated virtual-thread executor — Java 21 gives you virtual threads, which are cheap to spin up and unmount automatically when they block on I/O, so you get real parallelism without exhausting OS threads. That turned a request that used to cost the <i>sum</i> of four or five sequential calls into just the cost of the <i>slowest one</i> running alone.</p>
+            </blockquote>
+            <p class="note">Si insisten en cuidados: no compartir estado mutable entre branches paralelas, acotar el executor (el pool de conexiones a DB es finito), y preservar el traceId a través del boundary async.</p>
+
+            <h3>"What do you mean by layered caching?"</h3>
+            <blockquote>
+                <p>I used a two-layer approach — an L1 cache living inside the JVM process for the hottest, smallest lookups, and Redis as an L2 layer shared across all instances. L1 is nanosecond-fast but not shared and gets wiped on restart; Redis is a bit slower, milliseconds, but still far faster than hitting Oracle, and it stays consistent across every pod. The real work was deciding what belongs in which layer, and getting invalidation right — writes invalidate explicitly instead of just waiting on a TTL, so one instance doesn't serve stale data while another already has the update.</p>
+            </blockquote>
+
+            <div class="warning-box">
+                ⚠️ Pendiente: todavía no armamos una versión de 30 segundos (para entrevistadores que cortan rápido). Agregar cuando la definamos.
+            </div>
+        </section>
+
+        <footer>
+            Página personal, sin indexar (<code>noindex</code>) y sin enlazar desde el sitio público. Editable en <code>public/myself/index.html</code>.
+        </footer>
+    </div>
+</body>
+</html>
